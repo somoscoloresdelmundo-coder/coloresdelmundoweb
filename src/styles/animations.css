@@ -1,0 +1,653 @@
+/* =============================================
+   Sistema de Animaciones - Colores del Mundo
+   Framework Modular 2026
+
+   Tendencias implementadas:
+   - Scroll-driven animations (CSS nativo)
+   - Micro-interactions
+   - View transitions
+   - Stagger effects
+   - Performance optimizado (GPU)
+   ============================================= */
+
+/* =============================================
+   1. VARIABLES DE ANIMACIÓN
+   ============================================= */
+
+:root {
+  /* Duraciones */
+  --anim-instant: 100ms;
+  --anim-fast: 200ms;
+  --anim-normal: 400ms;
+  --anim-slow: 600ms;
+  --anim-slower: 800ms;
+
+  /* Easings - Curvas de aceleración */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Easings avanzados */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Distancias de movimiento */
+  --anim-distance-sm: 8px;
+  --anim-distance-md: 16px;
+  --anim-distance-lg: 24px;
+  --anim-distance-xl: 40px;
+}
+
+/* =============================================
+   2. KEYFRAMES - Animaciones Base
+   ============================================= */
+
+/* Fade */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Slide + Fade */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--anim-distance-lg));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--anim-distance-lg) * -1));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(var(--anim-distance-lg));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(calc(var(--anim-distance-lg) * -1));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleDown {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Blur reveal */
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Rotate */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+/* Bounce suave */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =============================================
+   3. ANIMACIONES CONTINUAS (Loops)
+   ============================================= */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* =============================================
+   4. CLASES DE ANIMACIÓN - Entrada Inmediata
+   ============================================= */
+
+/* Fade */
+.anim-fade-in {
+  animation: fadeIn var(--anim-normal) var(--ease-out) forwards;
+}
+
+/* Slide */
+.anim-slide-up {
+  animation: slideUp var(--anim-normal) var(--ease-out-expo) forwards;
+}
+
+.anim-slide-down {
+  animation: slideDown var(--anim-normal) var(--ease-out-expo) forwards;
+}
+
+.anim-slide-left {
+  animation: slideLeft var(--anim-normal) var(--ease-out-expo) forwards;
+}
+
+.anim-slide-right {
+  animation: slideRight var(--anim-normal) var(--ease-out-expo) forwards;
+}
+
+/* Scale */
+.anim-scale-up {
+  animation: scaleUp var(--anim-normal) var(--ease-out-back) forwards;
+}
+
+.anim-scale-down {
+  animation: scaleDown var(--anim-normal) var(--ease-out) forwards;
+}
+
+/* Efectos especiales */
+.anim-blur-in {
+  animation: blurIn var(--anim-slow) var(--ease-out) forwards;
+}
+
+.anim-rotate-in {
+  animation: rotateIn var(--anim-normal) var(--ease-out-back) forwards;
+}
+
+.anim-bounce-in {
+  animation: bounceIn var(--anim-slow) var(--ease-out) forwards;
+}
+
+/* Loops */
+.anim-float {
+  animation: float 3s var(--ease-in-out) infinite;
+}
+
+.anim-pulse {
+  animation: pulse 2s var(--ease-in-out) infinite;
+}
+
+.anim-spin {
+  animation: spin 1s linear infinite;
+}
+
+.anim-wiggle {
+  animation: wiggle 0.5s var(--ease-in-out) infinite;
+}
+
+.anim-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* =============================================
+   5. SCROLL-DRIVEN ANIMATIONS (CSS Nativo 2026)
+   Animaciones que se activan al hacer scroll
+   ============================================= */
+
+/* Reveal al entrar en viewport */
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    animation: slideUp var(--anim-normal) var(--ease-out-expo) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  .scroll-reveal-left {
+    animation: slideLeft var(--anim-normal) var(--ease-out-expo) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  .scroll-reveal-right {
+    animation: slideRight var(--anim-normal) var(--ease-out-expo) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  .scroll-reveal-scale {
+    animation: scaleUp var(--anim-normal) var(--ease-out-back) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  .scroll-reveal-blur {
+    animation: blurIn var(--anim-slow) var(--ease-out) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+
+  /* Progresivo (se anima mientras scrolleas) */
+  .scroll-progress {
+    animation: slideUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+  }
+}
+
+/* Fallback para navegadores sin soporte */
+@supports not (animation-timeline: view()) {
+  .scroll-reveal,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .scroll-reveal-scale,
+  .scroll-reveal-blur,
+  .scroll-progress {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* =============================================
+   6. STAGGER - Animaciones en Secuencia
+   ============================================= */
+
+/* Delays para stagger */
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 200ms; }
+.stagger-4 { animation-delay: 300ms; }
+.stagger-5 { animation-delay: 400ms; }
+.stagger-6 { animation-delay: 500ms; }
+.stagger-7 { animation-delay: 600ms; }
+.stagger-8 { animation-delay: 700ms; }
+
+/* Contenedor stagger (los hijos se animan en secuencia) */
+.stagger-container > * {
+  opacity: 0;
+  animation: slideUp var(--anim-normal) var(--ease-out-expo) forwards;
+}
+
+.stagger-container > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-container > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-container > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-container > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-container > *:nth-child(5) { animation-delay: 320ms; }
+.stagger-container > *:nth-child(6) { animation-delay: 400ms; }
+.stagger-container > *:nth-child(7) { animation-delay: 480ms; }
+.stagger-container > *:nth-child(8) { animation-delay: 560ms; }
+
+/* =============================================
+   7. MICRO-INTERACTIONS - Hover, Focus, Active
+   ============================================= */
+
+/* Hover Lift (elevación suave) */
+.hover-lift {
+  transition: transform var(--anim-fast) var(--ease-out),
+              box-shadow var(--anim-fast) var(--ease-out);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Scale */
+.hover-scale {
+  transition: transform var(--anim-fast) var(--ease-out-back);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Hover Glow */
+.hover-glow {
+  transition: box-shadow var(--anim-fast) var(--ease-out);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px var(--naranja-bg);
+}
+
+/* Hover Shine (brillo que pasa) */
+.hover-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left var(--anim-slow) var(--ease-out);
+}
+
+.hover-shine:hover::before {
+  left: 100%;
+}
+
+/* Hover Underline */
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width var(--anim-fast) var(--ease-out),
+              left var(--anim-fast) var(--ease-out);
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Hover Fill */
+.hover-fill {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hover-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--naranja);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--anim-normal) var(--ease-out-expo);
+  z-index: -1;
+}
+
+.hover-fill:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Press effect (click) */
+.press-effect {
+  transition: transform var(--anim-instant) var(--ease-out);
+}
+
+.press-effect:active {
+  transform: scale(0.97);
+}
+
+/* Focus Ring animado */
+.focus-ring {
+  transition: outline-offset var(--anim-fast) var(--ease-out),
+              outline-color var(--anim-fast) var(--ease-out);
+  outline: 2px solid transparent;
+  outline-offset: 0;
+}
+
+.focus-ring:focus-visible {
+  outline-color: var(--naranja);
+  outline-offset: 3px;
+}
+
+/* =============================================
+   8. TRANSITIONS UTILITARIAS
+   ============================================= */
+
+/* Transiciones rápidas */
+.transition-fast {
+  transition-duration: var(--anim-fast);
+  transition-timing-function: var(--ease-out);
+}
+
+.transition-normal {
+  transition-duration: var(--anim-normal);
+  transition-timing-function: var(--ease-out);
+}
+
+.transition-slow {
+  transition-duration: var(--anim-slow);
+  transition-timing-function: var(--ease-out);
+}
+
+/* Propiedades específicas */
+.transition-transform {
+  transition-property: transform;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color;
+}
+
+.transition-all {
+  transition-property: all;
+}
+
+/* =============================================
+   9. ESTADOS PARA ANIMACIÓN
+   ============================================= */
+
+/* Estado inicial (antes de animar) */
+.anim-initial {
+  opacity: 0;
+}
+
+.anim-initial-up {
+  opacity: 0;
+  transform: translateY(var(--anim-distance-lg));
+}
+
+.anim-initial-down {
+  opacity: 0;
+  transform: translateY(calc(var(--anim-distance-lg) * -1));
+}
+
+.anim-initial-left {
+  opacity: 0;
+  transform: translateX(var(--anim-distance-lg));
+}
+
+.anim-initial-right {
+  opacity: 0;
+  transform: translateX(calc(var(--anim-distance-lg) * -1));
+}
+
+.anim-initial-scale {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* Estado visible (animado) */
+.anim-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =============================================
+   10. ACCESIBILIDAD - Reduced Motion
+   ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .anim-float,
+  .anim-pulse,
+  .anim-spin,
+  .anim-wiggle,
+  .anim-shimmer {
+    animation: none !important;
+  }
+
+  .scroll-reveal,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .scroll-reveal-scale,
+  .scroll-reveal-blur,
+  .scroll-progress {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* =============================================
+   11. LOADING STATES
+   ============================================= */
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--gris-100) 25%,
+    var(--gris-200) 50%,
+    var(--gris-100) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+  border-radius: var(--radius-md);
+}
+
+/* Spinner */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--gris-200);
+  border-top-color: var(--naranja);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Dots loading */
+@keyframes dotsLoading {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+.dots-loading {
+  display: flex;
+  gap: 4px;
+}
+
+.dots-loading span {
+  width: 8px;
+  height: 8px;
+  background: var(--naranja);
+  border-radius: 50%;
+  animation: dotsLoading 1.4s infinite ease-in-out both;
+}
+
+.dots-loading span:nth-child(1) { animation-delay: -0.32s; }
+.dots-loading span:nth-child(2) { animation-delay: -0.16s; }
+.dots-loading span:nth-child(3) { animation-delay: 0; }

@@ -1,0 +1,707 @@
+{
+  "common": {
+    "learnMore": "Saber más",
+    "contact": "Contacto",
+    "contactUs": "Contáctanos",
+    "join": "Únete a nosotros",
+    "participate": "Participa",
+    "viewProjects": "Ver proyectos",
+    "viewOpportunities": "Ver oportunidades",
+    "proposeCollaboration": "Propón una colaboración",
+    "interested": "Me interesa",
+    "sendMessage": "Enviar mensaje",
+    "viewOnGoogleMaps": "Ver en Google Maps",
+    "downloadPDF": "Descargar PDF",
+    "knowOurHistory": "Conoce nuestra historia",
+    "knowMoreAboutUs": "Conoce más sobre nosotros",
+    "seeOpportunities": "Ver oportunidades",
+    "participateWithUs": "Participa con nosotros",
+    "contactNow": "Contáctanos ahora",
+    "participateInThisLine": "Participa en esta línea"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Nosotros",
+    "whatWeDo": "Qué Hacemos",
+    "projects": "Proyectos",
+    "participate": "Participa",
+    "contact": "Contacto",
+    "partners": "Partners",
+    "pif": "Partner Info",
+    "pifDescription": "¿Quieres colaborar con nosotros?",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "footer": {
+    "description": "Asociación cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes, usando el arte y la educación no formal como motores de inclusión.",
+    "explore": "Explora",
+    "actionLines": "Líneas de Acción",
+    "contactTitle": "Contacto",
+    "address": "Paseo Rosa de los Vientos 39",
+    "city": "46730 Gandía, Valencia, España",
+    "copyright": "Asociación Cultural Colores del Mundo. Todos los derechos reservados.",
+    "partnerInfo": "Partner Info (PIF)"
+  },
+  "home": {
+    "hero": {
+      "badge": "ONG Cultural",
+      "title": "Transformamos vidas a través del",
+      "art": "arte",
+      "and": "y la",
+      "education": "educación",
+      "description": "Somos una asociación cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes, usando el arte y la educación no formal como motores de inclusión, bienestar y transformación social."
+    },
+    "slogan": {
+      "inclusion": "Inclusión",
+      "diversity": "Diversidad",
+      "creation": "Creación"
+    },
+    "actionLines": {
+      "badge": "Nuestro Trabajo",
+      "title": "Líneas de Acción",
+      "description": "Trabajamos en cuatro áreas fundamentales para el desarrollo integral de los jóvenes y sus comunidades.",
+      "mobility": {
+        "title": "Acompañamiento de Movilidad",
+        "description": "Acompañamos a jóvenes en procesos de cambio y adaptación, transformando los desafíos en oportunidades de liderazgo y conexión cultural."
+      },
+      "art": {
+        "title": "Transformación Artística",
+        "description": "Mejoramos la autopercepción, autoexpresión, activismo y conciencia social a través de diversas formas de arte."
+      },
+      "education": {
+        "title": "Educación Alternativa",
+        "description": "Promovemos el aprendizaje permanente con metodologías que complementan la educación convencional, enfocadas en habilidades blandas."
+      },
+      "digital": {
+        "title": "Ciudadanía Digital Consciente",
+        "description": "Promovemos el uso crítico y humano de las tecnologías, reduciendo la brecha digital y fomentando el bienestar digital."
+      }
+    },
+    "aboutPreview": {
+      "badge": "Sobre Nosotros",
+      "title": "Jóvenes construyendo puentes culturales",
+      "description": "Basados en Gandía, Valencia, creemos en el poder del arte y la educación no formal como motores de inclusión, bienestar y transformación. Nuestra misión es acompañar a jóvenes en su proceso de adaptación y crecimiento personal.",
+      "quote": "Nuestros proyectos buscan transformar a los jóvenes de espectadores pasivos en agentes de cambio en sus comunidades, usando el arte como lenguaje universal que trasciende las barreras lingüísticas de la migración."
+    },
+    "values": {
+      "inclusion": {
+        "title": "Inclusión",
+        "description": "Creamos espacios seguros donde todos pertenecen, sin importar su origen."
+      },
+      "diversity": {
+        "title": "Diversidad",
+        "description": "Celebramos las diferencias como nuestra mayor fortaleza colectiva."
+      },
+      "creation": {
+        "title": "Creación",
+        "description": "Usamos el arte como lenguaje universal que trasciende barreras."
+      }
+    },
+    "erasmus": {
+      "badge": "Erasmus+",
+      "title": "Programas Europeos de Juventud",
+      "description": "Participamos activamente en programas Erasmus+, diseñando e implementando proyectos que contribuyen a las prioridades de la Unión Europea en educación, formación, juventud y desarrollo comunitario.",
+      "youthExchanges": "Youth Exchanges",
+      "trainingCourses": "Training Courses",
+      "volunteering": "Volunteering",
+      "yearsExperience": "Años de experiencia",
+      "yearsDescription": "de nuestros miembros en proyectos europeos"
+    },
+    "targetGroups": {
+      "badge": "Nuestro Enfoque",
+      "title": "¿A quién acompañamos?",
+      "description": "Prestamos especial atención a jóvenes que enfrentan barreras para la participación.",
+      "migrants": {
+        "title": "Jóvenes Migrantes",
+        "description": "Navegando la integración cultural y buscando sentido de pertenencia."
+      },
+      "disadvantaged": {
+        "title": "Situaciones Desfavorecidas",
+        "description": "Jóvenes de contextos socioeconómicos que limitan sus oportunidades."
+      },
+      "rural": {
+        "title": "Áreas Rurales",
+        "description": "Jóvenes en zonas periféricas con acceso limitado a oportunidades internacionales."
+      }
+    },
+    "cta": {
+      "title": "¿Quieres ser parte del cambio?",
+      "description": "Ya sea como voluntario, participante o colaborador, hay muchas formas de unirte a nuestra misión de crear comunidades más inclusivas."
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "Sobre Nosotros",
+      "title": "Jóvenes construyendo puentes culturales",
+      "description": "Asociación Cultural Colores del Mundo es una asociación juvenil fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes. Basados en Gandía, Valencia, creemos en el poder del arte y la educación no formal como motores de inclusión, bienestar y transformación."
+    },
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Acompañar a jóvenes, a través de su proceso de adaptación y crecimiento personal, asegurando un ambiente seguro y abriendo nuevas oportunidades para el liderazgo, la expresión y la conexión cultural."
+    },
+    "vision": {
+      "title": "Nuestra Visión",
+      "description": "Convertirnos en una organización de referencia en proyectos europeos de juventud y cultura, conectando jóvenes y organizaciones a través de Erasmus+ y otros programas de la UE, contribuyendo al fortalecimiento de la identidad europea, la ciudadanía activa y el desarrollo comunitario sostenible."
+    },
+    "quote": "Nuestros proyectos buscan transformar a los jóvenes de espectadores pasivos en agentes de cambio en sus comunidades, usando el arte como lenguaje universal que trasciende las barreras lingüísticas de la migración.",
+    "history": {
+      "badge": "Nuestra Historia",
+      "title": "De participantes a organizadores",
+      "p1": "Como jóvenes que hemos vivido experiencias de cambio y adaptación, sabemos de primera mano lo importante que es encontrar espacios de pertenencia y crecimiento. Traemos empatía y experiencia directa a todo lo que hacemos, lo que nos permite conectar auténticamente con los jóvenes que acompañamos.",
+      "p2": "Varios de nosotros hemos participado en proyectos de voluntariado Erasmus+, Youth Exchanges y Training Courses como participantes antes de convertirnos en organizadores, así que sabemos por experiencia lo que hace que estos programas sean impactantes en la vida de las personas.",
+      "p3": "Desde nuestra creación, hemos estado construyendo activamente nuestra capacidad y red, conectando con organizaciones asociadas en toda Europa, participando en actividades de búsqueda de socios a través de plataformas SALTO-Youth."
+    },
+    "team": {
+      "badge": "Equipo",
+      "title": "Quiénes somos",
+      "description": "Nuestro equipo reúne diferentes habilidades y backgrounds que se complementan naturalmente.",
+      "president": "Presidente"
+    },
+    "skills": {
+      "badge": "Capacidades",
+      "title": "Nuestras Habilidades",
+      "international": {
+        "title": "Coordinación Internacional",
+        "description": "Experiencia navegando la parte administrativa de programas europeos."
+      },
+      "facilitation": {
+        "title": "Facilitación y Mentoring",
+        "description": "Creamos espacios donde los jóvenes se sienten seguros para abrirse y compartir."
+      },
+      "creative": {
+        "title": "Backgrounds Creativos",
+        "description": "Escritura, artes visuales, teatro y coaching creativo."
+      },
+      "digital": {
+        "title": "Herramientas Digitales",
+        "description": "Comunicación y uso consciente de nuevas tecnologías."
+      }
+    },
+    "institutional": {
+      "badge": "Información Legal",
+      "title": "Datos Institucionales",
+      "legalName": "Nombre legal",
+      "legalNameValue": "Asociación Cultural Colores del Mundo",
+      "type": "Tipo",
+      "typeValue": "ONG",
+      "location": "Ubicación",
+      "locationValue": "Gandía, Valencia, España"
+    },
+    "cta": {
+      "title": "¿Quieres conocernos mejor?",
+      "description": "Estamos siempre abiertos a nuevas colaboraciones y a conocer personas que compartan nuestra visión."
+    }
+  },
+  "whatWeDo": {
+    "hero": {
+      "badge": "Nuestro Trabajo",
+      "title": "Líneas de Acción",
+      "description": "Trabajamos en cuatro áreas fundamentales que se complementan para ofrecer un acompañamiento integral a los jóvenes. Cada línea de acción está diseñada para promover el desarrollo personal, la inclusión social y el crecimiento comunitario."
+    },
+    "lines": {
+      "whatWeDo": "¿Qué hacemos?",
+      "mobility": {
+        "subtitle": "Transformando el desafío en oportunidad",
+        "title": "Acompañamiento de Movilidad",
+        "description": "Acompañamos a jóvenes en procesos de cambio y adaptación, transformando los desafíos en oportunidades de liderazgo y conexión cultural.",
+        "details": [
+          "Orientación en procesos de movilidad europea",
+          "Preparación para experiencias Erasmus+",
+          "Apoyo en integración cultural",
+          "Desarrollo de competencias interculturales",
+          "Red de apoyo entre jóvenes"
+        ]
+      },
+      "art": {
+        "subtitle": "El arte como lenguaje universal",
+        "title": "Transformación Artística",
+        "description": "Mejoramos la autopercepción, autoexpresión, activismo y conciencia social a través de diversas formas de arte.",
+        "details": [
+          "Talleres de artes visuales y plásticas",
+          "Teatro y expresión corporal",
+          "Escritura creativa y storytelling",
+          "Música y expresión sonora",
+          "Proyectos artísticos comunitarios"
+        ]
+      },
+      "education": {
+        "subtitle": "Aprendizaje para toda la vida",
+        "title": "Educación Alternativa",
+        "description": "Promovemos el aprendizaje permanente a través de metodologías que complementan la educación convencional, enfocadas en habilidades blandas y competencias interculturales.",
+        "details": [
+          "Metodologías de educación no formal",
+          "Desarrollo de soft skills",
+          "Competencias interculturales",
+          "Aprendizaje experiencial",
+          "Facilitación de grupos diversos"
+        ]
+      },
+      "digital": {
+        "subtitle": "Tecnología con propósito",
+        "title": "Ciudadanía Digital Consciente",
+        "description": "Promovemos el uso crítico y humano de las tecnologías, reduciendo la brecha digital y fomentando el bienestar digital.",
+        "details": [
+          "Alfabetización digital crítica",
+          "Bienestar digital y uso consciente",
+          "Reducción de la brecha digital",
+          "Herramientas digitales para el activismo",
+          "Creación de contenido responsable"
+        ]
+      }
+    },
+    "erasmus": {
+      "badge": "Erasmus+",
+      "title": "Programas Europeos",
+      "description": "Nos enfocamos en la participación en programas Erasmus+, diseñando e implementando proyectos que contribuyen a las prioridades de la Unión Europea en educación, formación, juventud y desarrollo comunitario.",
+      "youthExchanges": {
+        "title": "Youth Exchanges",
+        "description": "Intercambios juveniles internacionales para el aprendizaje intercultural"
+      },
+      "trainingCourses": {
+        "title": "Training Courses",
+        "description": "Cursos de formación para desarrollar competencias profesionales"
+      },
+      "volunteering": {
+        "title": "Volunteering",
+        "description": "Proyectos de voluntariado para el desarrollo personal y comunitario"
+      }
+    },
+    "cta": {
+      "title": "¿Te interesa alguna de nuestras líneas?",
+      "description": "Explora las oportunidades de participación y encuentra la forma que mejor se adapte a ti."
+    }
+  },
+  "projects": {
+    "hero": {
+      "badge": "Nuestro Trabajo",
+      "title": "Proyectos",
+      "description": "Como organización recién establecida, estamos comenzando a desarrollar y crear nuestros primeros proyectos. A pesar de esto, todos los miembros han estado involucrados como participantes, facilitadores y coordinadores en varios proyectos en Europa y Latinoamérica durante más de 5 años."
+    },
+    "current": {
+      "badge": "2025",
+      "title": "Construyendo desde la experiencia",
+      "description": "Estamos construyendo activamente nuestra capacidad y red, conectando con organizaciones asociadas en toda Europa, participando en actividades de búsqueda de socios a través de plataformas SALTO-Youth, y desarrollando nuestras primeras aplicaciones Erasmus+.",
+      "lookingForPartners": "Buscando partners",
+      "developingProposals": "Desarrollando propuestas",
+      "buildingNetwork": "Creando red",
+      "yearsExperience": "Años de experiencia colectiva",
+      "inEuropeanProjects": "en proyectos europeos"
+    },
+    "upcoming": {
+      "badge": "En desarrollo",
+      "title": "Próximos Proyectos",
+      "description": "Estas son algunas de las iniciativas que estamos preparando para los próximos meses.",
+      "projects": {
+        "youthExchange": {
+          "title": "Youth Exchange 2025",
+          "type": "Intercambio Juvenil",
+          "description": "Intercambio con organizaciones europeas sobre arte e inclusión.",
+          "status": "En desarrollo"
+        },
+        "workshop": {
+          "title": "Taller de Expresión",
+          "type": "Taller Local",
+          "description": "Talleres de arte para jóvenes de la comunidad.",
+          "status": "Planificación"
+        },
+        "digitalTraining": {
+          "title": "Formación Digital",
+          "type": "Training Course",
+          "description": "Capacitación en herramientas digitales conscientes.",
+          "status": "Planificación"
+        }
+      }
+    },
+    "types": {
+      "badge": "Erasmus+",
+      "title": "Tipos de Proyectos que Desarrollamos",
+      "youthExchanges": {
+        "title": "Youth Exchanges",
+        "description": "Intercambios juveniles internacionales para el aprendizaje intercultural"
+      },
+      "trainingCourses": {
+        "title": "Training Courses",
+        "description": "Cursos de formación para desarrollar competencias profesionales"
+      },
+      "volunteering": {
+        "title": "Volunteering",
+        "description": "Proyectos de voluntariado ESC para el desarrollo personal"
+      },
+      "localActivities": {
+        "title": "Local Activities",
+        "description": "Talleres y actividades en nuestra comunidad local"
+      }
+    },
+    "partnerCta": {
+      "title": "¿Eres una organización interesada en colaborar?",
+      "description": "Estamos buscando activamente partners europeos para desarrollar proyectos conjuntos. Si compartes nuestra visión, nos encantaría conocerte."
+    },
+    "cta": {
+      "title": "¿Quieres participar en nuestros proyectos?",
+      "description": "Hay muchas formas de involucrarte: como participante, voluntario o colaborador."
+    }
+  },
+  "participate": {
+    "hero": {
+      "badge": "Únete",
+      "title": "Participa con Nosotros",
+      "description": "Hay muchas formas de ser parte de Colores del Mundo. Ya sea como voluntario, participante o colaborador, tu contribución es valiosa para crear comunidades más inclusivas."
+    },
+    "ways": {
+      "volunteer": {
+        "title": "Voluntariado",
+        "description": "Únete a nuestro equipo de voluntarios y contribuye directamente a nuestras actividades y proyectos.",
+        "benefits": [
+          "Experiencia en proyectos europeos",
+          "Desarrollo de habilidades interculturales",
+          "Certificados de participación",
+          "Red de contactos internacional"
+        ]
+      },
+      "participant": {
+        "title": "Participante",
+        "description": "Participa en nuestros programas, talleres y proyectos Erasmus+ como beneficiario de nuestras actividades.",
+        "benefits": [
+          "Acceso a Youth Exchanges internacionales",
+          "Talleres de arte y desarrollo personal",
+          "Formaciones en educación no formal",
+          "Acompañamiento personalizado"
+        ]
+      },
+      "partner": {
+        "title": "Partner / Colaborador",
+        "description": "Si eres una organización, empresa o institución, explora formas de colaboración y proyectos conjuntos.",
+        "benefits": [
+          "Proyectos Erasmus+ conjuntos",
+          "Intercambio de buenas prácticas",
+          "Red de organizaciones europeas",
+          "Impacto social compartido"
+        ],
+        "pifButton": "Ver Partner Info (PIF)"
+      }
+    },
+    "targetProfile": {
+      "badge": "Nuestro Enfoque",
+      "title": "¿A quién buscamos?",
+      "description": "Prestamos especial atención a jóvenes que enfrentan barreras para la participación, pero estamos abiertos a todas las personas que compartan nuestros valores.",
+      "profiles": {
+        "migrants": {
+          "title": "Jóvenes Migrantes",
+          "description": "Navegando la integración cultural y buscando sentido de pertenencia."
+        },
+        "disadvantaged": {
+          "title": "Situaciones Desfavorecidas",
+          "description": "Jóvenes de contextos socioeconómicos que limitan sus oportunidades."
+        },
+        "rural": {
+          "title": "Áreas Rurales o Periféricas",
+          "description": "Con acceso limitado a oportunidades internacionales."
+        },
+        "artInterested": {
+          "title": "Interesados en Arte",
+          "description": "Personas que quieren usar el arte como herramienta de transformación."
+        }
+      }
+    },
+    "erasmus": {
+      "badge": "Erasmus+",
+      "title": "Oportunidades Internacionales",
+      "description": "A través de nuestros proyectos Erasmus+, ofrecemos oportunidades para viajar, aprender y conectar con jóvenes de toda Europa. Los costos de viaje y alojamiento suelen estar cubiertos por el programa.",
+      "fundedTravel": "Viajes financiados",
+      "accommodationIncluded": "Alojamiento incluido",
+      "youthpassCertificate": "Certificado Youthpass",
+      "percentage": "100%",
+      "percentageDescription": "de nuestros miembros han participado",
+      "inErasmusProjects": "en proyectos Erasmus+"
+    },
+    "partnerCTA": {
+      "badge": "Para Organizaciones",
+      "title": "¿Quieres colaborar como Partner?",
+      "description": "Si representas una organización, empresa o institución educativa y quieres desarrollar proyectos Erasmus+ con nosotros, descarga nuestro Partner Information Form (PIF) con toda la información que necesitas.",
+      "button": "Ver Partner Info (PIF)"
+    },
+    "cta": {
+      "title": "¿Listo para dar el primer paso?",
+      "description": "Contáctanos y cuéntanos cómo te gustaría participar. Estaremos encantados de conocerte y encontrar la mejor forma de colaborar."
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Contacto",
+      "title": "Hablemos",
+      "description": "¿Tienes preguntas, propuestas de colaboración o simplemente quieres conocernos? Estamos aquí para escucharte."
+    },
+    "form": {
+      "title": "Envíanos un mensaje",
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "subject": "Asunto",
+      "subjectPlaceholder": "Selecciona un tema",
+      "subjectOptions": {
+        "volunteer": "Quiero ser voluntario/a",
+        "participate": "Quiero participar en proyectos",
+        "collaboration": "Propuesta de colaboración",
+        "partner": "Búsqueda de partners Erasmus+",
+        "info": "Solicitar información",
+        "other": "Otro"
+      },
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos cómo podemos ayudarte...",
+      "privacy": "Acepto la política de privacidad y el tratamiento de mis datos para recibir respuesta a mi consulta.",
+      "required": "*"
+    },
+    "info": {
+      "title": "Información de contacto",
+      "email": "Email",
+      "emailResponse": "Respondemos en 24-48 horas",
+      "location": "Ubicación",
+      "address": "Paseo Rosa de los Vientos 39",
+      "addressLine2": "46730 Gandía - Grau y Playa",
+      "addressLine3": "Valencia, España",
+      "followUs": "Síguenos",
+      "institutionalData": "Datos Institucionales",
+      "type": "Tipo",
+      "region": "Región",
+      "regionValue": "Comunidad Valenciana"
+    },
+    "map": {
+      "title": "Estamos en Gandía, Valencia",
+      "description": "Una ciudad costera de la Comunidad Valenciana, a 65 km de Valencia capital. Conocida por su playa y su patrimonio cultural."
+    },
+    "partner": {
+      "title": "¿Eres una organización partner?",
+      "description": "Descarga nuestro Partner Information Form (PIF) con toda la información necesaria para proyectos Erasmus+.",
+      "link": "Ver Partner Info (PIF)"
+    }
+  },
+  "pif": {
+    "hero": {
+      "badge": "Para Partners",
+      "title": "Partner Information Form",
+      "description": "Información oficial y completa de nuestra organización para partners europeos y aplicaciones Erasmus+. Encuentra toda la información que necesitas para colaborar con nosotros."
+    },
+    "quickInfo": {
+      "oid": "OID",
+      "oidValue": "E10413227",
+      "type": "Tipo",
+      "typeValue": "ONG / Asociación Juvenil",
+      "location": "Ubicación",
+      "locationValue": "Gandía, Valencia, España",
+      "year": "Fundación",
+      "yearValue": "2024"
+    },
+    "organization": {
+      "badge": "Organización",
+      "title": "Perfil de la Organización",
+      "description": "Colores del Mundo es una asociación cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes. Basados en Gandía (Valencia, España), usamos el arte y la educación no formal como motores de inclusión, bienestar y transformación social.",
+      "fullDescription": "Somos una asociación juvenil fundada por jóvenes que han vivido experiencias de cambio y adaptación. Sabemos de primera mano lo importante que es encontrar espacios de pertenencia y crecimiento. Traemos empatía y experiencia directa a todo lo que hacemos, lo que nos permite conectar auténticamente con los jóvenes que acompañamos."
+    },
+    "missionVision": {
+      "badge": "Misión y Visión",
+      "mission": {
+        "title": "Nuestra Misión",
+        "description": "Acompañar a jóvenes a través de su proceso de adaptación y crecimiento personal, asegurando un ambiente seguro y abriendo nuevas oportunidades para el liderazgo, la expresión y la conexión cultural."
+      },
+      "vision": {
+        "title": "Nuestra Visión",
+        "description": "Convertirnos en una organización de referencia en proyectos europeos de juventud y cultura, conectando jóvenes y organizaciones a través de Erasmus+ y otros programas de la UE, contribuyendo al fortalecimiento de la identidad europea, la ciudadanía activa y el desarrollo comunitario sostenible."
+      }
+    },
+    "details": {
+      "legalName": "Nombre Legal",
+      "legalNameValue": "Asociación Cultural Colores del Mundo",
+      "type": "Tipo de Organización",
+      "typeValue": "ONG / Asociación Juvenil Cultural",
+      "address": "Dirección",
+      "addressValue": "Paseo Rosa de los Vientos 39",
+      "city": "Ciudad",
+      "cityValue": "46730 Gandía, Valencia",
+      "country": "País",
+      "countryValue": "España",
+      "foundingYear": "Año de Fundación",
+      "foundingYearValue": "2024",
+      "staff": "Personal",
+      "staffValue": "5-10 voluntarios activos",
+      "email": "Email",
+      "emailValue": "somoscoloresdelmundo@gmail.com",
+      "website": "Web",
+      "websiteValue": "coloresdelmundo.org"
+    },
+    "linesOfAction": {
+      "badge": "Líneas de Acción",
+      "title": "¿Qué Hacemos?",
+      "description": "Trabajamos en cuatro áreas fundamentales que se complementan para ofrecer un acompañamiento integral a los jóvenes.",
+      "mobility": {
+        "title": "Acompañamiento de Movilidad",
+        "description": "Acompañamos a jóvenes en procesos de cambio y adaptación, transformando los desafíos en oportunidades de liderazgo y conexión cultural.",
+        "activities": ["Orientación en procesos de movilidad europea", "Preparación para experiencias Erasmus+", "Apoyo en integración cultural", "Desarrollo de competencias interculturales"]
+      },
+      "art": {
+        "title": "Transformación Artística",
+        "description": "Mejoramos la autopercepción, autoexpresión, activismo y conciencia social a través de diversas formas de arte.",
+        "activities": ["Talleres de artes visuales y plásticas", "Teatro y expresión corporal", "Escritura creativa y storytelling", "Proyectos artísticos comunitarios"]
+      },
+      "education": {
+        "title": "Educación Alternativa",
+        "description": "Promovemos el aprendizaje permanente con metodologías que complementan la educación convencional, enfocadas en habilidades blandas.",
+        "activities": ["Aprendizaje basado en experiencias", "Desarrollo de soft skills", "Metodologías participativas", "Educación entre iguales"]
+      },
+      "digital": {
+        "title": "Ciudadanía Digital Consciente",
+        "description": "Promovemos el uso crítico y humano de las tecnologías, reduciendo la brecha digital y fomentando el bienestar digital.",
+        "activities": ["Alfabetización digital crítica", "Bienestar digital", "Herramientas colaborativas", "Identidad digital responsable"]
+      }
+    },
+    "experience": {
+      "badge": "Experiencia",
+      "title": "Experiencia del Equipo",
+      "description": "Aunque somos una organización nueva, nuestro equipo tiene más de 5 años de experiencia colectiva participando en proyectos Erasmus+ a través de Europa como participantes, facilitadores y coordinadores.",
+      "projectTypes": {
+        "title": "Tipos de Proyectos",
+        "youthExchanges": "Youth Exchanges",
+        "youthExchangesDesc": "Intercambios internacionales de jóvenes de diferentes países",
+        "trainingCourses": "Training Courses",
+        "trainingCoursesDesc": "Cursos de formación para youth workers y educadores",
+        "volunteering": "ESC Volunteering",
+        "volunteeringDesc": "Proyectos de voluntariado del Cuerpo Europeo de Solidaridad"
+      },
+      "roles": {
+        "title": "Roles desempeñados",
+        "items": ["Participantes", "Facilitadores", "Group Leaders", "Coordinadores de proyecto", "Mentores"]
+      }
+    },
+    "targetGroups": {
+      "badge": "Target Groups",
+      "title": "Grupos Objetivo",
+      "description": "Prestamos especial atención a jóvenes que enfrentan barreras para la participación.",
+      "youngPeople": "Jóvenes (18-30)",
+      "youngPeopleDesc": "Especialmente aquellos en procesos de movilidad y adaptación cultural",
+      "youthWorkers": "Youth Workers",
+      "youthWorkersDesc": "Profesionales que trabajan con jóvenes en contextos de educación no formal",
+      "educators": "Educadores",
+      "educatorsDesc": "Docentes y facilitadores interesados en metodologías alternativas",
+      "migrants": "Jóvenes Migrantes",
+      "migrantsDesc": "Navegando la integración cultural y buscando sentido de pertenencia",
+      "disadvantaged": "Jóvenes con Menos Oportunidades",
+      "disadvantagedDesc": "De contextos socioeconómicos que limitan sus oportunidades"
+    },
+    "topics": {
+      "badge": "Temas de Interés",
+      "title": "Áreas Temáticas",
+      "description": "Nuestros proyectos se enfocan en estos temas prioritarios:",
+      "items": [
+        {"name": "Inclusión y Diversidad", "desc": "Integración social, interculturalidad, equidad"},
+        {"name": "Arte y Cultura", "desc": "Expresión artística, patrimonio cultural, creatividad"},
+        {"name": "Participación Juvenil", "desc": "Ciudadanía activa, liderazgo, engagement cívico"},
+        {"name": "Bienestar y Salud Mental", "desc": "Resiliencia, autoconocimiento, gestión emocional"},
+        {"name": "Educación y Formación", "desc": "Competencias clave, aprendizaje permanente"},
+        {"name": "Transformación Digital", "desc": "Ciudadanía digital, herramientas tecnológicas"}
+      ]
+    },
+    "methodology": {
+      "badge": "Metodología",
+      "title": "Cómo Trabajamos",
+      "description": "Utilizamos metodologías de educación no formal centradas en la participación activa y el aprendizaje experiencial.",
+      "methods": [
+        {"name": "Aprendizaje Experiencial", "desc": "Aprender haciendo, reflexión sobre la práctica"},
+        {"name": "Educación Entre Iguales", "desc": "Peer-to-peer learning, mentoría horizontal"},
+        {"name": "Facilitación Participativa", "desc": "Procesos grupales, dinámicas colaborativas"},
+        {"name": "Arte como Herramienta", "desc": "Expresión artística para el desarrollo personal"}
+      ]
+    },
+    "euPriorities": {
+      "badge": "Prioridades UE",
+      "title": "Alineación con Prioridades Europeas",
+      "description": "Nuestros proyectos contribuyen a las prioridades del programa Erasmus+:",
+      "items": [
+        "Inclusión y diversidad",
+        "Transformación digital",
+        "Participación en la vida democrática",
+        "Medio ambiente y lucha contra el cambio climático"
+      ]
+    },
+    "activities": {
+      "badge": "Actividades",
+      "title": "Actividades y Experticia",
+      "description": "Tipos de actividades que organizamos y en las que podemos participar:",
+      "items": [
+        "Intercambios juveniles",
+        "Cursos de formación",
+        "Talleres artísticos",
+        "Educación no formal",
+        "Ciudadanía digital"
+      ],
+      "formats": {
+        "title": "Formatos",
+        "items": ["Presencial", "Online", "Híbrido"]
+      }
+    },
+    "contact": {
+      "badge": "Contacto",
+      "title": "Información de Contacto",
+      "description": "Estamos abiertos a nuevas colaboraciones y proyectos.",
+      "contactPerson": "Persona de Contacto",
+      "contactPersonValue": "Eliana Colzani",
+      "contactPersonRole": "Secretaria",
+      "legalRep": "Representante Legal",
+      "legalRepValue": "Fernando Licona-Romano R.",
+      "legalRepRole": "Presidente",
+      "position": "Cargo",
+      "email": "Email",
+      "phone": "Teléfono",
+      "socialMedia": "Redes Sociales",
+      "instagram": "@coloresdelmundo__"
+    },
+    "collaboration": {
+      "badge": "Colaboración",
+      "title": "¿Cómo Colaborar?",
+      "description": "Estamos buscando activamente partners para:",
+      "items": [
+        {"name": "Youth Exchanges", "desc": "Como organización de envío o acogida"},
+        {"name": "Training Courses", "desc": "Participación o co-organización"},
+        {"name": "ESC Volunteering", "desc": "Hosting o sending de voluntarios"},
+        {"name": "Strategic Partnerships", "desc": "Proyectos a largo plazo con impacto sostenible"}
+      ],
+      "cta": "Escríbenos para explorar oportunidades de colaboración"
+    },
+    "download": {
+      "badge": "Descargar",
+      "title": "Descarga nuestro PIF",
+      "description": "También puedes descargar la versión PDF de nuestro Partner Information Form para tus aplicaciones.",
+      "generating": "Generando PDF...",
+      "tip": "El PDF incluye toda esta información en formato imprimible"
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Colores del Mundo | Inclusión, Diversidad, Creación",
+      "description": "Asociación Cultural Colores del Mundo - Jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal. Programas Erasmus+ en Gandía, Valencia."
+    },
+    "about": {
+      "title": "Sobre Nosotros",
+      "description": "Conoce a Colores del Mundo, una asociación cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes en Gandía, Valencia."
+    },
+    "whatWeDo": {
+      "title": "Qué Hacemos",
+      "description": "Descubre nuestras 4 líneas de acción: Acompañamiento de Movilidad, Transformación Artística, Educación Alternativa y Ciudadanía Digital Consciente."
+    },
+    "projects": {
+      "title": "Proyectos",
+      "description": "Descubre los proyectos de Colores del Mundo: iniciativas Erasmus+, talleres artísticos y programas de inclusión social."
+    },
+    "participate": {
+      "title": "Participa",
+      "description": "Únete a Colores del Mundo como voluntario, participante o colaborador. Descubre cómo puedes ser parte del cambio."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Contacta con Colores del Mundo. Estamos en Gandía, Valencia. Escríbenos para colaborar, participar o resolver cualquier duda."
+    },
+    "pif": {
+      "title": "Partner Information Form (PIF)",
+      "description": "Información oficial de Colores del Mundo para partners europeos y aplicaciones Erasmus+."
+    }
+  }
+}

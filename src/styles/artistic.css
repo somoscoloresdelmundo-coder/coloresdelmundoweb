@@ -1,0 +1,921 @@
+/* ============================================
+   Sistema de Efectos Artísticos - Colores del Mundo
+   Tendencias 2025-2026: Interactividad, Arte Digital
+   ============================================ */
+
+/* ============================================
+   1. CURSOR ARTÍSTICO
+   Efecto de cursor personalizado con estela de color
+   ============================================ */
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--naranja);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-dot.hovering {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid var(--naranja);
+  mix-blend-mode: normal;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--naranja);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  opacity: 0.5;
+}
+
+.cursor-ring.hovering {
+  width: 60px;
+  height: 60px;
+  border-color: var(--lima);
+}
+
+/* Trail effect */
+.cursor-trail {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: cursor-trail-fade 0.8s ease-out forwards;
+}
+
+@keyframes cursor-trail-fade {
+  0% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+}
+
+/* ============================================
+   2. PARALLAX SCROLL
+   Capas que se mueven a diferentes velocidades
+   ============================================ */
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.parallax-layer--back {
+  transform: translateZ(-2px) scale(3);
+}
+
+.parallax-layer--mid {
+  transform: translateZ(-1px) scale(2);
+}
+
+/* CSS-only parallax with scroll-timeline */
+@supports (animation-timeline: scroll()) {
+  .parallax-element {
+    animation: parallax-move linear both;
+    animation-timeline: scroll();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes parallax-move {
+    from {
+      transform: translateY(100px);
+    }
+    to {
+      transform: translateY(-100px);
+    }
+  }
+
+  .parallax-slow {
+    animation: parallax-slow linear both;
+    animation-timeline: scroll();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes parallax-slow {
+    from {
+      transform: translateY(50px);
+    }
+    to {
+      transform: translateY(-50px);
+    }
+  }
+
+  .parallax-fast {
+    animation: parallax-fast linear both;
+    animation-timeline: scroll();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes parallax-fast {
+    from {
+      transform: translateY(200px);
+    }
+    to {
+      transform: translateY(-200px);
+    }
+  }
+}
+
+/* ============================================
+   3. TIPOGRAFÍA CINÉTICA
+   Animaciones de texto artísticas
+   ============================================ */
+
+/* Reveal por letras */
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: text-reveal-up 0.6s var(--ease-out-expo) forwards;
+}
+
+@keyframes text-reveal-up {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Efecto de onda en texto */
+.text-wave {
+  display: inline-block;
+}
+
+.text-wave span {
+  display: inline-block;
+  animation: text-wave 2s ease-in-out infinite;
+}
+
+.text-wave span:nth-child(1) { animation-delay: 0s; }
+.text-wave span:nth-child(2) { animation-delay: 0.1s; }
+.text-wave span:nth-child(3) { animation-delay: 0.2s; }
+.text-wave span:nth-child(4) { animation-delay: 0.3s; }
+.text-wave span:nth-child(5) { animation-delay: 0.4s; }
+.text-wave span:nth-child(6) { animation-delay: 0.5s; }
+.text-wave span:nth-child(7) { animation-delay: 0.6s; }
+.text-wave span:nth-child(8) { animation-delay: 0.7s; }
+
+@keyframes text-wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Texto con gradiente animado */
+.text-gradient-animated {
+  background: linear-gradient(
+    90deg,
+    var(--azul),
+    var(--lima),
+    var(--naranja),
+    var(--terracota),
+    var(--azul)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Texto que se "pinta" al hacer scroll */
+@supports (animation-timeline: scroll()) {
+  .text-paint {
+    background: linear-gradient(90deg, var(--negro) 50%, var(--gris-300) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: paint-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 60%;
+  }
+
+  @keyframes paint-reveal {
+    to {
+      background-position: 0% 0;
+    }
+  }
+}
+
+/* Efecto de máquina de escribir */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--naranja);
+  animation:
+    typewriter-typing 3s steps(40) forwards,
+    typewriter-blink 0.75s step-end infinite;
+}
+
+@keyframes typewriter-typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typewriter-blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ============================================
+   4. EFECTOS DE COLOR MORPHING
+   Transiciones suaves entre los 4 colores
+   ============================================ */
+
+.color-morph {
+  animation: color-morph 8s ease-in-out infinite;
+}
+
+@keyframes color-morph {
+  0%, 100% {
+    background-color: var(--azul-bg);
+    border-color: var(--azul);
+  }
+  25% {
+    background-color: var(--lima-bg);
+    border-color: var(--lima);
+  }
+  50% {
+    background-color: var(--naranja-bg);
+    border-color: var(--naranja);
+  }
+  75% {
+    background-color: var(--terracota-bg);
+    border-color: var(--terracota);
+  }
+}
+
+.color-morph-text {
+  animation: color-morph-text 8s ease-in-out infinite;
+}
+
+@keyframes color-morph-text {
+  0%, 100% { color: var(--azul); }
+  25% { color: var(--lima); }
+  50% { color: var(--naranja); }
+  75% { color: var(--terracota); }
+}
+
+/* Borde que cambia de color */
+.border-morph {
+  border: 2px solid;
+  animation: border-morph 6s ease-in-out infinite;
+}
+
+@keyframes border-morph {
+  0%, 100% { border-color: var(--azul); box-shadow: 0 0 20px var(--azul-bg); }
+  25% { border-color: var(--lima); box-shadow: 0 0 20px var(--lima-bg); }
+  50% { border-color: var(--naranja); box-shadow: 0 0 20px var(--naranja-bg); }
+  75% { border-color: var(--terracota); box-shadow: 0 0 20px var(--terracota-bg); }
+}
+
+/* ============================================
+   5. INDICADOR DE SCROLL
+   Barra de progreso con los 4 colores
+   ============================================ */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--azul) 0%,
+    var(--lima) 33%,
+    var(--naranja) 66%,
+    var(--terracota) 100%
+  );
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 9999;
+  transition: transform 0.1s linear;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: scroll-progress-fill linear both;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes scroll-progress-fill {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* ============================================
+   6. DIVISORES ONDULADOS
+   Separadores artísticos entre secciones
+   ============================================ */
+
+.wave-divider {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+}
+
+.wave-divider svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wave-divider--top {
+  transform: rotate(180deg);
+}
+
+.wave-divider--animated svg path {
+  animation: wave-flow 8s ease-in-out infinite;
+}
+
+@keyframes wave-flow {
+  0%, 100% {
+    d: path("M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,100 L0,100 Z");
+  }
+  50% {
+    d: path("M0,60 C200,20 400,80 600,40 C800,0 1000,60 1200,40 L1200,100 L0,100 Z");
+  }
+}
+
+/* ============================================
+   7. EFECTOS DE PINTURA / BRUSH
+   Efecto artístico de pinceladas
+   ============================================ */
+
+.brush-stroke {
+  position: relative;
+  display: inline-block;
+}
+
+.brush-stroke::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  width: 110%;
+  height: 40%;
+  background: var(--naranja-bg);
+  z-index: -1;
+  transform: skewX(-5deg) rotate(-1deg);
+  border-radius: 4px 20px 4px 20px;
+}
+
+.brush-stroke--lima::before {
+  background: var(--lima-bg);
+}
+
+.brush-stroke--azul::before {
+  background: var(--azul-bg);
+}
+
+.brush-stroke--terracota::before {
+  background: var(--terracota-bg);
+}
+
+/* Efecto de mancha de pintura */
+.paint-splash {
+  position: relative;
+}
+
+.paint-splash::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(
+    ellipse at 30% 30%,
+    var(--naranja-bg) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    ellipse at 70% 60%,
+    var(--lima-bg) 0%,
+    transparent 40%
+  ),
+  radial-gradient(
+    ellipse at 40% 80%,
+    var(--azul-bg) 0%,
+    transparent 45%
+  );
+  z-index: -1;
+  opacity: 0.8;
+  filter: blur(20px);
+  animation: splash-morph 10s ease-in-out infinite;
+}
+
+@keyframes splash-morph {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+/* ============================================
+   8. BOTONES MAGNÉTICOS
+   Botones que siguen el cursor ligeramente
+   ============================================ */
+
+.btn-magnetic {
+  position: relative;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.btn-magnetic:hover {
+  /* El efecto real se aplica con JS */
+  transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+}
+
+.btn-magnetic::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--naranja-bg) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.btn-magnetic:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   9. EFECTO DE CRISTAL / GLASS MORPHISM
+   Cards con efecto de cristal artístico
+   ============================================ */
+
+.glass-artistic {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-artistic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+}
+
+.glass-artistic::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    var(--azul-subtle) 60deg,
+    transparent 120deg,
+    var(--lima-subtle) 180deg,
+    transparent 240deg,
+    var(--naranja-subtle) 300deg,
+    transparent 360deg
+  );
+  animation: glass-rotate 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.glass-artistic:hover::after {
+  opacity: 1;
+}
+
+@keyframes glass-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   10. IMAGEN CON EFECTOS ARTÍSTICOS
+   Hover effects creativos para imágenes
+   ============================================ */
+
+.img-artistic {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.img-artistic img {
+  transition: transform 0.6s var(--ease-out-expo), filter 0.6s ease;
+}
+
+.img-artistic:hover img {
+  transform: scale(1.05);
+}
+
+/* Efecto de revelación con color */
+.img-artistic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--azul-bg) 0%,
+    var(--lima-bg) 50%,
+    var(--naranja-bg) 100%
+  );
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.img-artistic:hover::before {
+  transform: translateX(100%);
+}
+
+/* Efecto duotono */
+.img-duotone {
+  position: relative;
+}
+
+.img-duotone img {
+  filter: grayscale(100%) contrast(1.1);
+  transition: filter 0.5s ease;
+}
+
+.img-duotone::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--naranja) 0%,
+    var(--terracota) 100%
+  );
+  mix-blend-mode: color;
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+
+.img-duotone:hover img {
+  filter: grayscale(0%) contrast(1);
+}
+
+.img-duotone:hover::after {
+  opacity: 0;
+}
+
+/* ============================================
+   11. PARTÍCULAS FLOTANTES MEJORADAS
+   Sistema de partículas más artístico
+   ============================================ */
+
+.particles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle-artistic {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particle-artistic-float 15s ease-in-out infinite;
+}
+
+.particle-artistic--square {
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.particle-artistic--line {
+  width: 2px !important;
+  height: 20px !important;
+  border-radius: 1px;
+}
+
+@keyframes particle-artistic-float {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(0deg);
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+/* ============================================
+   12. EFECTO DE NÚMEROS GRANDES
+   Para estadísticas con estilo artístico
+   ============================================ */
+
+.stat-artistic {
+  position: relative;
+  display: inline-block;
+}
+
+.stat-artistic::before {
+  content: attr(data-number);
+  position: absolute;
+  font-size: 5em;
+  font-weight: 800;
+  opacity: 0.05;
+  z-index: -1;
+  top: -0.3em;
+  left: -0.1em;
+  color: var(--naranja);
+  animation: stat-pulse 3s ease-in-out infinite;
+}
+
+@keyframes stat-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.05;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.08;
+  }
+}
+
+/* ============================================
+   13. GRID INTERACTIVO
+   Hover effects en grids artísticos
+   ============================================ */
+
+.grid-interactive {
+  display: grid;
+  gap: 2px;
+  background: var(--gris-200);
+  border-radius: var(--radius-xl);
+  padding: 2px;
+  overflow: hidden;
+}
+
+.grid-interactive > * {
+  background: white;
+  transition:
+    transform 0.3s var(--ease-out-expo),
+    z-index 0s 0.3s;
+}
+
+.grid-interactive > *:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  transition:
+    transform 0.3s var(--ease-out-expo),
+    z-index 0s 0s;
+}
+
+/* ============================================
+   14. MARQUEE INFINITO
+   Texto que se desplaza continuamente
+   ============================================ */
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-flex;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-content > * {
+  flex-shrink: 0;
+  padding: 0 2rem;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* ============================================
+   15. HOVER 3D
+   Efecto de perspectiva 3D en hover
+   ============================================ */
+
+.hover-3d {
+  perspective: 1000px;
+}
+
+.hover-3d-inner {
+  transition: transform 0.6s var(--ease-out-expo);
+  transform-style: preserve-3d;
+}
+
+.hover-3d:hover .hover-3d-inner {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* ============================================
+   16. EFECTO DE REVELAR EN SCROLL
+   Elementos que se "despintan" al scrollear
+   ============================================ */
+
+@supports (animation-timeline: scroll()) {
+  .scroll-reveal-paint {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-reveal-paint::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      var(--naranja-bg) 0%,
+      var(--lima-bg) 50%,
+      var(--azul-bg) 100%
+    );
+    transform-origin: right;
+    animation: reveal-paint linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+  }
+
+  @keyframes reveal-paint {
+    from {
+      transform: scaleX(1);
+    }
+    to {
+      transform: scaleX(0);
+    }
+  }
+}
+
+/* ============================================
+   17. LOADING ARTÍSTICO
+   Spinner con los 4 colores
+   ============================================ */
+
+.loader-artistic {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.loader-artistic::before,
+.loader-artistic::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  animation: loader-artistic-spin 2s ease-in-out infinite;
+}
+
+.loader-artistic::before {
+  inset: 0;
+  border: 3px solid transparent;
+  border-top-color: var(--azul);
+  border-right-color: var(--lima);
+}
+
+.loader-artistic::after {
+  inset: 8px;
+  border: 3px solid transparent;
+  border-bottom-color: var(--naranja);
+  border-left-color: var(--terracota);
+  animation-direction: reverse;
+  animation-duration: 1.5s;
+}
+
+@keyframes loader-artistic-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   18. ACCESIBILIDAD
+   Respetar preferencias del usuario
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-trail,
+  .parallax-element,
+  .parallax-slow,
+  .parallax-fast,
+  .text-wave span,
+  .text-gradient-animated,
+  .color-morph,
+  .color-morph-text,
+  .border-morph,
+  .wave-divider--animated svg path,
+  .splash-morph,
+  .glass-artistic::after,
+  .particle-artistic,
+  .stat-artistic::before,
+  .marquee-content,
+  .loader-artistic::before,
+  .loader-artistic::after {
+    animation: none !important;
+  }
+
+  .typewriter {
+    width: 100%;
+    border-right: none;
+    animation: none;
+  }
+
+  .img-artistic::before,
+  .img-duotone::after {
+    display: none;
+  }
+}

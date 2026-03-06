@@ -1,0 +1,31 @@
+import { ColorVariant } from '@/types/ui';
+
+interface ValueCardProps {
+  number: string;
+  title: string;
+  description: string;
+  color?: ColorVariant;
+  span?: 1 | 2;
+  className?: string;
+}
+
+export default function ValueCard({
+  number,
+  title,
+  description,
+  color = 'naranja',
+  span = 1,
+  className = '',
+}: ValueCardProps) {
+  const spanClass = span === 2 ? 'md:col-span-2' : '';
+
+  return (
+    <div className={`card text-center ${spanClass} ${className}`}>
+      <span className={`text-4xl font-bold text-${color}/20 mb-2 block`}>
+        {number}
+      </span>
+      <h3 className="font-semibold mb-2">{title}</h3>
+      <p className="text-sm text-gris-600">{description}</p>
+    </div>
+  );
+}
