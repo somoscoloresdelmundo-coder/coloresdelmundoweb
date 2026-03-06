@@ -95,12 +95,10 @@ function ActionLineSection({
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className={reverse ? 'lg:order-2' : ''}>
-            {/* Icono grande animado */}
+            {/* Icono */}
             <div
               className={`w-24 h-24 rounded-3xl flex items-center justify-center mb-8
-                transition-all duration-300 hover:scale-110 hover:rotate-3
-                ${colors.bgColor} ${colors.textDark}
-                hover:${colors.bg} hover:text-white hover:shadow-lg`}
+                ${colors.bgColor} ${colors.textDark}`}
             >
               {icon}
             </div>
@@ -122,10 +120,10 @@ function ActionLineSection({
               <h3 className="font-semibold mb-6 text-lg">{detailsTitle}</h3>
               <ul className="space-y-4">
                 {details.map((detalle, i) => (
-                  <li key={i} className="flex items-start gap-4 group">
+                  <li key={i} className="flex items-start gap-4">
                     <div
                       className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0
-                        transition-all group-hover:scale-110 ${colors.bgColor} ${colors.text}`}
+                        ${colors.bgColor} ${colors.text}`}
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -275,7 +273,7 @@ export default async function QueHacemosPage() {
                 description={card.description}
                 color={card.color}
                 variant="bordered"
-                className={`bg-white/90 backdrop-blur-sm text-center hover-lift stagger-${index + 1}`}
+                className="bg-white/90 backdrop-blur-sm text-center"
               />
             ))}
           </div>

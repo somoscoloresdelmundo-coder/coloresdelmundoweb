@@ -199,7 +199,7 @@ export default async function HomePage() {
             href="/que-hacemos"
             linkText={tCommon('learnMore')}
             variant="bordered"
-            className={`hover-lift stagger-${index + 1}`}
+            className={`stagger-${index + 1}`}
           />
         ))}
       </GridSection>
@@ -229,7 +229,7 @@ export default async function HomePage() {
                   title={valor.titulo}
                   description={valor.descripcion}
                   span={valor.span}
-                  className={`hover-lift stagger-${index + 1}`}
+                  className={`stagger-${index + 1}`}
                 />
               ))}
             </div>
@@ -298,7 +298,7 @@ export default async function HomePage() {
                 description={group.descripcion}
                 color={group.color}
                 variant="bordered"
-                className={`text-center hover-lift stagger-${index + 1}`}
+                className={`text-center stagger-${index + 1}`}
               />
             ))}
           </div>
