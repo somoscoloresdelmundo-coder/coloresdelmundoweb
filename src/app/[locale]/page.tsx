@@ -1,10 +1,10 @@
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
-import { InteractiveBackground, Button, ArrowIcon } from '@/components/ui';
+import { Button, ArrowIcon } from '@/components/ui';
 import { GridSection, CTASection } from '@/components/sections';
 import { FeatureCard, ValueCard } from '@/components/cards';
-import { FloatingShapes, MondrianGrid } from '@/components/decorations';
-import { MultiWaveDivider, BrushText, AnimatedNumber } from '@/components/artistic';
+import { MondrianGrid } from '@/components/decorations';
+import { AnimatedNumber } from '@/components/artistic';
 import { ColorVariant } from '@/types/ui';
 
 // Iconos como componentes para reutilizar
@@ -108,7 +108,6 @@ export default async function HomePage() {
     <>
       {/* Hero Section - Custom porque tiene layout único con logo */}
       <section className="relative bg-gradient-to-b from-white via-gris-50 to-gris-50 overflow-hidden min-h-[90vh] flex flex-col justify-center">
-        <InteractiveBackground />
 
         <div className="container py-16 md:py-24 lg:py-32 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -177,8 +176,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Divisor artístico */}
-      <MultiWaveDivider height={100} />
+      {/* Divisor */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-gris-200 to-transparent" />
 
       {/* Líneas de Acción - Usando GridSection + FeatureCard */}
       <GridSection
@@ -265,8 +264,8 @@ export default async function HomePage() {
                   </div>
                 </div>
                 <div className="text-center md:text-right">
-                  <div className="inline-block bg-white/80 backdrop-blur-sm rounded-2xl p-8 glass-artistic">
-                    <p className="text-6xl md:text-7xl font-bold text-gradient-animated">
+                  <div className="inline-block bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+                    <p className="text-6xl md:text-7xl font-bold text-naranja-dark">
                       <AnimatedNumber value={5} suffix="+" />
                     </p>
                     <p className="text-gris-700 text-lg mt-2 font-medium">{t('erasmus.yearsExperience')}</p>
@@ -280,8 +279,7 @@ export default async function HomePage() {
       </section>
 
       {/* Target Groups - Usando GridSection + FeatureCard */}
-      <section className="section bg-gris-50 scroll-reveal relative overflow-hidden">
-        <FloatingShapes variant="minimal" opacity={40} />
+      <section className="section bg-gris-50 relative overflow-hidden">
         <div className="container relative z-10">
           <div className="text-center mb-16">
             <span className="badge badge-azul mb-4">{t('targetGroups.badge')}</span>

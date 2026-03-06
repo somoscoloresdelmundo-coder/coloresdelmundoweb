@@ -87,10 +87,10 @@ export default async function PIFPage() {
                   <p className="text-sm text-gris-400 uppercase tracking-wider mb-2">{t('quickInfo.oid')}</p>
                   <p className="text-5xl md:text-6xl font-black text-naranja tracking-wide">E10413227</p>
                   <div className="flex justify-center gap-2 mt-4">
-                    <span className="w-4 h-4 rounded-full bg-azul animate-pulse" />
-                    <span className="w-4 h-4 rounded-full bg-lima animate-pulse" style={{ animationDelay: '0.2s' }} />
-                    <span className="w-4 h-4 rounded-full bg-naranja animate-pulse" style={{ animationDelay: '0.4s' }} />
-                    <span className="w-4 h-4 rounded-full bg-terracota animate-pulse" style={{ animationDelay: '0.6s' }} />
+                    <span className="w-3 h-3 rounded-full bg-azul" />
+                    <span className="w-3 h-3 rounded-full bg-lima" />
+                    <span className="w-3 h-3 rounded-full bg-naranja" />
+                    <span className="w-3 h-3 rounded-full bg-terracota" />
                   </div>
                 </div>
 
@@ -326,76 +326,6 @@ export default async function PIFPage() {
                   <p className="text-sm text-gris-500">{t(`targetGroups.${group.key}Desc`)}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Topics of Interest */}
-      <section className="section bg-white">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="scroll-reveal">
-                <span className="badge badge-lima mb-4">{t('topics.badge')}</span>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">{t('topics.title')}</h2>
-                <p className="text-gris-600 mb-6">{t('topics.description')}</p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 scroll-reveal" style={{ animationDelay: '0.1s' }}>
-                {(t.raw('topics.items') as Array<{ name: string; desc: string }>).map((topic, index: number) => {
-                  const colors = ['azul', 'lima', 'naranja', 'terracota', 'azul', 'lima'];
-                  const color = colors[index % colors.length];
-                  return (
-                    <div
-                      key={index}
-                      className={`p-4 rounded-xl bg-${color}-muted/30 border border-${color}-muted/50`}
-                    >
-                      <p className="font-semibold text-sm mb-1">{topic.name}</p>
-                      <p className="text-xs text-gris-500">{topic.desc}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Methodology */}
-      <section className="section bg-gradient-to-br from-azul-muted/30 via-lima-muted/20 to-naranja-muted/30">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-10 scroll-reveal">
-              <span className="badge badge-naranja mb-4">{t('methodology.badge')}</span>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">{t('methodology.title')}</h2>
-              <p className="text-gris-600 max-w-2xl mx-auto">{t('methodology.description')}</p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {(t.raw('methodology.methods') as Array<{ name: string; desc: string }>).map((method, index: number) => {
-                const colors = ['azul', 'lima', 'terracota', 'naranja'];
-                const color = colors[index];
-                const icons = [
-                  <svg key="exp" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>,
-                  <svg key="peer" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" /></svg>,
-                  <svg key="fac" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>,
-                  <svg key="art" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" /></svg>
-                ];
-                return (
-                  <div
-                    key={index}
-                    className="bg-white/80 backdrop-blur-sm rounded-xl p-5 text-center scroll-reveal"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 bg-${color}-muted/40 text-${color}-dark`}>
-                      {icons[index]}
-                    </div>
-                    <h3 className="font-semibold mb-2">{method.name}</h3>
-                    <p className="text-sm text-gris-500">{method.desc}</p>
-                  </div>
-                );
-              })}
             </div>
           </div>
         </div>

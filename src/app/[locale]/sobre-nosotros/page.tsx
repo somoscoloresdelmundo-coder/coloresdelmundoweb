@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
-import { HeroSection, GridSection, QuoteSection, CTASection } from '@/components/sections';
+import { HeroSection, GridSection, QuoteSection, CTASection, RelatedLinks } from '@/components/sections';
 import { FeatureCard, TeamCard, ValueCard } from '@/components/cards';
 import { ColorVariant } from '@/types/ui';
 
@@ -185,7 +185,17 @@ export default async function SobreNosotrosPage() {
         title={t('cta.title')}
         description={t('cta.description')}
         primaryButton={{ text: tCommon('contactUs'), href: '/contacto', icon: false }}
-        background="shapes"
+        background="gray"
+      />
+
+      {/* Navegación contextual */}
+      <RelatedLinks
+        title={tCommon('youMightAlsoLike')}
+        links={[
+          { href: '/que-hacemos', title: tCommon('whatWeDo'), description: tCommon('discoverOurPrograms') },
+          { href: '/proyectos', title: tCommon('projects'), description: tCommon('seeOurExperience') },
+          { href: '/participa', title: tCommon('participate'), description: tCommon('joinOurTeam') },
+        ]}
       />
     </>
   );

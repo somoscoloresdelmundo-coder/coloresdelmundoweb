@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import Badge from '@/components/ui/Badge';
 import Button, { ArrowIcon } from '@/components/ui/Button';
-import { FloatingShapes } from '@/components/decorations';
 import { ColorVariant, CTAConfig, BackgroundVariant } from '@/types/ui';
 
 interface HeroSectionProps {
@@ -41,11 +40,6 @@ export default function HeroSection({
 
   return (
     <section className={`relative overflow-hidden ${bgClasses[background]} ${className}`}>
-      {/* Fondo decorativo */}
-      {background === 'shapes' && (
-        <FloatingShapes variant={backgroundVariant} />
-      )}
-
       {/* Contenido */}
       <div className="container py-20 md:py-28 relative z-10">
         <div className="max-w-3xl anim-slide-up">

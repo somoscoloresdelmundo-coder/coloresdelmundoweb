@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import Button, { ArrowIcon } from '@/components/ui/Button';
-import { FloatingShapes, MondrianGrid } from '@/components/decorations';
+import { MondrianGrid } from '@/components/decorations';
 import { CTAConfig, BackgroundVariant } from '@/types/ui';
 
 interface CTASectionProps {
@@ -28,7 +28,6 @@ export default function CTASection({
   return (
     <section className={`section ${bgClass} relative overflow-hidden scroll-reveal ${className}`}>
       {/* Decoración de fondo */}
-      {background === 'shapes' && <FloatingShapes variant="minimal" opacity={40} />}
       {background === 'mondrian' && <MondrianGrid variant="default" opacity={40} />}
 
       <div className="container text-center relative z-10">

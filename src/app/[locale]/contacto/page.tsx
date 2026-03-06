@@ -200,25 +200,6 @@ export default async function ContactoPage() {
                   </div>
                 </div>
 
-                {/* Datos institucionales */}
-                <div className="card bg-gris-50 border-none">
-                  <h3 className="font-semibold mb-3">{t('info.institutionalData')}</h3>
-                  <dl className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <dt className="text-gris-500">OID</dt>
-                      <dd className="font-medium">E10413227</dd>
-                    </div>
-                    <div className="flex justify-between">
-                      <dt className="text-gris-500">{t('info.type')}</dt>
-                      <dd className="font-medium">ONG</dd>
-                    </div>
-                    <div className="flex justify-between">
-                      <dt className="text-gris-500">{t('info.region')}</dt>
-                      <dd className="font-medium">{t('info.regionValue')}</dd>
-                    </div>
-                  </dl>
-                </div>
-
                 {/* Card destacada para Partners - PIF */}
                 <div className="card bg-gradient-to-br from-lima-bg to-naranja-bg border-lima/30">
                   <div className="flex items-start gap-4">

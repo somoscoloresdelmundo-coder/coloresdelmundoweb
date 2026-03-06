@@ -4,7 +4,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { Header, Footer } from '@/components/layout';
 import { routing } from '@/i18n/routing';
-import { ArtisticCursor, ScrollProgress } from '@/components/artistic';
 
 // Generar rutas estáticas para cada locale
 export function generateStaticParams() {
@@ -167,10 +166,6 @@ export default async function LocaleLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
-      {/* Efectos Artísticos Globales */}
-      <ArtisticCursor trailEnabled={true} trailLength={6} />
-      <ScrollProgress height={4} />
 
       {/* Skip Link para Accesibilidad */}
       <a href="#main-content" className="skip-link">
