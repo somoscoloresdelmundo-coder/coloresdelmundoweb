@@ -19,3 +19,7 @@ export const INSTITUTIONAL = {
   LEGAL_NAME: 'Colores del Mundo',
   GOOGLE_MAPS_URL: 'https://maps.google.com/?q=Paseo+Rosa+de+los+Vientos+39,+46730+Gandia',
 } as const;
+
+export const SITE = {
+  URL: 'https://coloresdelmundo.org',
+} as const;

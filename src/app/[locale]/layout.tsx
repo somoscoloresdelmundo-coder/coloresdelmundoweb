@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { Header, Footer } from '@/components/layout';
 import { routing } from '@/i18n/routing';
-import { CONTACT, SOCIAL } from '@/config/constants';
+import { CONTACT, SOCIAL, SITE } from '@/config/constants';
 
 // Generar rutas estáticas para cada locale
 export function generateStaticParams() {
@@ -22,7 +22,7 @@ export async function generateMetadata({
   const isSpanish = locale === 'es';
 
   return {
-    metadataBase: new URL('https://coloresdelmundo.org'),
+    metadataBase: new URL(SITE.URL),
     title: {
       default: isSpanish
         ? 'Colores del Mundo | Inclusión, Diversidad, Creación'
@@ -46,7 +46,7 @@ export async function generateMetadata({
     openGraph: {
       type: 'website',
       locale: isSpanish ? 'es_ES' : 'en_US',
-      url: 'https://coloresdelmundo.org',
+      url: SITE.URL,
       siteName: 'Colores del Mundo',
       title: isSpanish
         ? 'Colores del Mundo | Inclusión, Diversidad, Creación'
@@ -93,10 +93,10 @@ export async function generateMetadata({
     },
     manifest: '/manifest.json',
     alternates: {
-      canonical: `https://coloresdelmundo.org/${locale}`,
+      canonical: `${SITE.URL}/${locale}`,
       languages: {
-        'es': 'https://coloresdelmundo.org/es',
-        'en': 'https://coloresdelmundo.org/en',
+        'es': `${SITE.URL}/es`,
+        'en': `${SITE.URL}/en`,
       },
     },
   };
@@ -136,8 +136,8 @@ export default async function LocaleLayout({
     '@type': 'NGO',
     name: 'Asociación Cultural Colores del Mundo',
     alternateName: 'Colores del Mundo',
-    url: 'https://coloresdelmundo.org',
-    logo: 'https://coloresdelmundo.org/images/logo.png',
+    url: SITE.URL,
+    logo: `${SITE.URL}/images/logo.png`,
     description: locale === 'es'
       ? 'Asociación cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal.'
       : 'Cultural association founded by young people motivated to improve the quality of life of other young people through art and non-formal education.',

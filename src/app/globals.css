@@ -61,6 +61,16 @@
   --color-lima-muted: var(--lima-subtle);
   --color-naranja-muted: var(--naranja-subtle);
   --color-terracota-muted: var(--terracota-subtle);
+  /* Pastel (alias for bg, enables text-*-pastel and all Tailwind variants) */
+  --color-azul-pastel: var(--azul-bg);
+  --color-lima-pastel: var(--lima-bg);
+  --color-naranja-pastel: var(--naranja-bg);
+  --color-terracota-pastel: var(--terracota-bg);
+  /* Soft (alias for bg, enables group-hover:bg-*-soft and all Tailwind variants) */
+  --color-azul-soft: var(--azul-bg);
+  --color-lima-soft: var(--lima-bg);
+  --color-naranja-soft: var(--naranja-bg);
+  --color-terracota-soft: var(--terracota-bg);
   /* Neutros */
   --color-negro: var(--negro);
   --color-negro-light: var(--negro-light);

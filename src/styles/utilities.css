@@ -128,16 +128,6 @@
   transform: scale(1.1);
 }
 
-/* Hover con Elevación Suave */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
 /* Efectos Glow Sutiles */
 .glow-azul { box-shadow: 0 0 40px rgba(75, 137, 191, 0.3); }
 .glow-lima { box-shadow: 0 0 40px rgba(177, 191, 65, 0.3); }
