@@ -56,6 +56,11 @@
   --color-terracota-dark: var(--terracota-dark);
   --color-terracota-bg: var(--terracota-bg);
   --color-terracota-subtle: var(--terracota-subtle);
+  /* Muted (alias for subtle, enables Tailwind opacity modifiers) */
+  --color-azul-muted: var(--azul-subtle);
+  --color-lima-muted: var(--lima-subtle);
+  --color-naranja-muted: var(--naranja-subtle);
+  --color-terracota-muted: var(--terracota-subtle);
   /* Neutros */
   --color-negro: var(--negro);
   --color-negro-light: var(--negro-light);

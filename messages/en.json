@@ -516,6 +516,7 @@
       }
     },
     "details": {
+      "institutionalTitle": "Institutional Data",
       "legalName": "Legal Name",
       "legalNameValue": "Asociación Cultural Colores del Mundo",
       "type": "Organization Type",
@@ -576,7 +577,9 @@
       "roles": {
         "title": "Roles performed",
         "items": ["Participants", "Facilitators", "Group Leaders", "Project Coordinators", "Mentors"]
-      }
+      },
+      "yearsExperience": "years of collective experience",
+      "inErasmus": "in Erasmus+ projects"
     },
     "targetGroups": {
       "badge": "Target Groups",

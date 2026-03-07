@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Link } from '@/i18n/navigation';
 import { ColorVariant, colorClasses } from '@/types/ui';
 import { Pathnames } from '@/i18n/routing';
+import { ChevronRightIcon } from '@/components/ui';
 
 interface FeatureCardProps {
   icon: ReactNode;
@@ -36,7 +37,7 @@ export default function FeatureCard({
     <>
       <div
         className={`w-14 h-14 ${colors.bgColor} rounded-2xl flex items-center justify-center mb-5
-          group-hover:scale-110 group-hover:${colors.bg} transition-all duration-300`}
+          group-hover:scale-110 ${colors.groupHoverBg} transition-all duration-300`}
       >
         <div className={`${colors.textDark} group-hover:text-white transition-colors`}>
           {icon}
@@ -51,14 +52,7 @@ export default function FeatureCard({
       {linkText && (
         <div className={`flex items-center ${colors.textDark} text-sm font-medium`}>
           <span>{linkText}</span>
-          <svg
-            className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
+          <ChevronRightIcon className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
         </div>
       )}
     </>
