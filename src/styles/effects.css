@@ -1,0 +1,366 @@
+/* ============================================
+   COLORES DEL MUNDO - Visual Effects
+   Efectos artísticos, decoraciones y formas
+   ============================================ */
+
+/* Fondos Aurora - Gradientes Suaves */
+.bg-aurora-animated {
+  background: linear-gradient(
+    -45deg,
+    var(--lima-bg),
+    var(--naranja-bg),
+    var(--terracota-bg),
+    var(--lima-bg)
+  );
+  background-size: 400% 400%;
+  animation: aurora-shift 15s ease infinite;
+}
+
+@keyframes aurora-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Formas Flotantes Artísticas */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+  transition: transform 0.3s ease-out;
+}
+
+.floating-shape-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--lima-bg);
+  animation: float-shape-1 20s ease-in-out infinite;
+}
+
+.floating-shape-2 {
+  width: 250px;
+  height: 250px;
+  background: var(--naranja-bg);
+  animation: float-shape-2 25s ease-in-out infinite;
+}
+
+.floating-shape-3 {
+  width: 200px;
+  height: 200px;
+  background: var(--terracota-bg);
+  animation: float-shape-3 18s ease-in-out infinite;
+}
+
+@keyframes float-shape-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-20px, 30px) scale(0.95); }
+  75% { transform: translate(20px, 20px) scale(1.02); }
+}
+
+@keyframes float-shape-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-40px, 20px) rotate(5deg); }
+  66% { transform: translate(30px, -30px) rotate(-3deg); }
+}
+
+@keyframes float-shape-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(25px, 25px) scale(1.1); }
+}
+
+/* Partículas Flotantes */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--naranja-bg);
+  opacity: 0.6;
+  animation: particle-float 8s ease-in-out infinite;
+}
+
+.particle:nth-child(2n) {
+  background: var(--lima-bg);
+  animation-duration: 10s;
+}
+
+.particle:nth-child(3n) {
+  background: var(--terracota-bg);
+  animation-duration: 12s;
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Blob Orgánico */
+.blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: blob-morph 8s ease-in-out infinite;
+}
+
+@keyframes blob-morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+/* Líneas Artísticas */
+.art-line {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--naranja-bg),
+    var(--lima-bg),
+    transparent
+  );
+  animation: line-flow 3s ease-in-out infinite;
+}
+
+@keyframes line-flow {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Grid Artístico de Puntos */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    var(--gris-200) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+}
+
+/* Efecto de Onda en Hover */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--naranja-bg);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+}
+
+.ripple-effect:hover::after {
+  width: 300%;
+  height: 300%;
+  opacity: 0.1;
+}
+
+/* Cursor Interactivo */
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    circle at center,
+    rgba(242, 154, 46, 0.3) 0%,
+    rgba(177, 191, 65, 0.15) 40%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+}
+
+.cursor-glow.active {
+  opacity: 1;
+}
+
+/* Fondo con Noise Texture */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Card con efecto Aurora */
+.card-aurora {
+  position: relative;
+  background: white;
+  overflow: hidden;
+}
+
+.card-aurora::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: aurora-rotate 10s linear infinite;
+  animation-play-state: paused;
+}
+
+.card-aurora:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes aurora-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Magnetic Button Effect */
+.magnetic-btn {
+  transition: transform 0.2s ease-out;
+}
+
+/* Mondrian Styles */
+.mondrian-block {
+  position: relative;
+}
+
+.mondrian-block::before {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.mondrian-decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mondrian-bar-azul { background: linear-gradient(90deg, var(--azul-bg) 0%, var(--azul-bg) 100%); }
+.mondrian-bar-lima { background: linear-gradient(90deg, var(--lima-bg) 0%, var(--lima-bg) 100%); }
+.mondrian-bar-naranja { background: linear-gradient(90deg, var(--naranja-bg) 0%, var(--naranja-bg) 100%); }
+.mondrian-bar-terracota { background: linear-gradient(90deg, var(--terracota-bg) 0%, var(--terracota-bg) 100%); }
+
+/* Grid artístico */
+.art-grid {
+  display: grid;
+  gap: 4px;
+  background: var(--gris-200);
+  padding: 4px;
+  border-radius: var(--radius-xl);
+}
+
+.art-grid-cell {
+  border-radius: var(--radius-md);
+  transition: transform 0.3s ease;
+}
+
+.art-grid-cell:hover {
+  transform: scale(1.02);
+}
+
+/* Composición Mondrian */
+.mondrian-composition {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
+  gap: 8px;
+  padding: 8px;
+  background: var(--gris-100);
+  border-radius: var(--radius-2xl);
+}
+
+.mondrian-composition > div {
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mondrian-composition > div:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+
+/* Fondo artístico con bloques */
+.bg-art-blocks {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-art-blocks::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 40%;
+  height: 60%;
+  background: var(--azul-subtle);
+  border-radius: var(--radius-3xl);
+  transform: rotate(15deg);
+  opacity: 0.5;
+}
+
+.bg-art-blocks::after {
+  content: '';
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  width: 35%;
+  height: 50%;
+  background: var(--lima-subtle);
+  border-radius: var(--radius-3xl);
+  transform: rotate(-10deg);
+  opacity: 0.5;
+}
+
+/* Sección con acento de color lateral */
+.section-accent-left {
+  position: relative;
+}
+
+.section-accent-left::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 4px;
+  border-radius: var(--radius-full);
+}
+
+.section-accent-left.accent-azul::before { background: linear-gradient(180deg, var(--azul-bg), var(--azul-bg)); }
+.section-accent-left.accent-lima::before { background: linear-gradient(180deg, var(--lima-bg), var(--lima-bg)); }
+.section-accent-left.accent-naranja::before { background: linear-gradient(180deg, var(--naranja-bg), var(--naranja-bg)); }
+.section-accent-left.accent-terracota::before { background: linear-gradient(180deg, var(--terracota-bg), var(--terracota-bg)); }
+
+/* Texto con Glow */
+.text-glow {
+  text-shadow: 0 0 30px rgba(242, 154, 46, 0.3);
+}
+
+.text-glow-lima {
+  text-shadow: 0 0 30px rgba(154, 173, 46, 0.3);
+}

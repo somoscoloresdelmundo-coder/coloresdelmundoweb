@@ -1,0 +1,159 @@
+/* ============================================
+   COLORES DEL MUNDO - Utility Classes
+   Clases utilitarias reutilizables
+   ============================================ */
+
+/* Fondos con color (para cards, iconos, badges) */
+.bg-azul-bg { background-color: var(--azul-bg); }
+.bg-lima-bg { background-color: var(--lima-bg); }
+.bg-naranja-bg { background-color: var(--naranja-bg); }
+.bg-terracota-bg { background-color: var(--terracota-bg); }
+
+/* Fondos sutiles (para secciones, hover suave) */
+.bg-azul-subtle { background-color: var(--azul-subtle); }
+.bg-lima-subtle { background-color: var(--lima-subtle); }
+.bg-naranja-subtle { background-color: var(--naranja-subtle); }
+.bg-terracota-subtle { background-color: var(--terracota-subtle); }
+
+/* Aliases de compatibilidad */
+.bg-azul-pastel { background-color: var(--azul-bg); }
+.bg-lima-pastel { background-color: var(--lima-bg); }
+.bg-naranja-pastel { background-color: var(--naranja-bg); }
+.bg-terracota-pastel { background-color: var(--terracota-bg); }
+.bg-azul-soft { background-color: var(--azul-bg); }
+.bg-lima-soft { background-color: var(--lima-bg); }
+.bg-naranja-soft { background-color: var(--naranja-bg); }
+.bg-terracota-soft { background-color: var(--terracota-bg); }
+.bg-azul-muted { background-color: var(--azul-subtle); }
+.bg-lima-muted { background-color: var(--lima-subtle); }
+.bg-naranja-muted { background-color: var(--naranja-subtle); }
+.bg-terracota-muted { background-color: var(--terracota-subtle); }
+
+/* Texto con gradiente */
+.text-gradient {
+  background: linear-gradient(135deg, var(--naranja) 0%, var(--terracota) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-4colors {
+  background: linear-gradient(135deg, var(--azul) 0%, var(--lima) 33%, var(--naranja) 66%, var(--terracota) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Línea decorativa */
+.line-accent {
+  width: 48px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--naranja) 0%, var(--terracota) 100%);
+  border-radius: var(--radius-full);
+}
+
+/* Divider con gradiente */
+.divider-gradient {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gris-200) 20%,
+    var(--gris-200) 80%,
+    transparent 100%
+  );
+}
+
+/* Divider con los 4 colores */
+.divider-4colors {
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--azul-bg) 0%,
+    var(--lima-bg) 33%,
+    var(--naranja-bg) 66%,
+    var(--terracota-bg) 100%
+  );
+  border-radius: var(--radius-full);
+}
+
+/* Fondo con patrón sutil */
+.bg-pattern {
+  background-image:
+    radial-gradient(circle at 1px 1px, var(--gris-200) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Texto wrapping */
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* Truncar texto */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Hover group effects */
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+}
+
+.group:hover .group-hover\:translate-x-1 {
+  transform: translateX(4px);
+}
+
+/* Iconos con transición */
+.icon-transition {
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+
+.icon-transition:hover {
+  transform: scale(1.1);
+}
+
+/* Hover con Elevación Suave */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Efectos Glow Sutiles */
+.glow-azul { box-shadow: 0 0 40px rgba(75, 137, 191, 0.3); }
+.glow-lima { box-shadow: 0 0 40px rgba(177, 191, 65, 0.3); }
+.glow-naranja { box-shadow: 0 0 40px rgba(242, 154, 46, 0.3); }
+.glow-terracota { box-shadow: 0 0 40px rgba(217, 68, 35, 0.3); }
+
+.glow-soft {
+  box-shadow:
+    0 0 60px rgba(177, 191, 65, 0.15),
+    0 0 120px rgba(242, 154, 46, 0.1);
+}
+
+/* Bordes con Gradiente */
+.border-gradient {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, var(--lima-bg), var(--naranja-bg), var(--terracota-bg)) border-box;
+}

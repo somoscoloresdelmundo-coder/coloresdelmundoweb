@@ -78,6 +78,9 @@ export const colorClasses = {
     textDark: 'text-azul-dark',
     border: 'border-azul',
     badge: 'badge-azul',
+    hoverText: 'hover:text-azul-dark',
+    hoverBg: 'hover:bg-azul',
+    groupHoverBg: 'group-hover:bg-azul',
   },
   lima: {
     bg: 'bg-lima',
@@ -87,6 +90,9 @@ export const colorClasses = {
     textDark: 'text-lima-dark',
     border: 'border-lima',
     badge: 'badge-lima',
+    hoverText: 'hover:text-lima-dark',
+    hoverBg: 'hover:bg-lima',
+    groupHoverBg: 'group-hover:bg-lima',
   },
   naranja: {
     bg: 'bg-naranja',
@@ -96,6 +102,9 @@ export const colorClasses = {
     textDark: 'text-naranja-dark',
     border: 'border-naranja',
     badge: 'badge-naranja',
+    hoverText: 'hover:text-naranja-dark',
+    hoverBg: 'hover:bg-naranja',
+    groupHoverBg: 'group-hover:bg-naranja',
   },
   terracota: {
     bg: 'bg-terracota',
@@ -105,5 +114,8 @@ export const colorClasses = {
     textDark: 'text-terracota-dark',
     border: 'border-terracota',
     badge: 'badge-terracota',
+    hoverText: 'hover:text-terracota-dark',
+    hoverBg: 'hover:bg-terracota',
+    groupHoverBg: 'group-hover:bg-terracota',
   },
 } as const;

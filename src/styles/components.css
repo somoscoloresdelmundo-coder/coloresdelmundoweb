@@ -1,0 +1,271 @@
+/* ============================================
+   COLORES DEL MUNDO - Component Styles
+   Estilos de componentes reutilizables
+   ============================================ */
+
+/* Botones con Micro-interacciones */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: linear-gradient(135deg, var(--naranja) 0%, var(--naranja-dark) 100%);
+  color: var(--blanco);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform var(--duration-base) var(--ease-spring),
+    box-shadow var(--duration-base) var(--ease-out-quart);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--naranja-light) 0%, var(--naranja) 100%);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out-quart);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-naranja);
+  color: var(--blanco);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Botón Secundario */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background-color: transparent;
+  color: var(--negro);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--gris-200);
+  cursor: pointer;
+  transition:
+    border-color var(--duration-fast) var(--ease-out-quart),
+    color var(--duration-fast) var(--ease-out-quart),
+    background-color var(--duration-fast) var(--ease-out-quart),
+    transform var(--duration-base) var(--ease-spring);
+}
+
+.btn-secondary:hover {
+  border-color: var(--naranja);
+  color: var(--naranja);
+  background-color: rgba(242, 154, 46, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Botón Outline */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background-color: transparent;
+  color: var(--naranja);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--naranja);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    color var(--duration-base) var(--ease-out-quart),
+    transform var(--duration-base) var(--ease-spring);
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--naranja);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-base) var(--ease-out-expo);
+  z-index: -1;
+}
+
+.btn-outline:hover {
+  color: var(--blanco);
+  transform: translateY(-2px);
+}
+
+.btn-outline:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Cards */
+.card {
+  background: var(--blanco);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform var(--duration-base) var(--ease-out-expo),
+    box-shadow var(--duration-base) var(--ease-out-quart),
+    border-color var(--duration-base) var(--ease-out-quart);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out-quart);
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card.hover\:border-naranja:hover {
+  border-color: rgba(242, 154, 46, 0.3);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(242, 154, 46, 0.1);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.badge:hover {
+  transform: scale(1.02);
+}
+
+.badge-lima {
+  background: linear-gradient(135deg, rgba(177, 191, 65, 0.12) 0%, rgba(177, 191, 65, 0.18) 100%);
+  color: var(--lima-dark);
+}
+
+.badge-naranja {
+  background: linear-gradient(135deg, rgba(242, 154, 46, 0.12) 0%, rgba(242, 154, 46, 0.18) 100%);
+  color: var(--naranja-dark);
+}
+
+.badge-terracota {
+  background: linear-gradient(135deg, rgba(217, 68, 35, 0.1) 0%, rgba(217, 68, 35, 0.16) 100%);
+  color: var(--terracota-dark);
+}
+
+.badge-azul {
+  background: linear-gradient(135deg, rgba(75, 137, 191, 0.12) 0%, rgba(75, 137, 191, 0.18) 100%);
+  color: var(--azul-dark);
+}
+
+/* Navigation */
+.nav-link {
+  color: var(--gris-600);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-1);
+  position: relative;
+  transition: color var(--duration-fast) var(--ease-out-quart);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--naranja);
+  border-radius: var(--radius-full);
+  transition:
+    width var(--duration-base) var(--ease-out-expo),
+    left var(--duration-base) var(--ease-out-expo);
+}
+
+.nav-link:hover {
+  color: var(--naranja);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Footer link */
+.footer-link {
+  color: var(--gris-400);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition:
+    color var(--duration-fast) var(--ease-out-quart),
+    transform var(--duration-fast) var(--ease-spring);
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: var(--naranja);
+  transform: translateX(4px);
+}
+
+/* Card con borde de color en hover */
+.card-color-border {
+  border-left: 4px solid transparent;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-color-border.border-azul { border-left-color: var(--azul-bg); }
+.card-color-border.border-azul:hover { border-left-color: var(--azul); }
+.card-color-border.border-lima { border-left-color: var(--lima-bg); }
+.card-color-border.border-lima:hover { border-left-color: var(--lima); }
+.card-color-border.border-naranja { border-left-color: var(--naranja-bg); }
+.card-color-border.border-naranja:hover { border-left-color: var(--naranja); }
+.card-color-border.border-terracota { border-left-color: var(--terracota-bg); }
+.card-color-border.border-terracota:hover { border-left-color: var(--terracota); }
