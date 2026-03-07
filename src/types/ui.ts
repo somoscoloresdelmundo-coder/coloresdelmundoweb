@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Pathnames } from '@/i18n/routing';
 
 // Colores institucionales de Colores del Mundo
@@ -17,42 +16,11 @@ export interface CTAConfig {
   icon?: boolean;
 }
 
-// Props comunes para cards
-export interface BaseCardProps {
-  className?: string;
-}
-
-// Props para cards con contenido
-export interface ContentCardProps extends BaseCardProps {
-  title: string;
-  description?: string;
-}
-
-// Props para secciones
-export interface BaseSectionProps {
-  className?: string;
-  children?: ReactNode;
-}
-
 // Variantes de fondo para secciones
 export type BackgroundVariant = 'white' | 'gray' | 'gradient' | 'shapes' | 'mondrian';
 
 // Variantes de grid
 export type GridColumns = 2 | 3 | 4;
-
-// Props para iconos
-export interface IconProps {
-  className?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
-}
-
-// Mapeo de tamaños de iconos
-export const iconSizes = {
-  sm: 'w-4 h-4',
-  md: 'w-6 h-6',
-  lg: 'w-8 h-8',
-  xl: 'w-12 h-12',
-} as const;
 
 /**
  * Sistema de Colores Centralizado

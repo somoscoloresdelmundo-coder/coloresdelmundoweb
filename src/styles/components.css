@@ -163,6 +163,10 @@
   opacity: 1;
 }
 
+.card-interactive {
+  cursor: pointer;
+}
+
 .card.hover\:border-naranja:hover {
   border-color: rgba(242, 154, 46, 0.3);
   box-shadow: var(--shadow-lg), 0 0 0 1px rgba(242, 154, 46, 0.1);
