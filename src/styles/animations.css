@@ -237,19 +237,6 @@
   animation: scaleDown var(--anim-normal) var(--ease-out) forwards;
 }
 
-/* Efectos especiales */
-.anim-blur-in {
-  animation: blurIn var(--anim-slow) var(--ease-out) forwards;
-}
-
-.anim-rotate-in {
-  animation: rotateIn var(--anim-normal) var(--ease-out-back) forwards;
-}
-
-.anim-bounce-in {
-  animation: bounceIn var(--anim-slow) var(--ease-out) forwards;
-}
-
 /* Loops */
 .anim-float {
   animation: float 3s var(--ease-in-out) infinite;
@@ -425,51 +412,6 @@
   left: 100%;
 }
 
-/* Hover Underline */
-.hover-underline {
-  position: relative;
-}
-
-.hover-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: currentColor;
-  transition: width var(--anim-fast) var(--ease-out),
-              left var(--anim-fast) var(--ease-out);
-}
-
-.hover-underline:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-/* Hover Fill */
-.hover-fill {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.hover-fill::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--naranja);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform var(--anim-normal) var(--ease-out-expo);
-  z-index: -1;
-}
-
-.hover-fill:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
 /* Press effect (click) */
 .press-effect {
   transition: transform var(--anim-instant) var(--ease-out);
@@ -479,95 +421,6 @@
   transform: scale(0.97);
 }
 
-/* Focus Ring animado */
-.focus-ring {
-  transition: outline-offset var(--anim-fast) var(--ease-out),
-              outline-color var(--anim-fast) var(--ease-out);
-  outline: 2px solid transparent;
-  outline-offset: 0;
-}
-
-.focus-ring:focus-visible {
-  outline-color: var(--naranja);
-  outline-offset: 3px;
-}
-
-/* =============================================
-   8. TRANSITIONS UTILITARIAS
-   ============================================= */
-
-/* Transiciones rápidas */
-.transition-fast {
-  transition-duration: var(--anim-fast);
-  transition-timing-function: var(--ease-out);
-}
-
-.transition-normal {
-  transition-duration: var(--anim-normal);
-  transition-timing-function: var(--ease-out);
-}
-
-.transition-slow {
-  transition-duration: var(--anim-slow);
-  transition-timing-function: var(--ease-out);
-}
-
-/* Propiedades específicas */
-.transition-transform {
-  transition-property: transform;
-}
-
-.transition-opacity {
-  transition-property: opacity;
-}
-
-.transition-colors {
-  transition-property: color, background-color, border-color;
-}
-
-.transition-all {
-  transition-property: all;
-}
-
-/* =============================================
-   9. ESTADOS PARA ANIMACIÓN
-   ============================================= */
-
-/* Estado inicial (antes de animar) */
-.anim-initial {
-  opacity: 0;
-}
-
-.anim-initial-up {
-  opacity: 0;
-  transform: translateY(var(--anim-distance-lg));
-}
-
-.anim-initial-down {
-  opacity: 0;
-  transform: translateY(calc(var(--anim-distance-lg) * -1));
-}
-
-.anim-initial-left {
-  opacity: 0;
-  transform: translateX(var(--anim-distance-lg));
-}
-
-.anim-initial-right {
-  opacity: 0;
-  transform: translateX(calc(var(--anim-distance-lg) * -1));
-}
-
-.anim-initial-scale {
-  opacity: 0;
-  transform: scale(0.9);
-}
-
-/* Estado visible (animado) */
-.anim-visible {
-  opacity: 1;
-  transform: none;
-}
 
 /* =============================================
    10. ACCESIBILIDAD - Reduced Motion
@@ -602,52 +455,3 @@
   }
 }
 
-/* =============================================
-   11. LOADING STATES
-   ============================================= */
-
-/* Skeleton loading */
-.skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--gris-100) 25%,
-    var(--gris-200) 50%,
-    var(--gris-100) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s linear infinite;
-  border-radius: var(--radius-md);
-}
-
-/* Spinner */
-.spinner {
-  width: 24px;
-  height: 24px;
-  border: 3px solid var(--gris-200);
-  border-top-color: var(--naranja);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-/* Dots loading */
-@keyframes dotsLoading {
-  0%, 80%, 100% { transform: scale(0); }
-  40% { transform: scale(1); }
-}
-
-.dots-loading {
-  display: flex;
-  gap: 4px;
-}
-
-.dots-loading span {
-  width: 8px;
-  height: 8px;
-  background: var(--naranja);
-  border-radius: 50%;
-  animation: dotsLoading 1.4s infinite ease-in-out both;
-}
-
-.dots-loading span:nth-child(1) { animation-delay: -0.32s; }
-.dots-loading span:nth-child(2) { animation-delay: -0.16s; }
-.dots-loading span:nth-child(3) { animation-delay: 0; }

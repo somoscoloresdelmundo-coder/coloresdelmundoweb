@@ -7,6 +7,7 @@ import {
   View,
   StyleSheet,
 } from '@react-pdf/renderer';
+import { CONTACT, SOCIAL, INSTITUTIONAL } from '@/config/constants';
 
 // Colores institucionales
 const colors = {
@@ -228,13 +229,13 @@ const PIFDocument = () => (
         </View>
         <View style={styles.headerOID}>
           <Text style={styles.headerOIDLabel}>OID</Text>
-          <Text style={styles.headerOIDValue}>E10413227</Text>
+          <Text style={styles.headerOIDValue}>{INSTITUTIONAL.OID}</Text>
         </View>
       </View>
 
       {/* Información de la Organización */}
       <View style={styles.table}>
-        <TableRow label="OID" value="E10413227" />
+        <TableRow label="OID" value={INSTITUTIONAL.OID} />
         <TableRow label="Type of organization" value="NGO" />
         <TableRow label="Legal name" value="Asociación Cultural Colores del Mundo" />
         <TableRow label="Short name" value="Colores del Mundo" />
@@ -243,8 +244,8 @@ const PIFDocument = () => (
         <TableRow label="Region" value="Comunidad Valenciana" />
         <TableRow label="Post code" value="46730" />
         <TableRow label="City" value="Gandía - Grau y Playa" />
-        <TableRow label="Website" value="facebook.com/profile.php?id=61584137712755" />
-        <TableRow label="E-mail" value="somoscoloresdelmundo@gmail.com" isLast />
+        <TableRow label="Website" value={SOCIAL.FACEBOOK_URL.replace('https://www.', '')} />
+        <TableRow label="E-mail" value={CONTACT.EMAIL} isLast />
       </View>
 
       {/* Contact Person y Legal Representative en dos columnas */}
@@ -255,7 +256,7 @@ const PIFDocument = () => (
             <TableRow label="Name" value="Eliana Colzani" />
             <TableRow label="Department" value="Communication" />
             <TableRow label="Role" value="Secretary" />
-            <TableRow label="Email" value="somoscoloresdelmundo@gmail.com" />
+            <TableRow label="Email" value={CONTACT.EMAIL} />
             <TableRow label="Phone" value="+39 3337943172" isLast />
           </View>
         </View>
@@ -265,7 +266,7 @@ const PIFDocument = () => (
             <TableRow label="Name" value="Fernando Licona-Romano R." />
             <TableRow label="Department" value="Youth Department" />
             <TableRow label="Role" value="President" />
-            <TableRow label="Email" value="somoscoloresdelmundo@gmail.com" />
+            <TableRow label="Email" value={CONTACT.EMAIL} />
             <TableRow label="Phone" value="+34 622 21 75 46" isLast />
           </View>
         </View>
@@ -304,7 +305,7 @@ const PIFDocument = () => (
 
       {/* Footer */}
       <View style={styles.footer} fixed>
-        <Text style={styles.footerText}>Colores del Mundo | somoscoloresdelmundo@gmail.com</Text>
+        <Text style={styles.footerText}>{`Colores del Mundo | ${CONTACT.EMAIL}`}</Text>
         <Text style={styles.footerText} render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`} />
       </View>
     </Page>
@@ -373,7 +374,7 @@ const PIFDocument = () => (
 
       {/* Footer */}
       <View style={styles.footer} fixed>
-        <Text style={styles.footerText}>Colores del Mundo | somoscoloresdelmundo@gmail.com</Text>
+        <Text style={styles.footerText}>{`Colores del Mundo | ${CONTACT.EMAIL}`}</Text>
         <Text style={styles.footerText} render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`} />
       </View>
     </Page>

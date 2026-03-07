@@ -29,13 +29,13 @@ export default function TeamCard({
       </div>
 
       {/* Nombre */}
-      <h3 className="font-semibold text-base group-hover:text-naranja transition-colors">
+      <h3 className={`font-semibold text-base ${colors.hoverText} transition-colors`}>
         {name}
       </h3>
 
       {/* Rol (opcional) */}
       {role && (
-        <p className="text-naranja font-medium text-sm mt-1">
+        <p className={`${colors.text} font-medium text-sm mt-1`}>
           {role}
         </p>
       )}

@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Link } from '@/i18n/navigation';
 import { ColorVariant, colorClasses } from '@/types/ui';
 import { Pathnames } from '@/i18n/routing';
+import { CheckIcon, ArrowRightIcon } from '@/components/ui';
 
 interface ActionCardProps {
   icon: ReactNode;
@@ -32,8 +33,8 @@ export default function ActionCard({
       <div
         className={`w-24 h-24 rounded-3xl flex items-center justify-center mb-8
           transition-all duration-300 hover:scale-110 hover:rotate-3
-          bg-${color}/10 ${colors.textDark}
-          hover:${colors.bg} hover:text-white hover:shadow-lg hover:shadow-${color}/25`}
+          ${colors.bgAlpha10} ${colors.textDark}
+          ${colors.hoverBg} hover:text-white hover:shadow-lg ${colors.hoverShadow}`}
       >
         {icon}
       </div>
@@ -53,10 +54,8 @@ export default function ActionCard({
         <ul className="space-y-3 mb-6">
           {details.map((detail, index) => (
             <li key={index} className="flex items-start gap-3">
-              <div className={`w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 bg-${color}/10 ${colors.text}`}>
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+              <div className={`w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 ${colors.bgAlpha10} ${colors.text}`}>
+                <CheckIcon className="w-3 h-3" />
               </div>
               <span className="text-gris-700 text-sm">{detail}</span>
             </li>
@@ -68,14 +67,7 @@ export default function ActionCard({
       {href && linkText && (
         <Link href={href} className="btn-outline group/link inline-flex items-center">
           <span>{linkText}</span>
-          <svg
-            className="w-5 h-5 ml-2 transition-transform group-hover/link:translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          <ArrowRightIcon className="w-5 h-5 ml-2 transition-transform group-hover/link:translate-x-1" />
         </Link>
       )}
     </div>

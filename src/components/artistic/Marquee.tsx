@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode, CSSProperties } from 'react';
-import { ColorVariant } from '@/types/ui';
+import { ColorVariant, colorClasses } from '@/types/ui';
 
 interface MarqueeProps {
   children: ReactNode;
@@ -114,7 +114,7 @@ export function ColorWordsMarquee({
     <Marquee speed={speed} gradient={false} className={className}>
       {words.map((word, i) => (
         <span key={i} className="flex items-center gap-6 px-6">
-          <span className={`text-${colors[i % colors.length]}-dark font-semibold text-lg md:text-xl`}>
+          <span className={`${colorClasses[colors[i % colors.length]].textDark} font-semibold text-lg md:text-xl`}>
             {word}
           </span>
           <span className="text-gris-300">{separator}</span>

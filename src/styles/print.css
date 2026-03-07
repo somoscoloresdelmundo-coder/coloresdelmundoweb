@@ -1,0 +1,91 @@
+/* ============================================
+   COLORES DEL MUNDO - Print Styles
+   Estilos de impresión y exportación PDF
+   ============================================ */
+
+@media print {
+  /* Ocultar elementos de navegación y UI */
+  header,
+  footer,
+  nav,
+  .no-print,
+  .print-hidden,
+  button:not(.print-visible) {
+    display: none !important;
+  }
+
+  /* Mostrar todo el contenido */
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    background: white !important;
+  }
+
+  /* Asegurar que los colores se impriman */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    padding: 1rem 0 !important;
+  }
+
+  .card {
+    box-shadow: none !important;
+    border: 1px solid var(--gris-200) !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .badge {
+    border: 1px solid currentColor !important;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  a[href^="http"]:not(.no-print-url)::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: var(--gris-500);
+  }
+
+  .absolute.pointer-events-none {
+    display: none !important;
+  }
+
+  .grid {
+    display: block !important;
+  }
+
+  .grid > * {
+    margin-bottom: 1rem !important;
+  }
+
+  .bg-gris-50,
+  .bg-gris-100 {
+    background-color: #f9f9f9 !important;
+  }
+
+}

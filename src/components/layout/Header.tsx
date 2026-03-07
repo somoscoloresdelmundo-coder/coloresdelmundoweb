@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import { PartnersIcon } from '@/components/ui/Icon';
+import { ROUTES } from '@/config/routes';
 
 export default function Header() {
   const t = useTranslations('nav');
@@ -12,11 +14,11 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   const navigation = [
-    { name: t('home'), href: '/' as const },
-    { name: t('about'), href: '/sobre-nosotros' as const },
-    { name: t('whatWeDo'), href: '/que-hacemos' as const },
-    { name: t('projects'), href: '/proyectos' as const },
-    { name: t('participate'), href: '/participa' as const },
+    { name: t('home'), href: ROUTES.HOME },
+    { name: t('about'), href: ROUTES.ABOUT },
+    { name: t('whatWeDo'), href: ROUTES.WHAT_WE_DO },
+    { name: t('projects'), href: ROUTES.PROJECTS },
+    { name: t('participate'), href: ROUTES.PARTICIPATE },
   ];
 
   useEffect(() => {
@@ -64,15 +66,13 @@ export default function Header() {
           ))}
           {/* PIF Button - Destacado para Partners */}
           <Link
-            href="/pif"
+            href={ROUTES.PIF}
             className="ml-2 px-4 py-2 bg-lima-bg text-lima-dark font-semibold text-sm rounded-lg border border-lima/30 hover:bg-lima hover:text-white hover:border-lima transition-all duration-300 flex items-center gap-2"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
+            <PartnersIcon className="w-4 h-4" />
             {t('partners')}
           </Link>
-          <Link href="/contacto" className="btn-primary ml-2">
+          <Link href={ROUTES.CONTACT} className="btn-primary ml-2">
             {t('contact')}
           </Link>
           <div className="ml-3">
@@ -131,17 +131,15 @@ export default function Header() {
           ))}
           {/* PIF Link - Destacado */}
           <Link
-            href="/pif"
+            href={ROUTES.PIF}
             className="py-3 px-4 rounded-lg bg-lima-bg text-lima-dark font-semibold flex items-center gap-2 hover:bg-lima hover:text-white transition-colors"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
+            <PartnersIcon />
             {t('partners')} - {t('pif')}
           </Link>
           <Link
-            href="/contacto"
+            href={ROUTES.CONTACT}
             className="btn-primary text-center mt-2"
             onClick={() => setMobileMenuOpen(false)}
           >

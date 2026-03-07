@@ -1,54 +1,26 @@
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
-import { Button, ArrowIcon } from '@/components/ui';
+import {
+  Button,
+  ArrowIcon,
+  MobilityIcon,
+  ArtIcon,
+  EducationIcon,
+  DigitalIcon,
+  GlobeIcon,
+  UsersIcon,
+  HomeIcon,
+} from '@/components/ui';
 import { GridSection, CTASection } from '@/components/sections';
 import { FeatureCard, ValueCard } from '@/components/cards';
 import { MondrianGrid } from '@/components/decorations';
 import { AnimatedNumber } from '@/components/artistic';
 import { ColorVariant } from '@/types/ui';
+import { INSTITUTIONAL } from '@/config/constants';
+import { ROUTES } from '@/config/routes';
 
-// Iconos como componentes para reutilizar
-const MobilityIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
-);
-
-const ArtIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" />
-  </svg>
-);
-
-const EducationIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-  </svg>
-);
-
-const DigitalIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
-  </svg>
-);
-
-const GlobeIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-  </svg>
-);
-
-const UsersIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-  </svg>
-);
-
-const HomeIcon = () => (
-  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-  </svg>
-);
+// Static stagger classes - Tailwind requires static class names for purging
+const STAGGER = ['stagger-1', 'stagger-2', 'stagger-3', 'stagger-4', 'stagger-5', 'stagger-6', 'stagger-7', 'stagger-8'] as const;
 
 export default async function HomePage() {
   const t = await getTranslations('home');
@@ -134,10 +106,10 @@ export default async function HomePage() {
                 {t('hero.description')}
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button href="/participa" variant="primary" icon={<ArrowIcon />}>
+                <Button href={ROUTES.PARTICIPATE} variant="primary" icon={<ArrowIcon />}>
                   {tCommon('join')}
                 </Button>
-                <Button href="/sobre-nosotros" variant="secondary">
+                <Button href={ROUTES.ABOUT} variant="secondary">
                   {tCommon('knowOurHistory')}
                 </Button>
               </div>
@@ -196,10 +168,10 @@ export default async function HomePage() {
             title={linea.titulo}
             description={linea.descripcion}
             color={linea.color}
-            href="/que-hacemos"
+            href={ROUTES.WHAT_WE_DO}
             linkText={tCommon('learnMore')}
             variant="bordered"
-            className={`stagger-${index + 1}`}
+            className={STAGGER[index] || 'stagger-1'}
           />
         ))}
       </GridSection>
@@ -217,7 +189,7 @@ export default async function HomePage() {
               <blockquote className="border-l-2 border-gris-200 pl-6 italic text-gris-600 mb-8 py-2">
                 &ldquo;{t('aboutPreview.quote')}&rdquo;
               </blockquote>
-              <Button href="/sobre-nosotros" variant="outline" icon={<ArrowIcon />}>
+              <Button href={ROUTES.ABOUT} variant="outline" icon={<ArrowIcon />}>
                 {tCommon('knowMoreAboutUs')}
               </Button>
             </div>
@@ -229,7 +201,7 @@ export default async function HomePage() {
                   title={valor.titulo}
                   description={valor.descripcion}
                   span={valor.span}
-                  className={`stagger-${index + 1}`}
+                  className={STAGGER[index] || 'stagger-1'}
                 />
               ))}
             </div>
@@ -266,7 +238,7 @@ export default async function HomePage() {
                 <div className="text-center md:text-right">
                   <div className="inline-block bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
                     <p className="text-6xl md:text-7xl font-bold text-naranja-dark">
-                      <AnimatedNumber value={5} suffix="+" />
+                      <AnimatedNumber value={INSTITUTIONAL.YEARS_EXPERIENCE} suffix="+" />
                     </p>
                     <p className="text-gris-700 text-lg mt-2 font-medium">{t('erasmus.yearsExperience')}</p>
                     <p className="text-gris-500 text-sm mt-1">{t('erasmus.yearsDescription')}</p>
@@ -298,7 +270,7 @@ export default async function HomePage() {
                 description={group.descripcion}
                 color={group.color}
                 variant="bordered"
-                className={`text-center stagger-${index + 1}`}
+                className={`text-center ${STAGGER[index] || 'stagger-1'}`}
               />
             ))}
           </div>
@@ -309,8 +281,8 @@ export default async function HomePage() {
       <CTASection
         title={t('cta.title')}
         description={t('cta.description')}
-        primaryButton={{ text: tCommon('participateWithUs'), href: '/participa' }}
-        secondaryButton={{ text: tCommon('contactUs'), href: '/contacto', icon: false }}
+        primaryButton={{ text: tCommon('participateWithUs'), href: ROUTES.PARTICIPATE }}
+        secondaryButton={{ text: tCommon('contactUs'), href: ROUTES.CONTACT, icon: false }}
         background="mondrian"
       />
     </>

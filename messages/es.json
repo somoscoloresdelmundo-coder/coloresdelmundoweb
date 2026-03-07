@@ -42,6 +42,10 @@
     "description": "Asociación cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes, usando el arte y la educación no formal como motores de inclusión.",
     "explore": "Explora",
     "actionLines": "Líneas de Acción",
+    "actionLine.mobility": "Acompañamiento de Movilidad",
+    "actionLine.art": "Transformación Artística",
+    "actionLine.education": "Educación Alternativa",
+    "actionLine.digital": "Ciudadanía Digital",
     "contactTitle": "Contacto",
     "address": "Paseo Rosa de los Vientos 39",
     "city": "46730 Gandía, Valencia, España",
@@ -190,6 +194,8 @@
       "legalNameValue": "Asociación Cultural Colores del Mundo",
       "type": "Tipo",
       "typeValue": "ONG",
+      "oid": "OID",
+      "email": "Email",
       "location": "Ubicación",
       "locationValue": "Gandía, Valencia, España"
     },
@@ -516,6 +522,7 @@
       }
     },
     "details": {
+      "institutionalTitle": "Datos Institucionales",
       "legalName": "Nombre Legal",
       "legalNameValue": "Asociación Cultural Colores del Mundo",
       "type": "Tipo de Organización",
@@ -576,7 +583,9 @@
       "roles": {
         "title": "Roles desempeñados",
         "items": ["Participantes", "Facilitadores", "Group Leaders", "Coordinadores de proyecto", "Mentores"]
-      }
+      },
+      "yearsExperience": "años de experiencia colectiva",
+      "inErasmus": "en proyectos Erasmus+"
     },
     "targetGroups": {
       "badge": "Target Groups",
