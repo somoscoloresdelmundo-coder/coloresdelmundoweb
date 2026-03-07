@@ -1,4 +1,4 @@
-import { ColorVariant } from '@/types/ui';
+import { ColorVariant, colorClasses } from '@/types/ui';
 
 interface ValueCardProps {
   number: string;
@@ -18,10 +18,11 @@ export default function ValueCard({
   className = '',
 }: ValueCardProps) {
   const spanClass = span === 2 ? 'md:col-span-2' : '';
+  const colors = colorClasses[color];
 
   return (
     <div className={`card text-center ${spanClass} ${className}`}>
-      <span className={`text-4xl font-bold text-${color}/20 mb-2 block`}>
+      <span className={`text-4xl font-bold ${colors.text} opacity-20 mb-2 block`}>
         {number}
       </span>
       <h3 className="font-semibold mb-2">{title}</h3>

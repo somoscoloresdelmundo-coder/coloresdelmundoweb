@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
+import { HeroSection } from '@/components/sections';
 import { HeartIcon, YouthWorkersIcon, LinkIcon, CheckIcon, DocumentIcon, PartnersIcon } from '@/components/ui';
 import { ColorVariant, colorClasses } from '@/types/ui';
 
@@ -90,22 +91,13 @@ export default async function ParticipaPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-gris-50 to-white relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 right-16 w-64 h-64 bg-azul-muted rounded-full blur-3xl opacity-50" />
-          <div className="absolute bottom-10 left-10 w-56 h-56 bg-lima-muted rounded-full blur-3xl opacity-50" />
-          <div className="absolute top-32 left-1/3 w-48 h-48 bg-naranja-muted rounded-full blur-3xl opacity-30" />
-          <div className="absolute bottom-16 right-1/4 w-40 h-40 bg-terracota-muted rounded-full blur-3xl opacity-30" />
-        </div>
-        <div className="container py-16 md:py-24 relative z-10">
-          <div className="max-w-3xl">
-            <span className="badge badge-naranja mb-4">{t('hero.badge')}</span>
-            <h1 className="mb-6">{t('hero.title')}</h1>
-            <p className="text-lg text-gris-600">{t('hero.description')}</p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        badge={{ text: t('hero.badge'), color: 'naranja' }}
+        title={t('hero.title')}
+        description={t('hero.description')}
+        background="shapes"
+        backgroundVariant="scattered"
+      />
 
       {/* Formas de participar */}
       <section className="section bg-white">

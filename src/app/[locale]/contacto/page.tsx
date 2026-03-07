@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { HeroSection } from '@/components/sections';
 import { EmailIcon, HeartIcon, PartnersIcon, LinkIcon, MobilityIcon, LocationIcon, HashIcon, FacebookIcon, InstagramIcon, DocumentIcon, ChevronRightIcon } from '@/components/ui';
 import { CONTACT, SOCIAL, INSTITUTIONAL } from '@/config/constants';
 
@@ -18,22 +19,13 @@ export default async function ContactoPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-gris-50 to-white relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-16 right-16 w-64 h-64 bg-naranja-muted rounded-full blur-3xl opacity-50" />
-          <div className="absolute bottom-8 left-8 w-56 h-56 bg-lima-muted rounded-full blur-3xl opacity-50" />
-          <div className="absolute top-28 left-1/3 w-44 h-44 bg-azul-muted rounded-full blur-3xl opacity-30" />
-          <div className="absolute bottom-16 right-1/4 w-48 h-48 bg-terracota-muted rounded-full blur-3xl opacity-30" />
-        </div>
-        <div className="container py-16 md:py-24 relative z-10">
-          <div className="max-w-3xl">
-            <span className="badge badge-naranja mb-4">{t('hero.badge')}</span>
-            <h1 className="mb-6">{t('hero.title')}</h1>
-            <p className="text-lg text-gris-600">{t('hero.description')}</p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        badge={{ text: t('hero.badge'), color: 'naranja' }}
+        title={t('hero.title')}
+        description={t('hero.description')}
+        background="shapes"
+        backgroundVariant="scattered"
+      />
 
       {/* Contenido principal */}
       <section className="section bg-white">
@@ -60,7 +52,7 @@ export default async function ContactoPage() {
               {/* Opciones de contacto rápido */}
               <div className="grid grid-cols-2 gap-4">
                 <a
-                  href={`${CONTACT.EMAIL_HREF}?subject=Quiero%20ser%20voluntario/a`}
+                  href={`${CONTACT.EMAIL_HREF}?subject=${encodeURIComponent(t('form.subjectOptions.volunteer'))}`}
                   className="card hover:border-azul hover:shadow-md transition-all text-center p-4"
                 >
                   <div className="w-10 h-10 bg-azul/10 rounded-lg flex items-center justify-center mx-auto mb-2">
@@ -69,7 +61,7 @@ export default async function ContactoPage() {
                   <span className="text-sm font-medium text-gris-700">{t('form.subjectOptions.volunteer')}</span>
                 </a>
                 <a
-                  href={`${CONTACT.EMAIL_HREF}?subject=Quiero%20participar%20en%20proyectos`}
+                  href={`${CONTACT.EMAIL_HREF}?subject=${encodeURIComponent(t('form.subjectOptions.participate'))}`}
                   className="card hover:border-lima hover:shadow-md transition-all text-center p-4"
                 >
                   <div className="w-10 h-10 bg-lima/10 rounded-lg flex items-center justify-center mx-auto mb-2">
@@ -78,7 +70,7 @@ export default async function ContactoPage() {
                   <span className="text-sm font-medium text-gris-700">{t('form.subjectOptions.participate')}</span>
                 </a>
                 <a
-                  href={`${CONTACT.EMAIL_HREF}?subject=Propuesta%20de%20colaboraci%C3%B3n`}
+                  href={`${CONTACT.EMAIL_HREF}?subject=${encodeURIComponent(t('form.subjectOptions.collaboration'))}`}
                   className="card hover:border-naranja hover:shadow-md transition-all text-center p-4"
                 >
                   <div className="w-10 h-10 bg-naranja/10 rounded-lg flex items-center justify-center mx-auto mb-2">
@@ -87,7 +79,7 @@ export default async function ContactoPage() {
                   <span className="text-sm font-medium text-gris-700">{t('form.subjectOptions.collaboration')}</span>
                 </a>
                 <a
-                  href={`${CONTACT.EMAIL_HREF}?subject=B%C3%BAsqueda%20de%20partners%20Erasmus%2B`}
+                  href={`${CONTACT.EMAIL_HREF}?subject=${encodeURIComponent(t('form.subjectOptions.partner'))}`}
                   className="card hover:border-terracota hover:shadow-md transition-all text-center p-4"
                 >
                   <div className="w-10 h-10 bg-terracota/10 rounded-lg flex items-center justify-center mx-auto mb-2">

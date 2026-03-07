@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
+import { HeroSection } from '@/components/sections';
+import { UsersIcon, EducationIcon, HeartIcon, HomeIcon } from '@/components/ui';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -40,24 +42,13 @@ export default async function ProyectosPage() {
 
   return (
     <>
-      {/* Hero - Con los 4 colores */}
-      <section className="bg-gradient-to-br from-gris-50 to-white relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-16 right-20 w-64 h-64 bg-terracota-muted rounded-full blur-3xl opacity-50" />
-          <div className="absolute bottom-8 left-12 w-56 h-56 bg-azul-muted rounded-full blur-3xl opacity-50" />
-          <div className="absolute top-24 left-1/4 w-48 h-48 bg-lima-muted rounded-full blur-3xl opacity-30" />
-          <div className="absolute bottom-12 right-1/3 w-44 h-44 bg-naranja-muted rounded-full blur-3xl opacity-30" />
-        </div>
-        <div className="container py-16 md:py-24 relative z-10">
-          <div className="max-w-3xl">
-            <span className="badge badge-terracota mb-4">{t('hero.badge')}</span>
-            <h1 className="mb-6">{t('hero.title')}</h1>
-            <p className="text-lg text-gris-600">
-              {t('hero.description')}
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        badge={{ text: t('hero.badge'), color: 'terracota' }}
+        title={t('hero.title')}
+        description={t('hero.description')}
+        background="shapes"
+        backgroundVariant="scattered"
+      />
 
       {/* Estado actual */}
       <section className="section bg-white">
@@ -133,50 +124,34 @@ export default async function ProyectosPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="card text-center">
               <div className="w-16 h-16 bg-naranja/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-naranja" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                </svg>
+                <UsersIcon className="w-8 h-8 text-naranja" />
               </div>
               <h3 className="font-semibold mb-2">{t('types.youthExchanges.title')}</h3>
-              <p className="text-sm text-gris-600">
-                {t('types.youthExchanges.description')}
-              </p>
+              <p className="text-sm text-gris-600">{t('types.youthExchanges.description')}</p>
             </div>
 
             <div className="card text-center">
               <div className="w-16 h-16 bg-lima/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-lima-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
-                </svg>
+                <EducationIcon className="w-8 h-8 text-lima-dark" />
               </div>
               <h3 className="font-semibold mb-2">{t('types.trainingCourses.title')}</h3>
-              <p className="text-sm text-gris-600">
-                {t('types.trainingCourses.description')}
-              </p>
+              <p className="text-sm text-gris-600">{t('types.trainingCourses.description')}</p>
             </div>
 
             <div className="card text-center">
               <div className="w-16 h-16 bg-terracota/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-terracota" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                </svg>
+                <HeartIcon className="w-8 h-8 text-terracota" />
               </div>
               <h3 className="font-semibold mb-2">{t('types.volunteering.title')}</h3>
-              <p className="text-sm text-gris-600">
-                {t('types.volunteering.description')}
-              </p>
+              <p className="text-sm text-gris-600">{t('types.volunteering.description')}</p>
             </div>
 
             <div className="card text-center">
               <div className="w-16 h-16 bg-naranja/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-naranja" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                </svg>
+                <HomeIcon className="w-8 h-8 text-naranja" />
               </div>
               <h3 className="font-semibold mb-2">{t('types.localActivities.title')}</h3>
-              <p className="text-sm text-gris-600">
-                {t('types.localActivities.description')}
-              </p>
+              <p className="text-sm text-gris-600">{t('types.localActivities.description')}</p>
             </div>
           </div>
         </div>

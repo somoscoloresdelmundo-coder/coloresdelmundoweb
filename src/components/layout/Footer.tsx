@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { LocationIcon, EmailIcon, FacebookIcon, InstagramIcon } from '@/components/ui';
 import { ColorVariant, colorClasses } from '@/types/ui';
+import { CONTACT, SOCIAL, INSTITUTIONAL } from '@/config/constants';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -121,15 +122,15 @@ export default function Footer() {
                   <EmailIcon className="w-5 h-5 text-naranja-dark" />
                 </div>
                 <a
-                  href="mailto:somoscoloresdelmundo@gmail.com"
+                  href={CONTACT.EMAIL_HREF}
                   className="text-gris-600 hover:text-naranja-dark transition-colors break-all"
                 >
-                  somoscoloresdelmundo@gmail.com
+                  {CONTACT.EMAIL}
                 </a>
               </li>
               <li className="flex items-center gap-3 pt-2">
                 <a
-                  href="https://www.facebook.com/profile.php?id=61584137712755"
+                  href={SOCIAL.FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl bg-lima-pastel flex items-center justify-center text-lima-dark hover:bg-lima-soft hover:scale-110 transition-all duration-300"
@@ -138,7 +139,7 @@ export default function Footer() {
                   <FacebookIcon />
                 </a>
                 <a
-                  href="https://www.instagram.com/coloresdelmundo__"
+                  href={SOCIAL.INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl bg-terracota-pastel flex items-center justify-center text-terracota-dark hover:bg-terracota-soft hover:scale-110 transition-all duration-300"
@@ -164,7 +165,7 @@ export default function Footer() {
               &copy; {currentYear} {t('copyright')}
             </p>
             <div className="flex items-center gap-4 text-gris-500 text-sm">
-              <span className="px-3 py-1 bg-azul-pastel/50 text-azul-dark rounded-full font-medium">OID: E10413227</span>
+              <span className="px-3 py-1 bg-azul-pastel/50 text-azul-dark rounded-full font-medium">OID: {INSTITUTIONAL.OID}</span>
             </div>
           </div>
         </div>

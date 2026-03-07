@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { Header, Footer } from '@/components/layout';
 import { routing } from '@/i18n/routing';
+import { CONTACT, SOCIAL } from '@/config/constants';
 
 // Generar rutas estáticas para cada locale
 export function generateStaticParams() {
@@ -150,10 +151,10 @@ export default async function LocaleLayout({
       postalCode: '46730',
       addressCountry: 'ES',
     },
-    email: 'somoscoloresdelmundo@gmail.com',
+    email: CONTACT.EMAIL,
     sameAs: [
-      'https://www.facebook.com/profile.php?id=61584137712755',
-      'https://www.instagram.com/coloresdelmundo__'
+      SOCIAL.FACEBOOK_URL,
+      SOCIAL.INSTAGRAM_URL,
     ],
     areaServed: 'Europe',
     knowsLanguage: ['es', 'en'],
