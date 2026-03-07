@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Inter, Poppins } from 'next/font/google';
+import { SmoothScroll } from '@/components/providers';
 import './globals.css';
 
 // Fuentes optimizadas
@@ -22,7 +23,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html className={`${inter.variable} ${poppins.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

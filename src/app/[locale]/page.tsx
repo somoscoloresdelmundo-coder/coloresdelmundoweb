@@ -19,6 +19,9 @@ import { ColorVariant } from '@/types/ui';
 import { INSTITUTIONAL } from '@/config/constants';
 import { ROUTES } from '@/config/routes';
 
+// Static stagger classes - Tailwind requires static class names for purging
+const STAGGER = ['stagger-1', 'stagger-2', 'stagger-3', 'stagger-4', 'stagger-5', 'stagger-6', 'stagger-7', 'stagger-8'] as const;
+
 export default async function HomePage() {
   const t = await getTranslations('home');
   const tCommon = await getTranslations('common');
@@ -168,7 +171,7 @@ export default async function HomePage() {
             href={ROUTES.WHAT_WE_DO}
             linkText={tCommon('learnMore')}
             variant="bordered"
-            className={`stagger-${index + 1}`}
+            className={STAGGER[index] || 'stagger-1'}
           />
         ))}
       </GridSection>
@@ -198,7 +201,7 @@ export default async function HomePage() {
                   title={valor.titulo}
                   description={valor.descripcion}
                   span={valor.span}
-                  className={`stagger-${index + 1}`}
+                  className={STAGGER[index] || 'stagger-1'}
                 />
               ))}
             </div>
@@ -267,7 +270,7 @@ export default async function HomePage() {
                 description={group.descripcion}
                 color={group.color}
                 variant="bordered"
-                className={`text-center stagger-${index + 1}`}
+                className={`text-center ${STAGGER[index] || 'stagger-1'}`}
               />
             ))}
           </div>

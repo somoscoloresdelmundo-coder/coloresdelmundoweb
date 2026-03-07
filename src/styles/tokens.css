@@ -123,4 +123,78 @@
   /* Backgrounds y Foregrounds */
   --background: var(--blanco);
   --foreground: var(--gris-700);
+
+  /* =============================================
+     Tokens Semánticos (Escalabilidad + Dark Mode Ready)
+     Nivel 2: Significado contextual sobre colores raw
+     ============================================= */
+
+  /* Surface tokens - fondos de componentes */
+  --surface-primary: var(--blanco);
+  --surface-secondary: var(--gris-50);
+  --surface-tertiary: var(--gris-100);
+  --surface-elevated: var(--blanco);
+  --surface-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Content tokens - texto y contenido */
+  --content-primary: var(--negro);
+  --content-secondary: var(--gris-600);
+  --content-tertiary: var(--gris-500);
+  --content-muted: var(--gris-400);
+  --content-inverse: var(--blanco);
+
+  /* Border tokens */
+  --border-default: var(--gris-200);
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-strong: var(--gris-300);
+
+  /* Interactive tokens */
+  --interactive-primary: var(--naranja);
+  --interactive-primary-hover: var(--naranja-light);
+  --interactive-primary-active: var(--naranja-dark);
+  --interactive-secondary: var(--azul);
+
+  /* Status tokens */
+  --status-success: var(--lima);
+  --status-warning: var(--naranja);
+  --status-error: var(--terracota);
+  --status-info: var(--azul);
+
+  /* Fluid spacing - responsive usando clamp() */
+  --space-fluid-sm: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
+  --space-fluid-md: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  --space-fluid-lg: clamp(3rem, 2rem + 4vw, 5rem);
+  --space-fluid-xl: clamp(4rem, 3rem + 5vw, 7rem);
+
+  /* Fluid typography */
+  --text-fluid-sm: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
+  --text-fluid-base: clamp(1rem, 0.9rem + 0.35vw, 1.125rem);
+  --text-fluid-lg: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  --text-fluid-xl: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --text-fluid-2xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --text-fluid-display: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+}
+
+/* =============================================
+   Dark Mode Tokens (Preparación)
+   Activar con data-theme="dark" en <html>
+   ============================================= */
+[data-theme="dark"] {
+  --background: var(--negro);
+  --foreground: var(--gris-200);
+
+  --surface-primary: var(--gris-900);
+  --surface-secondary: var(--negro-light);
+  --surface-tertiary: var(--gris-800);
+  --surface-elevated: var(--gris-800);
+
+  --content-primary: var(--gris-50);
+  --content-secondary: var(--gris-300);
+  --content-tertiary: var(--gris-400);
+  --content-muted: var(--gris-500);
+  --content-inverse: var(--negro);
+
+  --border-default: var(--gris-700);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: var(--gris-600);
 }

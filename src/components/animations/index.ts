@@ -36,3 +36,9 @@ export { default as SlideIn } from './SlideIn';
 export { default as ScrollReveal } from './ScrollReveal';
 export { default as Stagger } from './Stagger';
 export { default as Hover, hoverClasses } from './Hover';
+
+// Framer Motion powered components
+export { default as MotionReveal } from './MotionReveal';
+export { default as MotionStagger } from './MotionStagger';
+export { default as MagneticButton } from './MagneticButton';
+export { default as AnimatedCounter } from './AnimatedCounter';

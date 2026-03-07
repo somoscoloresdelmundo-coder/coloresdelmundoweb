@@ -119,3 +119,128 @@
     0 0 120px rgba(242, 154, 46, 0.1);
 }
 
+/* ============================================
+   Bento Grid Layout System
+   Tendencia 2025-2026: Apple-inspired asymmetric grids
+   ============================================ */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.bento-grid > .span-2 { grid-column: span 2; }
+.bento-grid > .span-3 { grid-column: span 3; }
+.bento-grid > .span-full { grid-column: 1 / -1; }
+.bento-grid > .row-2 { grid-row: span 2; }
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-grid > .span-3 { grid-column: span 2; }
+}
+
+@media (max-width: 480px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-grid > .span-2,
+  .bento-grid > .span-3,
+  .bento-grid > .span-full { grid-column: 1 / -1; }
+}
+
+/* ============================================
+   Glassmorphism 2.0
+   Refined frosted glass with noise texture
+   ============================================ */
+
+.glass-v2 {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.glass-v2-dark {
+  background: rgba(13, 13, 13, 0.65);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   Noise Texture Overlay
+   Adds organic feel to gradients
+   ============================================ */
+
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* ============================================
+   Fluid Section Spacing
+   Responsive spacing using clamp()
+   ============================================ */
+
+.section-fluid {
+  padding-block: var(--space-fluid-lg);
+}
+
+.section-fluid-xl {
+  padding-block: var(--space-fluid-xl);
+}
+
+/* ============================================
+   Card Variants - Modern patterns
+   ============================================ */
+
+.card-bento {
+  background: var(--surface-primary);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-6);
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-bento:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   Display Typography
+   For oversized hero text
+   ============================================ */
+
+.text-display {
+  font-family: var(--font-display);
+  font-size: var(--text-fluid-display);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
