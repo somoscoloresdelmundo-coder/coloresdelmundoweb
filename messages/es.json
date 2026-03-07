@@ -194,6 +194,8 @@
       "legalNameValue": "Asociación Cultural Colores del Mundo",
       "type": "Tipo",
       "typeValue": "ONG",
+      "oid": "OID",
+      "email": "Email",
       "location": "Ubicación",
       "locationValue": "Gandía, Valencia, España"
     },

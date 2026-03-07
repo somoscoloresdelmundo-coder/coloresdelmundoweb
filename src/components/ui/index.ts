@@ -1,3 +1,4 @@
+export { default as IconContainer } from './IconContainer';
 export { default as InteractiveBackground } from './InteractiveBackground';
 export { default as LanguageSwitcher } from './LanguageSwitcher';
 export { default as Badge } from './Badge';

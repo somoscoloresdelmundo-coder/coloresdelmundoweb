@@ -6,6 +6,7 @@ import { Link } from '@/i18n/navigation';
 import { LocationIcon, EmailIcon, FacebookIcon, InstagramIcon } from '@/components/ui';
 import { ColorVariant, colorClasses } from '@/types/ui';
 import { CONTACT, SOCIAL, INSTITUTIONAL } from '@/config/constants';
+import { ROUTES } from '@/config/routes';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -14,17 +15,17 @@ export default function Footer() {
 
   const footerLinks = {
     explora: [
-      { name: tNav('about'), href: '/sobre-nosotros' as const },
-      { name: tNav('whatWeDo'), href: '/que-hacemos' as const },
-      { name: tNav('projects'), href: '/proyectos' as const },
-      { name: tNav('participate'), href: '/participa' as const },
-      { name: t('partnerInfo'), href: '/pif' as const },
+      { name: tNav('about'), href: ROUTES.ABOUT },
+      { name: tNav('whatWeDo'), href: ROUTES.WHAT_WE_DO },
+      { name: tNav('projects'), href: ROUTES.PROJECTS },
+      { name: tNav('participate'), href: ROUTES.PARTICIPATE },
+      { name: t('partnerInfo'), href: ROUTES.PIF },
     ],
     lineasAccion: [
-      { name: t('actionLine.mobility'), href: '/que-hacemos' as const, color: 'azul' as ColorVariant },
-      { name: t('actionLine.art'), href: '/que-hacemos' as const, color: 'terracota' as ColorVariant },
-      { name: t('actionLine.education'), href: '/que-hacemos' as const, color: 'lima' as ColorVariant },
-      { name: t('actionLine.digital'), href: '/que-hacemos' as const, color: 'naranja' as ColorVariant },
+      { name: t('actionLine.mobility'), href: ROUTES.WHAT_WE_DO, color: 'azul' as ColorVariant },
+      { name: t('actionLine.art'), href: ROUTES.WHAT_WE_DO, color: 'terracota' as ColorVariant },
+      { name: t('actionLine.education'), href: ROUTES.WHAT_WE_DO, color: 'lima' as ColorVariant },
+      { name: t('actionLine.digital'), href: ROUTES.WHAT_WE_DO, color: 'naranja' as ColorVariant },
     ],
   };
 

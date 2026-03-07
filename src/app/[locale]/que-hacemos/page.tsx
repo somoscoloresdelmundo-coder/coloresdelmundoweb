@@ -5,6 +5,7 @@ import { FeatureCard } from '@/components/cards';
 import { Button, ArrowIcon, MobilityIcon, ArtIcon, EducationIcon, DigitalIcon, UsersIcon, HeartIcon, CheckIcon } from '@/components/ui';
 import { MondrianGrid } from '@/components/decorations';
 import { ColorVariant, colorClasses } from '@/types/ui';
+import { ROUTES } from '@/config/routes';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -63,7 +64,7 @@ function ActionLineSection({
             <h2 className="mb-5">{title}</h2>
             <p className="text-gris-600 mb-8 text-lg leading-relaxed">{description}</p>
 
-            <Button href="/participa" variant="outline" icon={<ArrowIcon />}>
+            <Button href={ROUTES.PARTICIPATE} variant="outline" icon={<ArrowIcon />}>
               {ctaText}
             </Button>
           </div>
@@ -230,8 +231,8 @@ export default async function QueHacemosPage() {
       <CTASection
         title={t('cta.title')}
         description={t('cta.description')}
-        primaryButton={{ text: tCommon('seeOpportunities'), href: '/participa' }}
-        secondaryButton={{ text: tCommon('viewProjects'), href: '/proyectos', icon: false }}
+        primaryButton={{ text: tCommon('seeOpportunities'), href: ROUTES.PARTICIPATE }}
+        secondaryButton={{ text: tCommon('viewProjects'), href: ROUTES.PROJECTS, icon: false }}
         background="white"
       />
     </>

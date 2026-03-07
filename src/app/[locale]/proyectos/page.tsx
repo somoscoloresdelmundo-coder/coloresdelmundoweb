@@ -3,6 +3,8 @@ import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
 import { HeroSection } from '@/components/sections';
 import { UsersIcon, EducationIcon, HeartIcon, HomeIcon } from '@/components/ui';
+import { INSTITUTIONAL } from '@/config/constants';
+import { ROUTES } from '@/config/routes';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -74,7 +76,7 @@ export default async function ProyectosPage() {
                 </div>
               </div>
               <div className="text-center">
-                <p className="text-6xl md:text-7xl font-bold text-naranja mb-2">5+</p>
+                <p className="text-6xl md:text-7xl font-bold text-naranja mb-2">{INSTITUTIONAL.YEARS_EXPERIENCE}+</p>
                 <p className="text-gris-600">
                   {t('current.yearsExperience')}<br />
                   {t('current.inEuropeanProjects')}
@@ -173,7 +175,7 @@ export default async function ProyectosPage() {
             <p className="text-gris-600 mb-8 max-w-xl mx-auto">
               {t('partnerCta.description')}
             </p>
-            <Link href="/contacto" className="btn-primary">
+            <Link href={ROUTES.CONTACT} className="btn-primary">
               {tCommon('proposeCollaboration')}
             </Link>
           </div>
@@ -187,7 +189,7 @@ export default async function ProyectosPage() {
           <p className="text-gris-600 mb-8 max-w-xl mx-auto">
             {t('cta.description')}
           </p>
-          <Link href="/participa" className="btn-primary">
+          <Link href={ROUTES.PARTICIPATE} className="btn-primary">
             {tCommon('seeOpportunities')}
           </Link>
         </div>

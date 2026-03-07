@@ -6,6 +6,7 @@ import { FeatureCard, TeamCard, ValueCard } from '@/components/cards';
 import { MissionIcon, VisionIcon } from '@/components/ui';
 import { ColorVariant } from '@/types/ui';
 import { CONTACT, INSTITUTIONAL } from '@/config/constants';
+import { ROUTES } from '@/config/routes';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -135,7 +136,7 @@ export default async function SobreNosotrosPage() {
                   <dd className="text-negro">{t('institutional.legalNameValue')}</dd>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gris-100">
-                  <dt className="font-medium text-gris-600">OID</dt>
+                  <dt className="font-medium text-gris-600">{t('institutional.oid')}</dt>
                   <dd className="text-negro">{INSTITUTIONAL.OID}</dd>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gris-100">
@@ -147,7 +148,7 @@ export default async function SobreNosotrosPage() {
                   <dd className="text-negro">{t('institutional.locationValue')}</dd>
                 </div>
                 <div className="flex justify-between py-2">
-                  <dt className="font-medium text-gris-600">Email</dt>
+                  <dt className="font-medium text-gris-600">{t('institutional.email')}</dt>
                   <dd>
                     <a href={CONTACT.EMAIL_HREF} className="text-naranja">
                       {CONTACT.EMAIL}
@@ -163,16 +164,16 @@ export default async function SobreNosotrosPage() {
       <CTASection
         title={t('cta.title')}
         description={t('cta.description')}
-        primaryButton={{ text: tCommon('contactUs'), href: '/contacto', icon: false }}
+        primaryButton={{ text: tCommon('contactUs'), href: ROUTES.CONTACT, icon: false }}
         background="gray"
       />
 
       <RelatedLinks
         title={tCommon('youMightAlsoLike')}
         links={[
-          { href: '/que-hacemos', title: tCommon('whatWeDo'), description: tCommon('discoverOurPrograms') },
-          { href: '/proyectos', title: tCommon('projects'), description: tCommon('seeOurExperience') },
-          { href: '/participa', title: tCommon('participate'), description: tCommon('joinOurTeam') },
+          { href: ROUTES.WHAT_WE_DO, title: tCommon('whatWeDo'), description: tCommon('discoverOurPrograms') },
+          { href: ROUTES.PROJECTS, title: tCommon('projects'), description: tCommon('seeOurExperience') },
+          { href: ROUTES.PARTICIPATE, title: tCommon('participate'), description: tCommon('joinOurTeam') },
         ]}
       />
     </>

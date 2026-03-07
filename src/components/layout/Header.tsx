@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { PartnersIcon } from '@/components/ui/Icon';
+import { ROUTES } from '@/config/routes';
 
 export default function Header() {
   const t = useTranslations('nav');
@@ -13,11 +14,11 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   const navigation = [
-    { name: t('home'), href: '/' as const },
-    { name: t('about'), href: '/sobre-nosotros' as const },
-    { name: t('whatWeDo'), href: '/que-hacemos' as const },
-    { name: t('projects'), href: '/proyectos' as const },
-    { name: t('participate'), href: '/participa' as const },
+    { name: t('home'), href: ROUTES.HOME },
+    { name: t('about'), href: ROUTES.ABOUT },
+    { name: t('whatWeDo'), href: ROUTES.WHAT_WE_DO },
+    { name: t('projects'), href: ROUTES.PROJECTS },
+    { name: t('participate'), href: ROUTES.PARTICIPATE },
   ];
 
   useEffect(() => {
@@ -65,13 +66,13 @@ export default function Header() {
           ))}
           {/* PIF Button - Destacado para Partners */}
           <Link
-            href="/pif"
+            href={ROUTES.PIF}
             className="ml-2 px-4 py-2 bg-lima-bg text-lima-dark font-semibold text-sm rounded-lg border border-lima/30 hover:bg-lima hover:text-white hover:border-lima transition-all duration-300 flex items-center gap-2"
           >
             <PartnersIcon className="w-4 h-4" />
             {t('partners')}
           </Link>
-          <Link href="/contacto" className="btn-primary ml-2">
+          <Link href={ROUTES.CONTACT} className="btn-primary ml-2">
             {t('contact')}
           </Link>
           <div className="ml-3">
@@ -130,7 +131,7 @@ export default function Header() {
           ))}
           {/* PIF Link - Destacado */}
           <Link
-            href="/pif"
+            href={ROUTES.PIF}
             className="py-3 px-4 rounded-lg bg-lima-bg text-lima-dark font-semibold flex items-center gap-2 hover:bg-lima hover:text-white transition-colors"
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -138,7 +139,7 @@ export default function Header() {
             {t('partners')} - {t('pif')}
           </Link>
           <Link
-            href="/contacto"
+            href={ROUTES.CONTACT}
             className="btn-primary text-center mt-2"
             onClick={() => setMobileMenuOpen(false)}
           >

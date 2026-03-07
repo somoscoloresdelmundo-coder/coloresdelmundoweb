@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { HeroSection } from '@/components/sections';
-import { EmailIcon, HeartIcon, PartnersIcon, LinkIcon, MobilityIcon, LocationIcon, HashIcon, FacebookIcon, InstagramIcon, DocumentIcon, ChevronRightIcon } from '@/components/ui';
+import { IconContainer, EmailIcon, HeartIcon, PartnersIcon, LinkIcon, MobilityIcon, LocationIcon, HashIcon, FacebookIcon, InstagramIcon, DocumentIcon, ChevronRightIcon } from '@/components/ui';
 import { CONTACT, SOCIAL, INSTITUTIONAL } from '@/config/constants';
+import { ROUTES } from '@/config/routes';
+import { colorClasses, type ColorVariant } from '@/types/ui';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -51,42 +53,26 @@ export default async function ContactoPage() {
 
               {/* Opciones de contacto rápido */}
               <div className="grid grid-cols-2 gap-4">
-                <a
-                  href={`${CONTACT.EMAIL_HREF}?subject=${encodeURIComponent(t('form.subjectOptions.volunteer'))}`}
-                  className="card hover:border-azul hover:shadow-md transition-all text-center p-4"
-                >
-                  <div className="w-10 h-10 bg-azul/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <HeartIcon className="w-5 h-5 text-azul" />
-                  </div>
-                  <span className="text-sm font-medium text-gris-700">{t('form.subjectOptions.volunteer')}</span>
-                </a>
-                <a
-                  href={`${CONTACT.EMAIL_HREF}?subject=${encodeURIComponent(t('form.subjectOptions.participate'))}`}
-                  className="card hover:border-lima hover:shadow-md transition-all text-center p-4"
-                >
-                  <div className="w-10 h-10 bg-lima/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <PartnersIcon className="w-5 h-5 text-lima-dark" />
-                  </div>
-                  <span className="text-sm font-medium text-gris-700">{t('form.subjectOptions.participate')}</span>
-                </a>
-                <a
-                  href={`${CONTACT.EMAIL_HREF}?subject=${encodeURIComponent(t('form.subjectOptions.collaboration'))}`}
-                  className="card hover:border-naranja hover:shadow-md transition-all text-center p-4"
-                >
-                  <div className="w-10 h-10 bg-naranja/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <LinkIcon className="w-5 h-5 text-naranja" />
-                  </div>
-                  <span className="text-sm font-medium text-gris-700">{t('form.subjectOptions.collaboration')}</span>
-                </a>
-                <a
-                  href={`${CONTACT.EMAIL_HREF}?subject=${encodeURIComponent(t('form.subjectOptions.partner'))}`}
-                  className="card hover:border-terracota hover:shadow-md transition-all text-center p-4"
-                >
-                  <div className="w-10 h-10 bg-terracota/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <MobilityIcon className="w-5 h-5 text-terracota" />
-                  </div>
-                  <span className="text-sm font-medium text-gris-700">{t('form.subjectOptions.partner')}</span>
-                </a>
+                {([
+                  { key: 'volunteer', color: 'azul' as ColorVariant, icon: <HeartIcon className="w-5 h-5" /> },
+                  { key: 'participate', color: 'lima' as ColorVariant, icon: <PartnersIcon className="w-5 h-5" /> },
+                  { key: 'collaboration', color: 'naranja' as ColorVariant, icon: <LinkIcon className="w-5 h-5" /> },
+                  { key: 'partner', color: 'terracota' as ColorVariant, icon: <MobilityIcon className="w-5 h-5" /> },
+                ] as const).map((option) => {
+                  const colors = colorClasses[option.color];
+                  return (
+                    <a
+                      key={option.key}
+                      href={`${CONTACT.EMAIL_HREF}?subject=${encodeURIComponent(t(`form.subjectOptions.${option.key}`))}`}
+                      className={`card border border-transparent ${colors.hoverBorder} hover:shadow-md transition-all text-center p-4`}
+                    >
+                      <IconContainer color={option.color} className="mx-auto mb-2">
+                        {option.icon}
+                      </IconContainer>
+                      <span className="text-sm font-medium text-gris-700">{t(`form.subjectOptions.${option.key}`)}</span>
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
@@ -98,9 +84,9 @@ export default async function ContactoPage() {
                 {/* Email */}
                 <div className="card">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-naranja/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <IconContainer color="naranja" size="lg" rounded="xl" className="flex-shrink-0">
                       <EmailIcon className="w-6 h-6 text-naranja" />
-                    </div>
+                    </IconContainer>
                     <div>
                       <h3 className="font-semibold mb-1">{t('info.email')}</h3>
                       <a href={CONTACT.EMAIL_HREF} className="text-naranja hover:text-naranja-dark">
@@ -114,9 +100,9 @@ export default async function ContactoPage() {
                 {/* Ubicación */}
                 <div className="card">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-lima/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <IconContainer color="lima" size="lg" rounded="xl" className="flex-shrink-0">
                       <LocationIcon className="w-6 h-6 text-lima-dark" />
-                    </div>
+                    </IconContainer>
                     <div>
                       <h3 className="font-semibold mb-1">{t('info.location')}</h3>
                       <p className="text-gris-700">
@@ -131,9 +117,9 @@ export default async function ContactoPage() {
                 {/* Redes sociales */}
                 <div className="card">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-terracota/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <IconContainer color="terracota" size="lg" rounded="xl" className="flex-shrink-0">
                       <HashIcon className="w-6 h-6 text-terracota" />
-                    </div>
+                    </IconContainer>
                     <div>
                       <h3 className="font-semibold mb-2">{t('info.followUs')}</h3>
                       <div className="flex gap-4">
@@ -170,7 +156,7 @@ export default async function ContactoPage() {
                       <h3 className="font-semibold mb-1 text-lima-dark">{t('partner.title')}</h3>
                       <p className="text-sm text-gris-600 mb-3">{t('partner.description')}</p>
                       <Link
-                        href="/pif"
+                        href={ROUTES.PIF}
                         className="inline-flex items-center gap-2 text-sm font-semibold text-lima-dark hover:text-lima transition-colors"
                       >
                         <DocumentIcon className="w-4 h-4" />

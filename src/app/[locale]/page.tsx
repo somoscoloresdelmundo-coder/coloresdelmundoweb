@@ -17,6 +17,7 @@ import { MondrianGrid } from '@/components/decorations';
 import { AnimatedNumber } from '@/components/artistic';
 import { ColorVariant } from '@/types/ui';
 import { INSTITUTIONAL } from '@/config/constants';
+import { ROUTES } from '@/config/routes';
 
 export default async function HomePage() {
   const t = await getTranslations('home');
@@ -102,10 +103,10 @@ export default async function HomePage() {
                 {t('hero.description')}
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button href="/participa" variant="primary" icon={<ArrowIcon />}>
+                <Button href={ROUTES.PARTICIPATE} variant="primary" icon={<ArrowIcon />}>
                   {tCommon('join')}
                 </Button>
-                <Button href="/sobre-nosotros" variant="secondary">
+                <Button href={ROUTES.ABOUT} variant="secondary">
                   {tCommon('knowOurHistory')}
                 </Button>
               </div>
@@ -164,7 +165,7 @@ export default async function HomePage() {
             title={linea.titulo}
             description={linea.descripcion}
             color={linea.color}
-            href="/que-hacemos"
+            href={ROUTES.WHAT_WE_DO}
             linkText={tCommon('learnMore')}
             variant="bordered"
             className={`stagger-${index + 1}`}
@@ -185,7 +186,7 @@ export default async function HomePage() {
               <blockquote className="border-l-2 border-gris-200 pl-6 italic text-gris-600 mb-8 py-2">
                 &ldquo;{t('aboutPreview.quote')}&rdquo;
               </blockquote>
-              <Button href="/sobre-nosotros" variant="outline" icon={<ArrowIcon />}>
+              <Button href={ROUTES.ABOUT} variant="outline" icon={<ArrowIcon />}>
                 {tCommon('knowMoreAboutUs')}
               </Button>
             </div>
@@ -277,8 +278,8 @@ export default async function HomePage() {
       <CTASection
         title={t('cta.title')}
         description={t('cta.description')}
-        primaryButton={{ text: tCommon('participateWithUs'), href: '/participa' }}
-        secondaryButton={{ text: tCommon('contactUs'), href: '/contacto', icon: false }}
+        primaryButton={{ text: tCommon('participateWithUs'), href: ROUTES.PARTICIPATE }}
+        secondaryButton={{ text: tCommon('contactUs'), href: ROUTES.CONTACT, icon: false }}
         background="mondrian"
       />
     </>

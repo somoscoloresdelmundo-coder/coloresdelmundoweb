@@ -5,6 +5,7 @@ import { getTranslations } from 'next-intl/server';
 import { MobilityIcon, ArtIcon, EducationIcon, DigitalIcon, UsersIcon, YouthWorkersIcon, EducatorIcon, GlobeIcon, ShieldCheckIcon, CheckFilledIcon, CheckCircleIcon, BookIcon, HeartIcon, UserIcon, EmailIcon, InstagramIcon, ArrowRightIcon } from '@/components/ui';
 import { colorClasses } from '@/types/ui';
 import { CONTACT, SOCIAL, INSTITUTIONAL, COLOR_CYCLE, LINES_OF_ACTION } from '@/config/constants';
+import { ROUTES } from '@/config/routes';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -63,7 +64,7 @@ export default async function PIFPage() {
               <p className="text-lg text-gris-600 mb-6 max-w-lg">{t('hero.description')}</p>
               <div className="flex flex-wrap gap-3">
                 <DownloadPIFButton />
-                <Link href="/contacto" className="btn-secondary">{tCommon('contact')}</Link>
+                <Link href={ROUTES.CONTACT} className="btn-secondary">{tCommon('contact')}</Link>
               </div>
             </div>
 
@@ -463,7 +464,7 @@ export default async function PIFPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <DownloadPIFButton />
               <Link
-                href="/contacto"
+                href={ROUTES.CONTACT}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 text-white rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm"
               >
                 {tCommon('contact')}

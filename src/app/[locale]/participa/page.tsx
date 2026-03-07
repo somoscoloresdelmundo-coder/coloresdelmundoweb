@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { HeroSection } from '@/components/sections';
 import { HeartIcon, YouthWorkersIcon, LinkIcon, CheckIcon, DocumentIcon, PartnersIcon } from '@/components/ui';
 import { ColorVariant, colorClasses } from '@/types/ui';
+import { ROUTES } from '@/config/routes';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -121,7 +122,7 @@ export default async function ParticipaPage() {
                     ))}
                   </ul>
                   <Link
-                    href={forma.key === 'partner' ? '/pif' : '/contacto'}
+                    href={forma.key === 'partner' ? ROUTES.PIF : ROUTES.CONTACT}
                     className={`btn-outline w-full flex items-center justify-center gap-2 ${colors.border} ${colors.textDark} ${colors.hoverBg}`}
                   >
                     {forma.key === 'partner' && <DocumentIcon className="w-4 h-4" />}
@@ -224,13 +225,13 @@ export default async function ParticipaPage() {
                   <p className="text-gris-600 mb-6 text-lg">{t('partnerCTA.description')}</p>
                   <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                     <Link
-                      href="/pif"
+                      href={ROUTES.PIF}
                       className="btn-primary bg-lima hover:bg-lima-dark flex items-center gap-2"
                     >
                       <DocumentIcon className="w-5 h-5" />
                       {t('partnerCTA.button')}
                     </Link>
-                    <Link href="/contacto" className="btn-secondary">
+                    <Link href={ROUTES.CONTACT} className="btn-secondary">
                       {tCommon('contactUs')}
                     </Link>
                   </div>
@@ -246,7 +247,7 @@ export default async function ParticipaPage() {
         <div className="container text-center">
           <h2 className="mb-6">{t('cta.title')}</h2>
           <p className="text-gris-600 mb-8 max-w-xl mx-auto">{t('cta.description')}</p>
-          <Link href="/contacto" className="btn-primary">
+          <Link href={ROUTES.CONTACT} className="btn-primary">
             {tCommon('contactNow')}
           </Link>
         </div>

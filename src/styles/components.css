@@ -167,11 +167,6 @@
   cursor: pointer;
 }
 
-.card.hover\:border-naranja:hover {
-  border-color: rgba(242, 154, 46, 0.3);
-  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(242, 154, 46, 0.1);
-}
-
 /* Badge */
 .badge {
   display: inline-flex;
@@ -259,17 +254,3 @@
   transform: translateX(4px);
 }
 
-/* Card con borde de color en hover */
-.card-color-border {
-  border-left: 4px solid transparent;
-  transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.card-color-border.border-azul { border-left-color: var(--azul-bg); }
-.card-color-border.border-azul:hover { border-left-color: var(--azul); }
-.card-color-border.border-lima { border-left-color: var(--lima-bg); }
-.card-color-border.border-lima:hover { border-left-color: var(--lima); }
-.card-color-border.border-naranja { border-left-color: var(--naranja-bg); }
-.card-color-border.border-naranja:hover { border-left-color: var(--naranja); }
-.card-color-border.border-terracota { border-left-color: var(--terracota-bg); }
-.card-color-border.border-terracota:hover { border-left-color: var(--terracota); }
