@@ -16,6 +16,7 @@ import { FeatureCard, ValueCard } from '@/components/cards';
 import { MondrianGrid } from '@/components/decorations';
 import { AnimatedNumber } from '@/components/artistic';
 import { ColorVariant } from '@/types/ui';
+import { INSTITUTIONAL } from '@/config/constants';
 
 export default async function HomePage() {
   const t = await getTranslations('home');
@@ -233,7 +234,7 @@ export default async function HomePage() {
                 <div className="text-center md:text-right">
                   <div className="inline-block bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
                     <p className="text-6xl md:text-7xl font-bold text-naranja-dark">
-                      <AnimatedNumber value={5} suffix="+" />
+                      <AnimatedNumber value={INSTITUTIONAL.YEARS_EXPERIENCE} suffix="+" />
                     </p>
                     <p className="text-gris-700 text-lg mt-2 font-medium">{t('erasmus.yearsExperience')}</p>
                     <p className="text-gris-500 text-sm mt-1">{t('erasmus.yearsDescription')}</p>

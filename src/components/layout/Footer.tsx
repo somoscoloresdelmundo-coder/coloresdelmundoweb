@@ -21,10 +21,10 @@ export default function Footer() {
       { name: t('partnerInfo'), href: '/pif' as const },
     ],
     lineasAccion: [
-      { name: t('actionLines') === 'Líneas de Acción' ? 'Acompañamiento de Movilidad' : 'Mobility Support', href: '/que-hacemos' as const, color: 'azul' as ColorVariant },
-      { name: t('actionLines') === 'Líneas de Acción' ? 'Transformación Artística' : 'Artistic Transformation', href: '/que-hacemos' as const, color: 'terracota' as ColorVariant },
-      { name: t('actionLines') === 'Líneas de Acción' ? 'Educación Alternativa' : 'Alternative Education', href: '/que-hacemos' as const, color: 'lima' as ColorVariant },
-      { name: t('actionLines') === 'Líneas de Acción' ? 'Ciudadanía Digital' : 'Digital Citizenship', href: '/que-hacemos' as const, color: 'naranja' as ColorVariant },
+      { name: t('actionLine.mobility'), href: '/que-hacemos' as const, color: 'azul' as ColorVariant },
+      { name: t('actionLine.art'), href: '/que-hacemos' as const, color: 'terracota' as ColorVariant },
+      { name: t('actionLine.education'), href: '/que-hacemos' as const, color: 'lima' as ColorVariant },
+      { name: t('actionLine.digital'), href: '/que-hacemos' as const, color: 'naranja' as ColorVariant },
     ],
   };
 

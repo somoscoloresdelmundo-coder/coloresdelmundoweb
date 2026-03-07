@@ -43,7 +43,7 @@ export default function FeatureCard({
           {icon}
         </div>
       </div>
-      <h3 className="text-lg font-semibold mb-2 group-hover:text-naranja transition-colors">
+      <h3 className={`text-lg font-semibold mb-2 ${colors.hoverText} transition-colors`}>
         {title}
       </h3>
       <p className="text-gris-600 text-sm leading-relaxed mb-4">

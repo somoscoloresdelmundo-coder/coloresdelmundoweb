@@ -8,16 +8,14 @@
    1. tokens.css     → Variables (colores, espaciado, tipografía)
    2. components.css → Botones, cards, badges, navegación
    3. utilities.css  → Clases utilitarias (gradientes, glass, glow)
-   4. effects.css    → Efectos artísticos (blobs, partículas, mondrian)
-   5. animations.css → Sistema de animaciones y scroll
-   6. artistic.css   → Cursor, parallax, tipografía artística
-   7. print.css      → Estilos de impresión
+   4. animations.css → Sistema de animaciones y scroll
+   5. artistic.css   → Cursor, parallax, tipografía artística
+   6. print.css      → Estilos de impresión
    ============================================ */
 
 @import "../styles/tokens.css";
 @import "../styles/components.css";
 @import "../styles/utilities.css";
-@import "../styles/effects.css";
 @import "../styles/animations.css";
 @import "../styles/artistic.css";
 @import "../styles/print.css";
@@ -255,22 +253,7 @@ a:hover {
   to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* Animation classes */
+/* Animation classes using keyframes from animations.css */
 .animate-fadeIn { animation: fadeInUp var(--duration-slow) var(--ease-out-expo) forwards; }
 .animate-fadeInUp { animation: fadeInUp var(--duration-slow) var(--ease-out-expo) forwards; }
 .animate-fadeInDown { animation: fadeInDown var(--duration-slow) var(--ease-out-expo) forwards; }
@@ -281,12 +264,10 @@ a:hover {
 .animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
 .animate-pulse-slow { animation: pulse-soft 3s ease-in-out infinite; }
 
-/* Stagger */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
 
 /* Hidden until animated */
 .animate-fadeIn,
@@ -294,29 +275,6 @@ a:hover {
 .animate-scaleIn {
   opacity: 0;
   animation-fill-mode: forwards;
-}
-
-/* Scroll Animations (CSS Native) */
-@supports (animation-timeline: scroll()) {
-  .scroll-fade-in {
-    animation: fadeInUp linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-  }
-
-  .scroll-scale-in {
-    animation: scaleIn linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-  }
-}
-
-@supports not (animation-timeline: scroll()) {
-  .scroll-fade-in,
-  .scroll-scale-in {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 /* ============================================

@@ -3,8 +3,8 @@ import { Link } from '@/i18n/navigation';
 import DownloadPIFButton from '@/components/ui/DownloadPIFButton';
 import { getTranslations } from 'next-intl/server';
 import { MobilityIcon, ArtIcon, EducationIcon, DigitalIcon, UsersIcon, YouthWorkersIcon, EducatorIcon, GlobeIcon, ShieldCheckIcon, CheckFilledIcon, CheckCircleIcon, BookIcon, HeartIcon, UserIcon, EmailIcon, InstagramIcon, ArrowRightIcon } from '@/components/ui';
-import { ColorVariant, colorClasses } from '@/types/ui';
-import { CONTACT, SOCIAL, INSTITUTIONAL } from '@/config/constants';
+import { colorClasses } from '@/types/ui';
+import { CONTACT, SOCIAL, INSTITUTIONAL, COLOR_CYCLE, LINES_OF_ACTION } from '@/config/constants';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -35,22 +35,13 @@ export default async function PIFPage() {
   const t = await getTranslations('pif');
   const tCommon = await getTranslations('common');
 
-  const linesOfAction: Array<{ key: string; color: ColorVariant }> = [
-    { key: 'mobility', color: 'azul' },
-    { key: 'art', color: 'terracota' },
-    { key: 'education', color: 'lima' },
-    { key: 'digital', color: 'naranja' },
+  const targetGroups = [
+    { key: 'youngPeople', color: 'azul' as const },
+    { key: 'youthWorkers', color: 'lima' as const },
+    { key: 'educators', color: 'naranja' as const },
+    { key: 'migrants', color: 'terracota' as const },
+    { key: 'disadvantaged', color: 'azul' as const },
   ];
-
-  const targetGroups: Array<{ key: string; color: ColorVariant }> = [
-    { key: 'youngPeople', color: 'azul' },
-    { key: 'youthWorkers', color: 'lima' },
-    { key: 'educators', color: 'naranja' },
-    { key: 'migrants', color: 'terracota' },
-    { key: 'disadvantaged', color: 'azul' },
-  ];
-
-  const colorCycle: ColorVariant[] = ['azul', 'lima', 'naranja', 'terracota'];
 
   return (
     <>
@@ -153,7 +144,7 @@ export default async function PIFPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {linesOfAction.map((line, index) => {
+              {LINES_OF_ACTION.map((line, index) => {
                 const colors = colorClasses[line.color];
                 return (
                   <div
@@ -244,7 +235,7 @@ export default async function PIFPage() {
                 </div>
 
                 <div className="text-center p-8 bg-gris-50 rounded-2xl">
-                  <p className="text-6xl font-black text-naranja mb-2">5+</p>
+                  <p className="text-6xl font-black text-naranja mb-2">{INSTITUTIONAL.YEARS_EXPERIENCE}+</p>
                   <p className="text-gris-600 font-medium">{t('experience.yearsExperience')}</p>
                   <p className="text-sm text-gris-500">{t('experience.inErasmus')}</p>
                 </div>
@@ -296,7 +287,7 @@ export default async function PIFPage() {
 
             <div className="flex flex-wrap justify-center gap-3">
               {(t.raw('euPriorities.items') as string[]).map((priority: string, index: number) => {
-                const color = colorCycle[index % colorCycle.length];
+                const color = COLOR_CYCLE[index % COLOR_CYCLE.length];
                 const colors = colorClasses[color];
                 return (
                   <span
@@ -325,7 +316,7 @@ export default async function PIFPage() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {(t.raw('collaboration.items') as Array<{ name: string; desc: string }>).map((item, index: number) => {
-                const color = colorCycle[index % colorCycle.length];
+                const color = COLOR_CYCLE[index % COLOR_CYCLE.length];
                 const colors = colorClasses[color];
                 return (
                   <div

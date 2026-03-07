@@ -88,45 +88,4 @@
     background-color: #f9f9f9 !important;
   }
 
-  /* PIF Page */
-  .pif-header {
-    border-bottom: 3px solid;
-    border-image: linear-gradient(90deg, var(--azul), var(--lima), var(--naranja), var(--terracota)) 1;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .pif-section {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    border-left: 4px solid var(--naranja);
-    background: #fafafa;
-  }
-
-  .pif-info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .page-break {
-    page-break-before: always;
-    break-before: always;
-  }
-
-  .no-break {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-
-/* Clase para ocultar en pantalla pero mostrar en impresión */
-.print-only {
-  display: none !important;
-}
-
-@media print {
-  .print-only {
-    display: block !important;
-  }
 }

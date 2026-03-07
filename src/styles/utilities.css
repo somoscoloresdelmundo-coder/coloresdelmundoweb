@@ -15,20 +15,6 @@
 .bg-naranja-subtle { background-color: var(--naranja-subtle); }
 .bg-terracota-subtle { background-color: var(--terracota-subtle); }
 
-/* Aliases de compatibilidad */
-.bg-azul-pastel { background-color: var(--azul-bg); }
-.bg-lima-pastel { background-color: var(--lima-bg); }
-.bg-naranja-pastel { background-color: var(--naranja-bg); }
-.bg-terracota-pastel { background-color: var(--terracota-bg); }
-.bg-azul-soft { background-color: var(--azul-bg); }
-.bg-lima-soft { background-color: var(--lima-bg); }
-.bg-naranja-soft { background-color: var(--naranja-bg); }
-.bg-terracota-soft { background-color: var(--terracota-bg); }
-.bg-azul-muted { background-color: var(--azul-subtle); }
-.bg-lima-muted { background-color: var(--lima-subtle); }
-.bg-naranja-muted { background-color: var(--naranja-subtle); }
-.bg-terracota-muted { background-color: var(--terracota-subtle); }
-
 /* Texto con gradiente */
 .text-gradient {
   background: linear-gradient(135deg, var(--naranja) 0%, var(--terracota) 100%);
@@ -74,13 +60,6 @@
     var(--terracota-bg) 100%
   );
   border-radius: var(--radius-full);
-}
-
-/* Fondo con patrón sutil */
-.bg-pattern {
-  background-image:
-    radial-gradient(circle at 1px 1px, var(--gris-200) 1px, transparent 0);
-  background-size: 24px 24px;
 }
 
 /* Glass effect */
@@ -140,10 +119,3 @@
     0 0 120px rgba(242, 154, 46, 0.1);
 }
 
-/* Bordes con Gradiente */
-.border-gradient {
-  border: 2px solid transparent;
-  background:
-    linear-gradient(white, white) padding-box,
-    linear-gradient(135deg, var(--lima-bg), var(--naranja-bg), var(--terracota-bg)) border-box;
-}

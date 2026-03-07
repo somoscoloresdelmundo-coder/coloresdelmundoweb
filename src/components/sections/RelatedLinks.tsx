@@ -1,7 +1,8 @@
 import { Link } from '@/i18n/navigation';
 import { Pathnames } from '@/i18n/routing';
 import { ChevronRightIcon } from '@/components/ui';
-import { ColorVariant, colorClasses } from '@/types/ui';
+import { colorClasses } from '@/types/ui';
+import { COLOR_CYCLE } from '@/config/constants';
 
 interface RelatedLink {
   href: Pathnames;
@@ -14,8 +15,6 @@ interface RelatedLinksProps {
   links: RelatedLink[];
 }
 
-const colorCycle: ColorVariant[] = ['azul', 'lima', 'naranja', 'terracota'];
-
 export default function RelatedLinks({ title, links }: RelatedLinksProps) {
   return (
     <section className="py-12 bg-gris-50 border-t border-gris-100">
@@ -23,7 +22,7 @@ export default function RelatedLinks({ title, links }: RelatedLinksProps) {
         <p className="text-sm text-gris-500 uppercase tracking-wider mb-6">{title}</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {links.map((link, index) => {
-            const colors = colorClasses[colorCycle[index % colorCycle.length]];
+            const colors = colorClasses[COLOR_CYCLE[index % COLOR_CYCLE.length]];
             return (
               <Link
                 key={link.href}
