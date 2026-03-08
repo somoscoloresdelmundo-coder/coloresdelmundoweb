@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useRef, useMemo } from 'react';
-import { motion, useInView, useReducedMotion, Variants, Transition } from 'framer-motion';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
+import { motion, useInView, Variants, Transition } from 'framer-motion';
 
 // Colores de la paleta
 const COLORS = {
@@ -144,7 +144,16 @@ export const TextReveal: React.FC<TextRevealProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: threshold, once });
-  const prefersReducedMotion = useReducedMotion();
+
+  // Hydration-safe reduced motion check
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
 
   // Resolver color
   const resolvedColor = color
@@ -243,21 +252,10 @@ export const TextReveal: React.FC<TextRevealProps> = ({
     overflow: 'hidden',
   };
 
-  // Si prefiere movimiento reducido, renderizar estatico con fade
-  if (prefersReducedMotion) {
-    return (
-      <motion.div
-        ref={ref}
-        className={className}
-        style={{ color: resolvedColor }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-      >
-        {text}
-      </motion.div>
-    );
-  }
+  // Si prefiere movimiento reducido, renderizar texto simple sin animación
+  const renderSimpleText = () => (
+    <span style={{ opacity: 1 }}>{text}</span>
+  );
 
   // Renderizar con el tag apropiado
   switch (as) {
@@ -267,13 +265,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
           ref={ref as React.RefObject<HTMLHeadingElement>}
           className={className}
           style={baseStyle}
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldAnimate ? 'visible' : 'hidden'}
-          onAnimationStart={() => shouldAnimate && onAnimationStart?.()}
-          onAnimationComplete={() => shouldAnimate && onAnimationComplete?.()}
+          variants={prefersReducedMotion ? undefined : containerVariants}
+          initial={prefersReducedMotion ? { opacity: 1 } : "hidden"}
+          animate={prefersReducedMotion ? { opacity: 1 } : (shouldAnimate ? 'visible' : 'hidden')}
+          onAnimationStart={() => !prefersReducedMotion && shouldAnimate && onAnimationStart?.()}
+          onAnimationComplete={() => !prefersReducedMotion && shouldAnimate && onAnimationComplete?.()}
         >
-          {renderContent()}
+          {prefersReducedMotion ? renderSimpleText() : renderContent()}
         </motion.h1>
       );
     case 'h2':
@@ -282,13 +280,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
           ref={ref as React.RefObject<HTMLHeadingElement>}
           className={className}
           style={baseStyle}
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldAnimate ? 'visible' : 'hidden'}
-          onAnimationStart={() => shouldAnimate && onAnimationStart?.()}
-          onAnimationComplete={() => shouldAnimate && onAnimationComplete?.()}
+          variants={prefersReducedMotion ? undefined : containerVariants}
+          initial={prefersReducedMotion ? { opacity: 1 } : "hidden"}
+          animate={prefersReducedMotion ? { opacity: 1 } : (shouldAnimate ? 'visible' : 'hidden')}
+          onAnimationStart={() => !prefersReducedMotion && shouldAnimate && onAnimationStart?.()}
+          onAnimationComplete={() => !prefersReducedMotion && shouldAnimate && onAnimationComplete?.()}
         >
-          {renderContent()}
+          {prefersReducedMotion ? renderSimpleText() : renderContent()}
         </motion.h2>
       );
     case 'h3':
@@ -297,13 +295,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
           ref={ref as React.RefObject<HTMLHeadingElement>}
           className={className}
           style={baseStyle}
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldAnimate ? 'visible' : 'hidden'}
-          onAnimationStart={() => shouldAnimate && onAnimationStart?.()}
-          onAnimationComplete={() => shouldAnimate && onAnimationComplete?.()}
+          variants={prefersReducedMotion ? undefined : containerVariants}
+          initial={prefersReducedMotion ? { opacity: 1 } : "hidden"}
+          animate={prefersReducedMotion ? { opacity: 1 } : (shouldAnimate ? 'visible' : 'hidden')}
+          onAnimationStart={() => !prefersReducedMotion && shouldAnimate && onAnimationStart?.()}
+          onAnimationComplete={() => !prefersReducedMotion && shouldAnimate && onAnimationComplete?.()}
         >
-          {renderContent()}
+          {prefersReducedMotion ? renderSimpleText() : renderContent()}
         </motion.h3>
       );
     case 'h4':
@@ -312,13 +310,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
           ref={ref as React.RefObject<HTMLHeadingElement>}
           className={className}
           style={baseStyle}
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldAnimate ? 'visible' : 'hidden'}
-          onAnimationStart={() => shouldAnimate && onAnimationStart?.()}
-          onAnimationComplete={() => shouldAnimate && onAnimationComplete?.()}
+          variants={prefersReducedMotion ? undefined : containerVariants}
+          initial={prefersReducedMotion ? { opacity: 1 } : "hidden"}
+          animate={prefersReducedMotion ? { opacity: 1 } : (shouldAnimate ? 'visible' : 'hidden')}
+          onAnimationStart={() => !prefersReducedMotion && shouldAnimate && onAnimationStart?.()}
+          onAnimationComplete={() => !prefersReducedMotion && shouldAnimate && onAnimationComplete?.()}
         >
-          {renderContent()}
+          {prefersReducedMotion ? renderSimpleText() : renderContent()}
         </motion.h4>
       );
     case 'h5':
@@ -327,13 +325,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
           ref={ref as React.RefObject<HTMLHeadingElement>}
           className={className}
           style={baseStyle}
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldAnimate ? 'visible' : 'hidden'}
-          onAnimationStart={() => shouldAnimate && onAnimationStart?.()}
-          onAnimationComplete={() => shouldAnimate && onAnimationComplete?.()}
+          variants={prefersReducedMotion ? undefined : containerVariants}
+          initial={prefersReducedMotion ? { opacity: 1 } : "hidden"}
+          animate={prefersReducedMotion ? { opacity: 1 } : (shouldAnimate ? 'visible' : 'hidden')}
+          onAnimationStart={() => !prefersReducedMotion && shouldAnimate && onAnimationStart?.()}
+          onAnimationComplete={() => !prefersReducedMotion && shouldAnimate && onAnimationComplete?.()}
         >
-          {renderContent()}
+          {prefersReducedMotion ? renderSimpleText() : renderContent()}
         </motion.h5>
       );
     case 'h6':
@@ -342,13 +340,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
           ref={ref as React.RefObject<HTMLHeadingElement>}
           className={className}
           style={baseStyle}
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldAnimate ? 'visible' : 'hidden'}
-          onAnimationStart={() => shouldAnimate && onAnimationStart?.()}
-          onAnimationComplete={() => shouldAnimate && onAnimationComplete?.()}
+          variants={prefersReducedMotion ? undefined : containerVariants}
+          initial={prefersReducedMotion ? { opacity: 1 } : "hidden"}
+          animate={prefersReducedMotion ? { opacity: 1 } : (shouldAnimate ? 'visible' : 'hidden')}
+          onAnimationStart={() => !prefersReducedMotion && shouldAnimate && onAnimationStart?.()}
+          onAnimationComplete={() => !prefersReducedMotion && shouldAnimate && onAnimationComplete?.()}
         >
-          {renderContent()}
+          {prefersReducedMotion ? renderSimpleText() : renderContent()}
         </motion.h6>
       );
     case 'span':
@@ -357,13 +355,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
           ref={ref as React.RefObject<HTMLSpanElement>}
           className={className}
           style={baseStyle}
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldAnimate ? 'visible' : 'hidden'}
-          onAnimationStart={() => shouldAnimate && onAnimationStart?.()}
-          onAnimationComplete={() => shouldAnimate && onAnimationComplete?.()}
+          variants={prefersReducedMotion ? undefined : containerVariants}
+          initial={prefersReducedMotion ? { opacity: 1 } : "hidden"}
+          animate={prefersReducedMotion ? { opacity: 1 } : (shouldAnimate ? 'visible' : 'hidden')}
+          onAnimationStart={() => !prefersReducedMotion && shouldAnimate && onAnimationStart?.()}
+          onAnimationComplete={() => !prefersReducedMotion && shouldAnimate && onAnimationComplete?.()}
         >
-          {renderContent()}
+          {prefersReducedMotion ? renderSimpleText() : renderContent()}
         </motion.span>
       );
     case 'div':
@@ -372,13 +370,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
           ref={ref}
           className={className}
           style={baseStyle}
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldAnimate ? 'visible' : 'hidden'}
-          onAnimationStart={() => shouldAnimate && onAnimationStart?.()}
-          onAnimationComplete={() => shouldAnimate && onAnimationComplete?.()}
+          variants={prefersReducedMotion ? undefined : containerVariants}
+          initial={prefersReducedMotion ? { opacity: 1 } : "hidden"}
+          animate={prefersReducedMotion ? { opacity: 1 } : (shouldAnimate ? 'visible' : 'hidden')}
+          onAnimationStart={() => !prefersReducedMotion && shouldAnimate && onAnimationStart?.()}
+          onAnimationComplete={() => !prefersReducedMotion && shouldAnimate && onAnimationComplete?.()}
         >
-          {renderContent()}
+          {prefersReducedMotion ? renderSimpleText() : renderContent()}
         </motion.div>
       );
     default:
@@ -387,13 +385,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
           ref={ref as React.RefObject<HTMLParagraphElement>}
           className={className}
           style={baseStyle}
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldAnimate ? 'visible' : 'hidden'}
-          onAnimationStart={() => shouldAnimate && onAnimationStart?.()}
-          onAnimationComplete={() => shouldAnimate && onAnimationComplete?.()}
+          variants={prefersReducedMotion ? undefined : containerVariants}
+          initial={prefersReducedMotion ? { opacity: 1 } : "hidden"}
+          animate={prefersReducedMotion ? { opacity: 1 } : (shouldAnimate ? 'visible' : 'hidden')}
+          onAnimationStart={() => !prefersReducedMotion && shouldAnimate && onAnimationStart?.()}
+          onAnimationComplete={() => !prefersReducedMotion && shouldAnimate && onAnimationComplete?.()}
         >
-          {renderContent()}
+          {prefersReducedMotion ? renderSimpleText() : renderContent()}
         </motion.p>
       );
   }
