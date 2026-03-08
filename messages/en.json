@@ -464,7 +464,26 @@
       "message": "Message",
       "messagePlaceholder": "Tell us how we can help you...",
       "privacy": "I accept the privacy policy and the processing of my data to receive a response to my inquiry.",
-      "required": "*"
+      "required": "*",
+      "submitting": "Sending...",
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email",
+        "subjectRequired": "Please select a subject",
+        "messageRequired": "Message is required",
+        "messageTooShort": "Message must be at least 10 characters",
+        "privacyRequired": "You must accept the privacy policy"
+      },
+      "success": {
+        "title": "Message sent!",
+        "message": "Thank you for contacting us. We will respond as soon as possible.",
+        "sendAnother": "Send another message"
+      },
+      "error": {
+        "title": "Error sending",
+        "message": "An error occurred. Please try again or write to us directly at our email."
+      }
     },
     "info": {
       "title": "Contact information",

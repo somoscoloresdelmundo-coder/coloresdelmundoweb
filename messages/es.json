@@ -464,7 +464,26 @@
       "message": "Mensaje",
       "messagePlaceholder": "Cuéntanos cómo podemos ayudarte...",
       "privacy": "Acepto la política de privacidad y el tratamiento de mis datos para recibir respuesta a mi consulta.",
-      "required": "*"
+      "required": "*",
+      "submitting": "Enviando...",
+      "errors": {
+        "nameRequired": "El nombre es obligatorio",
+        "emailRequired": "El email es obligatorio",
+        "emailInvalid": "Introduce un email válido",
+        "subjectRequired": "Selecciona un asunto",
+        "messageRequired": "El mensaje es obligatorio",
+        "messageTooShort": "El mensaje debe tener al menos 10 caracteres",
+        "privacyRequired": "Debes aceptar la política de privacidad"
+      },
+      "success": {
+        "title": "¡Mensaje enviado!",
+        "message": "Gracias por contactarnos. Te responderemos lo antes posible.",
+        "sendAnother": "Enviar otro mensaje"
+      },
+      "error": {
+        "title": "Error al enviar",
+        "message": "Ha ocurrido un error. Por favor, inténtalo de nuevo o escríbenos directamente a nuestro email."
+      }
     },
     "info": {
       "title": "Información de contacto",

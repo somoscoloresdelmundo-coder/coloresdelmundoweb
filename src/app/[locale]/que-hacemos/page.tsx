@@ -4,6 +4,8 @@ import { HeroSection, CTASection } from '@/components/sections';
 import { FeatureCard } from '@/components/cards';
 import { Button, ArrowIcon, MobilityIcon, ArtIcon, EducationIcon, DigitalIcon, UsersIcon, HeartIcon, CheckIcon } from '@/components/ui';
 import { MondrianGrid } from '@/components/decorations';
+import { PageTransition } from '@/components/providers/PageTransition';
+import { WaveDivider, GradientTransition, DIVIDER_COLORS } from '@/components/immersive';
 import { ColorVariant, colorClasses } from '@/types/ui';
 import { ROUTES } from '@/config/routes';
 
@@ -175,13 +177,21 @@ export default async function QueHacemosPage() {
   ];
 
   return (
-    <>
+    <PageTransition>
       <HeroSection
         badge={{ text: t('hero.badge'), color: 'lima' }}
         title={t('hero.title')}
         description={t('hero.description')}
         background="shapes"
         backgroundVariant="scattered"
+      />
+
+      <WaveDivider
+        fromColor="#ffffff"
+        toColor={DIVIDER_COLORS.blue}
+        variant="gentle"
+        layers={2}
+        height={80}
       />
 
       {lineasAccion.map((linea, index) => (
@@ -228,6 +238,13 @@ export default async function QueHacemosPage() {
         </div>
       </section>
 
+      <GradientTransition
+        fromColor="#f9fafb"
+        toColor="#ffffff"
+        variant="smooth"
+        height={80}
+      />
+
       <CTASection
         title={t('cta.title')}
         description={t('cta.description')}
@@ -235,6 +252,6 @@ export default async function QueHacemosPage() {
         secondaryButton={{ text: tCommon('viewProjects'), href: ROUTES.PROJECTS, icon: false }}
         background="white"
       />
-    </>
+    </PageTransition>
   );
 }

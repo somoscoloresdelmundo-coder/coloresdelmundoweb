@@ -4,6 +4,8 @@ import { getTranslations } from 'next-intl/server';
 import { HeroSection, GridSection, QuoteSection, CTASection, RelatedLinks } from '@/components/sections';
 import { FeatureCard, TeamCard, ValueCard } from '@/components/cards';
 import { MissionIcon, VisionIcon } from '@/components/ui';
+import { PageTransition } from '@/components/providers/PageTransition';
+import { WaveDivider, GradientTransition, DIVIDER_COLORS } from '@/components/immersive';
 import { ColorVariant } from '@/types/ui';
 import { CONTACT, INSTITUTIONAL } from '@/config/constants';
 import { ROUTES } from '@/config/routes';
@@ -35,13 +37,21 @@ export default async function SobreNosotrosPage() {
   ];
 
   return (
-    <>
+    <PageTransition>
       <HeroSection
         badge={{ text: t('hero.badge'), color: 'naranja' }}
         title={t('hero.title')}
         description={t('hero.description')}
         background="shapes"
         backgroundVariant="corners"
+      />
+
+      <WaveDivider
+        fromColor="#ffffff"
+        toColor={DIVIDER_COLORS.orange}
+        variant="gentle"
+        layers={2}
+        height={80}
       />
 
       <GridSection columns={2} background="white" gap="lg">
@@ -62,6 +72,12 @@ export default async function SobreNosotrosPage() {
       </GridSection>
 
       <QuoteSection quote={t('quote')} />
+
+      <GradientTransition
+        colors={['#ffffff', DIVIDER_COLORS.lime, '#f9fafb']}
+        variant="smooth"
+        height={100}
+      />
 
       <section className="section bg-gris-50">
         <div className="container">
@@ -176,6 +192,6 @@ export default async function SobreNosotrosPage() {
           { href: ROUTES.PARTICIPATE, title: tCommon('participate'), description: tCommon('joinOurTeam') },
         ]}
       />
-    </>
+    </PageTransition>
   );
 }

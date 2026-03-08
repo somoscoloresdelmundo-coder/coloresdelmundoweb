@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { HeroSection } from '@/components/sections';
-import { IconContainer, EmailIcon, HeartIcon, PartnersIcon, LinkIcon, MobilityIcon, LocationIcon, HashIcon, FacebookIcon, InstagramIcon, DocumentIcon, ChevronRightIcon } from '@/components/ui';
+import { IconContainer, EmailIcon, LocationIcon, HashIcon, FacebookIcon, InstagramIcon, DocumentIcon, ChevronRightIcon, PartnersIcon } from '@/components/ui';
+import { ContactForm } from '@/components/forms';
+import { PageTransition } from '@/components/providers/PageTransition';
+import { WaveDivider, DIVIDER_COLORS } from '@/components/immersive';
 import { CONTACT, SOCIAL, INSTITUTIONAL } from '@/config/constants';
 import { ROUTES } from '@/config/routes';
-import { colorClasses, type ColorVariant } from '@/types/ui';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -20,7 +22,7 @@ export default async function ContactoPage() {
   const tCommon = await getTranslations('common');
 
   return (
-    <>
+    <PageTransition>
       <HeroSection
         badge={{ text: t('hero.badge'), color: 'naranja' }}
         title={t('hero.title')}
@@ -29,50 +31,23 @@ export default async function ContactoPage() {
         backgroundVariant="scattered"
       />
 
+      <WaveDivider
+        fromColor="#ffffff"
+        toColor={DIVIDER_COLORS.orange}
+        variant="gentle"
+        layers={2}
+        height={80}
+      />
+
       {/* Contenido principal */}
       <section className="section bg-white">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* CTA de Email Directo */}
+            {/* Formulario de Contacto */}
             <div>
               <h2 className="text-xl font-semibold mb-6">{t('form.title')}</h2>
-
-              <div className="bg-gradient-to-br from-naranja/10 to-lima/10 rounded-2xl p-8 mb-6">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-naranja/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <EmailIcon className="w-10 h-10 text-naranja" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gris-800 mb-2">{CONTACT.EMAIL}</h3>
-                  <p className="text-gris-600 mb-6">{t('info.emailResponse')}</p>
-                  <a href={CONTACT.EMAIL_HREF} className="btn-primary inline-flex items-center gap-2">
-                    <EmailIcon className="w-5 h-5" />
-                    {tCommon('sendMessage')}
-                  </a>
-                </div>
-              </div>
-
-              {/* Opciones de contacto rápido */}
-              <div className="grid grid-cols-2 gap-4">
-                {([
-                  { key: 'volunteer', color: 'azul' as ColorVariant, icon: <HeartIcon className="w-5 h-5" /> },
-                  { key: 'participate', color: 'lima' as ColorVariant, icon: <PartnersIcon className="w-5 h-5" /> },
-                  { key: 'collaboration', color: 'naranja' as ColorVariant, icon: <LinkIcon className="w-5 h-5" /> },
-                  { key: 'partner', color: 'terracota' as ColorVariant, icon: <MobilityIcon className="w-5 h-5" /> },
-                ] as const).map((option) => {
-                  const colors = colorClasses[option.color];
-                  return (
-                    <a
-                      key={option.key}
-                      href={`${CONTACT.EMAIL_HREF}?subject=${encodeURIComponent(t(`form.subjectOptions.${option.key}`))}`}
-                      className={`card border border-transparent ${colors.hoverBorder} hover:shadow-md transition-all text-center p-4`}
-                    >
-                      <IconContainer color={option.color} className="mx-auto mb-2">
-                        {option.icon}
-                      </IconContainer>
-                      <span className="text-sm font-medium text-gris-700">{t(`form.subjectOptions.${option.key}`)}</span>
-                    </a>
-                  );
-                })}
+              <div className="bg-gradient-to-br from-gris-50 to-naranja/5 rounded-2xl p-6 md:p-8">
+                <ContactForm />
               </div>
             </div>
 
@@ -191,6 +166,6 @@ export default async function ContactoPage() {
           </div>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 }

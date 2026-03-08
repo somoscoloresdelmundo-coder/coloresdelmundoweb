@@ -3,6 +3,8 @@ import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
 import { HeroSection } from '@/components/sections';
 import { UsersIcon, EducationIcon, HeartIcon, HomeIcon } from '@/components/ui';
+import { PageTransition } from '@/components/providers/PageTransition';
+import { WaveDivider, GradientTransition, DIVIDER_COLORS } from '@/components/immersive';
 import { INSTITUTIONAL } from '@/config/constants';
 import { ROUTES } from '@/config/routes';
 
@@ -43,13 +45,21 @@ export default async function ProyectosPage() {
   ];
 
   return (
-    <>
+    <PageTransition>
       <HeroSection
         badge={{ text: t('hero.badge'), color: 'terracota' }}
         title={t('hero.title')}
         description={t('hero.description')}
         background="shapes"
         backgroundVariant="scattered"
+      />
+
+      <WaveDivider
+        fromColor="#ffffff"
+        toColor={DIVIDER_COLORS.terracotta}
+        variant="gentle"
+        layers={2}
+        height={80}
       />
 
       {/* Estado actual */}
@@ -182,6 +192,13 @@ export default async function ProyectosPage() {
         </div>
       </section>
 
+      <GradientTransition
+        fromColor="#f9fafb"
+        toColor="#ffffff"
+        variant="smooth"
+        height={60}
+      />
+
       {/* CTA */}
       <section className="section bg-white">
         <div className="container text-center">
@@ -194,6 +211,6 @@ export default async function ProyectosPage() {
           </Link>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 }
