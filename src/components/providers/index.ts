@@ -1,15 +1,8 @@
-export { default as SmoothScroll } from './SmoothScroll';
-
-// Sistema de transiciones de pagina
+// Sistema de transiciones de pagina (simplificado)
 export {
   PageTransitionProvider,
   PageTransition,
   PageWrapper,
-  usePageTransition,
-  transitionVariants,
-  TRANSITION_COLORS,
-  type TransitionColorKey,
-  type TransitionVariant,
 } from './PageTransition';
 
 // Provider inmersivo combinado

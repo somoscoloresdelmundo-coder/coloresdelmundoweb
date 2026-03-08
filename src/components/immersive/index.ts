@@ -34,9 +34,7 @@ export {
 
 export {
   GradientTransition,
-  DIVIDER_COLORS as GRADIENT_DIVIDER_COLORS,
   type GradientTransitionProps,
-  type DividerColorKey as GradientDividerColorKey,
 } from './GradientTransition';
 
 export {
