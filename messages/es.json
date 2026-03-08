@@ -47,8 +47,8 @@
     "actionLine.education": "Educación Alternativa",
     "actionLine.digital": "Ciudadanía Digital",
     "contactTitle": "Contacto",
-    "address": "Paseo Rosa de los Vientos 39",
-    "city": "46730 Gandía, Valencia, España",
+    "address": "Gandía",
+    "city": "Valencia, España",
     "copyright": "Asociación Cultural Colores del Mundo. Todos los derechos reservados.",
     "partnerInfo": "Partner Info (PIF)"
   },
@@ -395,23 +395,23 @@
     "targetProfile": {
       "badge": "Nuestro Enfoque",
       "title": "¿A quién buscamos?",
-      "description": "Prestamos especial atención a jóvenes que enfrentan barreras para la participación, pero estamos abiertos a todas las personas que compartan nuestros valores.",
+      "description": "Buscamos personas interesadas en temas artísticos, desarrollo personal, medio ambiente y proyectos internacionales Erasmus+.",
       "profiles": {
-        "migrants": {
-          "title": "Jóvenes Migrantes",
-          "description": "Navegando la integración cultural y buscando sentido de pertenencia."
+        "art": {
+          "title": "Expresión Artística",
+          "description": "Personas interesadas en el arte como herramienta de transformación personal y social."
         },
-        "disadvantaged": {
-          "title": "Situaciones Desfavorecidas",
-          "description": "Jóvenes de contextos socioeconómicos que limitan sus oportunidades."
+        "development": {
+          "title": "Desarrollo Personal",
+          "description": "Jóvenes que buscan crecer, aprender y desarrollar nuevas habilidades."
         },
-        "rural": {
-          "title": "Áreas Rurales o Periféricas",
-          "description": "Con acceso limitado a oportunidades internacionales."
+        "environment": {
+          "title": "Medio Ambiente",
+          "description": "Personas comprometidas con la sostenibilidad y el cuidado del planeta."
         },
-        "artInterested": {
-          "title": "Interesados en Arte",
-          "description": "Personas que quieren usar el arte como herramienta de transformación."
+        "erasmus": {
+          "title": "Proyectos Erasmus+",
+          "description": "Interesados en experiencias internacionales y movilidad europea."
         }
       }
     },
@@ -469,9 +469,9 @@
       "email": "Email",
       "emailResponse": "Respondemos en 24-48 horas",
       "location": "Ubicación",
-      "address": "Paseo Rosa de los Vientos 39",
-      "addressLine2": "46730 Gandía - Grau y Playa",
-      "addressLine3": "Valencia, España",
+      "address": "Gandía",
+      "addressLine2": "Valencia, España",
+      "addressLine3": "",
       "followUs": "Síguenos",
       "institutionalData": "Datos Institucionales",
       "type": "Tipo",

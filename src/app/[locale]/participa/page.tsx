@@ -69,24 +69,24 @@ export default async function ParticipaPage() {
 
   const perfilIdeal = [
     {
-      key: 'migrants',
-      titulo: t('targetProfile.profiles.migrants.title'),
-      descripcion: t('targetProfile.profiles.migrants.description'),
+      key: 'art',
+      titulo: t('targetProfile.profiles.art.title'),
+      descripcion: t('targetProfile.profiles.art.description'),
     },
     {
-      key: 'disadvantaged',
-      titulo: t('targetProfile.profiles.disadvantaged.title'),
-      descripcion: t('targetProfile.profiles.disadvantaged.description'),
+      key: 'development',
+      titulo: t('targetProfile.profiles.development.title'),
+      descripcion: t('targetProfile.profiles.development.description'),
     },
     {
-      key: 'rural',
-      titulo: t('targetProfile.profiles.rural.title'),
-      descripcion: t('targetProfile.profiles.rural.description'),
+      key: 'environment',
+      titulo: t('targetProfile.profiles.environment.title'),
+      descripcion: t('targetProfile.profiles.environment.description'),
     },
     {
-      key: 'artInterested',
-      titulo: t('targetProfile.profiles.artInterested.title'),
-      descripcion: t('targetProfile.profiles.artInterested.description'),
+      key: 'erasmus',
+      titulo: t('targetProfile.profiles.erasmus.title'),
+      descripcion: t('targetProfile.profiles.erasmus.description'),
     },
   ];
 

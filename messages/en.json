@@ -47,8 +47,8 @@
     "actionLine.education": "Alternative Education",
     "actionLine.digital": "Digital Citizenship",
     "contactTitle": "Contact",
-    "address": "Paseo Rosa de los Vientos 39",
-    "city": "46730 Gandía, Valencia, Spain",
+    "address": "Gandía",
+    "city": "Valencia, Spain",
     "copyright": "Asociación Cultural Colores del Mundo. All rights reserved.",
     "partnerInfo": "Partner Info (PIF)"
   },
@@ -395,23 +395,23 @@
     "targetProfile": {
       "badge": "Our Focus",
       "title": "Who are we looking for?",
-      "description": "We pay special attention to young people facing barriers to participation, but we are open to all people who share our values.",
+      "description": "We are looking for people interested in artistic topics, personal development, environment and international Erasmus+ projects.",
       "profiles": {
-        "migrants": {
-          "title": "Young Migrants",
-          "description": "Navigating cultural integration and seeking a sense of belonging."
+        "art": {
+          "title": "Artistic Expression",
+          "description": "People interested in art as a tool for personal and social transformation."
         },
-        "disadvantaged": {
-          "title": "Disadvantaged Situations",
-          "description": "Young people from socioeconomic contexts that limit their opportunities."
+        "development": {
+          "title": "Personal Development",
+          "description": "Young people who seek to grow, learn and develop new skills."
         },
-        "rural": {
-          "title": "Rural or Peripheral Areas",
-          "description": "With limited access to international opportunities."
+        "environment": {
+          "title": "Environment",
+          "description": "People committed to sustainability and caring for the planet."
         },
-        "artInterested": {
-          "title": "Art Enthusiasts",
-          "description": "People who want to use art as a tool for transformation."
+        "erasmus": {
+          "title": "Erasmus+ Projects",
+          "description": "Interested in international experiences and European mobility."
         }
       }
     },
@@ -469,9 +469,9 @@
       "email": "Email",
       "emailResponse": "We respond within 24-48 hours",
       "location": "Location",
-      "address": "Paseo Rosa de los Vientos 39",
-      "addressLine2": "46730 Gandía - Grau y Playa",
-      "addressLine3": "Valencia, Spain",
+      "address": "Gandía",
+      "addressLine2": "Valencia, Spain",
+      "addressLine3": "",
       "followUs": "Follow us",
       "institutionalData": "Institutional Data",
       "type": "Type",
