@@ -42,10 +42,12 @@
     "description": "Asociación cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes, usando el arte y la educación no formal como motores de inclusión.",
     "explore": "Explora",
     "actionLines": "Líneas de Acción",
-    "actionLine.mobility": "Acompañamiento de Movilidad",
-    "actionLine.art": "Transformación Artística",
-    "actionLine.education": "Educación Alternativa",
-    "actionLine.digital": "Ciudadanía Digital",
+    "actionLine": {
+      "mobility": "Acompañamiento de Movilidad",
+      "art": "Transformación Artística",
+      "education": "Educación Alternativa",
+      "digital": "Ciudadanía Digital"
+    },
     "contactTitle": "Contacto",
     "address": "Gandía",
     "city": "Valencia, España",

@@ -42,10 +42,12 @@
     "description": "Cultural association founded by young people motivated to improve the quality of life of other young people, using art and non-formal education as engines of inclusion.",
     "explore": "Explore",
     "actionLines": "Action Lines",
-    "actionLine.mobility": "Mobility Support",
-    "actionLine.art": "Artistic Transformation",
-    "actionLine.education": "Alternative Education",
-    "actionLine.digital": "Digital Citizenship",
+    "actionLine": {
+      "mobility": "Mobility Support",
+      "art": "Artistic Transformation",
+      "education": "Alternative Education",
+      "digital": "Digital Citizenship"
+    },
     "contactTitle": "Contact",
     "address": "Gandía",
     "city": "Valencia, Spain",
