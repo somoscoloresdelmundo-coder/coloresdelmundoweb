@@ -87,11 +87,14 @@ export function HorizontalScrollSection({
   const textRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  // Start with mobile=true for SSR to avoid hydration mismatch
+  const [isMobile, setIsMobile] = useState(true);
+  const [isClient, setIsClient] = useState(false);
   const reducedMotion = useReducedMotion();
 
-  // Track mobile state
+  // Hydration-safe mobile detection
   useEffect(() => {
+    setIsClient(true);
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
