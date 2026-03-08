@@ -9,37 +9,15 @@ interface PageTransitionProps {
 
 /**
  * Componente ligero que envuelve el contenido de cada página
- * Usa CSS animations en lugar de Framer Motion para mejor rendimiento
+ * Sin animaciones para evitar problemas de renderizado
  */
 export function PageTransition({
   children,
   className = '',
 }: PageTransitionProps): React.JSX.Element {
   return (
-    <div
-      className={`animate-fadeIn ${className}`}
-      style={{
-        animation: 'fadeIn 0.3s ease-out forwards',
-      }}
-    >
+    <div className={className}>
       {children}
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          div {
-            animation: none !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }
