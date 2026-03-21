@@ -29,7 +29,7 @@ export default function TeamCard({
       </div>
 
       {/* Nombre */}
-      <h3 className={`font-semibold text-base ${colors.hoverText} transition-colors`}>
+      <h3 className={`font-semibold text-base dark:text-gris-100 ${colors.hoverText} transition-colors`}>
         {name}
       </h3>
 

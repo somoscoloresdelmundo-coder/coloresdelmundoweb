@@ -25,7 +25,7 @@
   /* Lima - Naturaleza, Crecimiento */
   --lima: #9AAD2E;
   --lima-light: #B1C442;
-  --lima-dark: #6B7A1F;
+  --lima-dark: #4D5A16; /* Oscurecido para WCAG AA 4.5:1 contraste */
   --lima-bg: rgba(154, 173, 46, 0.18);
   --lima-subtle: rgba(154, 173, 46, 0.08);
 

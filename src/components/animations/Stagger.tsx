@@ -1,10 +1,12 @@
 'use client';
 
 import { ReactNode, Children, useEffect, useRef, useState, cloneElement, isValidElement } from 'react';
+import { DURATIONS_MS, DISTANCES, SCALES, THRESHOLDS } from '@/lib/animations';
+import { useReducedMotion } from '@/hooks';
 
 interface StaggerProps {
   children: ReactNode;
-  delay?: number; // Delay entre cada elemento
+  delay?: number; // Delay entre cada elemento (ms)
   initialDelay?: number; // Delay antes de empezar
   animation?: 'slideUp' | 'slideLeft' | 'slideRight' | 'scaleUp' | 'fadeIn';
   duration?: 'fast' | 'normal' | 'slow';
@@ -13,21 +15,21 @@ interface StaggerProps {
 }
 
 const durationValues = {
-  fast: 200,
-  normal: 400,
-  slow: 600,
+  fast: DURATIONS_MS.fast,
+  normal: DURATIONS_MS.medium,
+  slow: DURATIONS_MS.slower,
 };
 
 const getInitialStyles = (animation: string) => {
   switch (animation) {
     case 'slideUp':
-      return { opacity: 0, transform: 'translateY(24px)' };
+      return { opacity: 0, transform: `translateY(${DISTANCES.md}px)` };
     case 'slideLeft':
-      return { opacity: 0, transform: 'translateX(24px)' };
+      return { opacity: 0, transform: `translateX(${DISTANCES.md}px)` };
     case 'slideRight':
-      return { opacity: 0, transform: 'translateX(-24px)' };
+      return { opacity: 0, transform: `translateX(-${DISTANCES.md}px)` };
     case 'scaleUp':
-      return { opacity: 0, transform: 'scale(0.9)' };
+      return { opacity: 0, transform: `scale(${SCALES.slight})` };
     case 'fadeIn':
     default:
       return { opacity: 0, transform: 'none' };
@@ -50,8 +52,15 @@ export default function Stagger({
 }: StaggerProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
+    // Si reduced motion está activo, mostrar inmediatamente
+    if (reducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -63,7 +72,7 @@ export default function Stagger({
           setIsVisible(false);
         }
       },
-      { threshold: 0.1 }
+      { threshold: THRESHOLDS.minimal }
     );
 
     if (ref.current) {
@@ -71,9 +80,14 @@ export default function Stagger({
     }
 
     return () => observer.disconnect();
-  }, [once]);
+  }, [once, reducedMotion]);
 
   const childArray = Children.toArray(children);
+
+  // Sin animación si reduced motion está activo
+  if (reducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <div ref={ref} className={className}>

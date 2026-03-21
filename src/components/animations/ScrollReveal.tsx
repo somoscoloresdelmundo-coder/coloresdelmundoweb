@@ -1,6 +1,8 @@
 'use client';
 
 import { ReactNode, useEffect, useRef, useState, ElementType } from 'react';
+import { DURATIONS_MS, DISTANCES, SCALES, BLUR, THRESHOLDS } from '@/lib/animations';
+import { useReducedMotion } from '@/hooks';
 
 type Animation = 'up' | 'left' | 'right' | 'scale' | 'blur' | 'fade';
 
@@ -16,9 +18,9 @@ interface ScrollRevealProps {
 }
 
 const durationValues = {
-  fast: 300,
-  normal: 500,
-  slow: 700,
+  fast: DURATIONS_MS.normal,
+  normal: DURATIONS_MS.slow,
+  slow: DURATIONS_MS.verySlow,
 };
 
 const getInitialStyles = (animation: Animation): React.CSSProperties => {
@@ -26,15 +28,15 @@ const getInitialStyles = (animation: Animation): React.CSSProperties => {
 
   switch (animation) {
     case 'up':
-      return { ...base, transform: 'translateY(30px)' };
+      return { ...base, transform: `translateY(${DISTANCES.normal}px)` };
     case 'left':
-      return { ...base, transform: 'translateX(30px)' };
+      return { ...base, transform: `translateX(${DISTANCES.normal}px)` };
     case 'right':
-      return { ...base, transform: 'translateX(-30px)' };
+      return { ...base, transform: `translateX(-${DISTANCES.normal}px)` };
     case 'scale':
-      return { ...base, transform: 'scale(0.9)' };
+      return { ...base, transform: `scale(${SCALES.slight})` };
     case 'blur':
-      return { ...base, filter: 'blur(10px)' };
+      return { ...base, filter: `blur(${BLUR.medium}px)` };
     case 'fade':
     default:
       return base;
@@ -52,15 +54,22 @@ export default function ScrollReveal({
   animation = 'up',
   delay = 0,
   duration = 'normal',
-  threshold = 0.15,
+  threshold = THRESHOLDS.low,
   className = '',
   once = true,
   as: Component = 'div',
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
+    // Si reduced motion está activo, mostrar inmediatamente
+    if (reducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
     // Verificar soporte de CSS scroll-driven animations
     const supportsScrollTimeline = CSS.supports('animation-timeline', 'view()');
 
@@ -91,7 +100,12 @@ export default function ScrollReveal({
     }
 
     return () => observer.disconnect();
-  }, [once, threshold]);
+  }, [once, threshold, reducedMotion]);
+
+  // Sin animación si reduced motion está activo
+  if (reducedMotion) {
+    return <Component className={className}>{children}</Component>;
+  }
 
   const styles: React.CSSProperties = {
     ...(isVisible ? getVisibleStyles() : getInitialStyles(animation)),

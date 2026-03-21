@@ -2,20 +2,14 @@
 
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { motion, useSpring, useMotionValue, useReducedMotion } from 'framer-motion';
-
-// Colores de la paleta
-const COLORS = {
-  blue: '#3B82F6',
-  lime: '#84CC16',
-  orange: '#F97316',
-  terracotta: '#C2410C',
-} as const;
+import { PRIMARY_HEX } from '@/lib/design/colors';
+import { SPRING_CONFIGS, MAGNETIC } from '@/lib/animations';
 
 export interface MagneticElementProps {
   children: React.ReactNode;
-  /** Fuerza del magnetismo (0-1). Default: 0.3 */
+  /** Fuerza del magnetismo (0-1). Default: MAGNETIC.strength */
   strength?: number;
-  /** Radio de activacion en pixels. Default: 100 */
+  /** Radio de activacion en pixels. Default: MAGNETIC.radius */
   radius?: number;
   /** Configuracion del spring */
   springConfig?: {
@@ -35,13 +29,9 @@ export interface MagneticElementProps {
 
 export const MagneticElement: React.FC<MagneticElementProps> = ({
   children,
-  strength = 0.3,
-  radius = 100,
-  springConfig = {
-    stiffness: 150,
-    damping: 15,
-    mass: 0.1,
-  },
+  strength = MAGNETIC.strength,
+  radius = MAGNETIC.radius,
+  springConfig = SPRING_CONFIGS.magnetic,
   className = '',
   disabled = false,
   onMagnetEnter,
@@ -152,5 +142,5 @@ export const MagneticElement: React.FC<MagneticElementProps> = ({
   );
 };
 
-export { COLORS as MAGNETIC_COLORS };
+export { PRIMARY_HEX as MAGNETIC_COLORS };
 export default MagneticElement;

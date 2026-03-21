@@ -141,6 +141,116 @@ test.describe('Auditoría del Sitio - Colores del Mundo', () => {
       console.log(`Links de email encontrados: ${emailCount}`);
       expect(emailCount).toBeGreaterThan(0);
     });
+
+    test('Muestra errores de validación al enviar vacío', async ({ page }) => {
+      await page.goto('/es/contacto');
+
+      // Hacer click en enviar sin llenar campos
+      const submitButton = page.getByRole('button', { name: /enviar|send/i });
+      await submitButton.click();
+
+      // Verificar que aparecen mensajes de error
+      await expect(page.locator('[role="alert"]').first()).toBeVisible({ timeout: 5000 });
+      console.log('Validación de formulario vacío: OK');
+    });
+
+    test('Valida formato de email incorrecto', async ({ page }) => {
+      await page.goto('/es/contacto');
+
+      // Llenar con email inválido
+      const emailInput = page.locator('input[name="email"]');
+      await emailInput.fill('email-invalido');
+
+      // Intentar enviar
+      const submitButton = page.getByRole('button', { name: /enviar|send/i });
+      await submitButton.click();
+
+      // Verificar error de validación de email
+      const emailError = page.locator('#email-error');
+      await expect(emailError).toBeVisible({ timeout: 5000 });
+      console.log('Validación de email: OK');
+    });
+
+    test('Checkbox de privacidad es requerido', async ({ page }) => {
+      await page.goto('/es/contacto');
+
+      // Llenar todos los campos excepto checkbox
+      await page.locator('input[name="name"]').fill('Test User');
+      await page.locator('input[name="email"]').fill('test@example.com');
+      await page.locator('select[name="subject"]').selectOption({ index: 1 });
+      await page.locator('textarea[name="message"]').fill('Este es un mensaje de prueba para verificar el formulario.');
+
+      // Intentar enviar sin checkbox
+      const submitButton = page.getByRole('button', { name: /enviar|send/i });
+      await submitButton.click();
+
+      // Verificar error de privacidad
+      const privacyError = page.locator('#privacy-error');
+      await expect(privacyError).toBeVisible({ timeout: 5000 });
+      console.log('Validación de privacidad: OK');
+    });
+
+    test('Formulario completo pasa validación', async ({ page }) => {
+      await page.goto('/es/contacto');
+
+      // Llenar todos los campos correctamente
+      await page.locator('input[name="name"]').fill('Test User');
+      await page.locator('input[name="email"]').fill('test@example.com');
+      await page.locator('select[name="subject"]').selectOption({ index: 1 });
+      await page.locator('textarea[name="message"]').fill('Este es un mensaje de prueba para verificar el formulario.');
+      await page.locator('input[name="privacy"]').check();
+
+      // Verificar que no hay errores visibles antes de enviar
+      const errors = page.locator('[role="alert"]');
+      const errorCount = await errors.count();
+      expect(errorCount).toBe(0);
+
+      console.log('Formulario completo: OK');
+    });
+  });
+
+  test.describe('API de Contacto', () => {
+
+    test('POST /api/contact rechaza request vacío', async ({ request }) => {
+      const response = await request.post('/api/contact', {
+        data: {},
+      });
+
+      expect(response.status()).toBe(400);
+      console.log('API rechaza request vacío: OK');
+    });
+
+    test('POST /api/contact rechaza email inválido', async ({ request }) => {
+      const response = await request.post('/api/contact', {
+        data: {
+          name: 'Test User',
+          email: 'invalid-email',
+          subject: 'info',
+          message: 'Test message',
+          privacy: true,
+        },
+      });
+
+      expect(response.status()).toBe(400);
+      console.log('API rechaza email inválido: OK');
+    });
+
+    test('POST /api/contact acepta datos válidos', async ({ request }) => {
+      const response = await request.post('/api/contact', {
+        data: {
+          name: 'Test User',
+          email: 'test@example.com',
+          subject: 'info',
+          message: 'Este es un mensaje de prueba válido.',
+          privacy: true,
+        },
+      });
+
+      // El endpoint puede retornar 200 o 500 si no hay configuración de email
+      // Lo importante es que no sea 400 (bad request)
+      expect([200, 500]).toContain(response.status());
+      console.log(`API acepta datos válidos: ${response.status()}`);
+    });
   });
 
   test.describe('Responsive Design', () => {

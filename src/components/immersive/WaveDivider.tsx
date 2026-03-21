@@ -1,14 +1,9 @@
 'use client';
 
-// Paleta de colores del proyecto
-export const DIVIDER_COLORS = {
-  blue: '#3B82F6',
-  lime: '#84CC16',
-  orange: '#F97316',
-  terracotta: '#C2410C',
-} as const;
+import { DIVIDER_COLORS, type DividerColorKey } from '@/lib/design/colors';
 
-export type DividerColorKey = keyof typeof DIVIDER_COLORS;
+// Re-export for backward compatibility
+export { DIVIDER_COLORS, type DividerColorKey };
 
 export interface WaveDividerProps {
   fromColor?: string;

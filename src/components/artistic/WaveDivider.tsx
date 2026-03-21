@@ -1,4 +1,5 @@
-import { ColorVariant, colorClasses } from '@/types/ui';
+import { ColorVariant } from '@/types/ui';
+import { BACKGROUND_COLORS } from '@/lib/design';
 
 type WaveStyle = 'smooth' | 'sharp' | 'layered' | 'organic';
 
@@ -18,15 +19,6 @@ const wavePatterns: Record<WaveStyle, string> = {
   organic: "M0,64 C150,30 350,80 500,50 C650,20 850,70 1000,40 C1100,20 1150,50 1200,45 L1200,100 L0,100 Z",
 };
 
-const colorMap: Record<string, string> = {
-  azul: 'var(--azul-bg)',
-  lima: 'var(--lima-bg)',
-  naranja: 'var(--naranja-bg)',
-  terracota: 'var(--terracota-bg)',
-  white: '#ffffff',
-  gray: 'var(--gris-50)',
-};
-
 /**
  * Divisor ondulado artístico entre secciones
  * Crea una transición visual suave con forma de onda
@@ -39,7 +31,7 @@ export default function WaveDivider({
   animated = false,
   className = '',
 }: WaveDividerProps) {
-  const fillColor = colorMap[color] || colorMap.white;
+  const fillColor = BACKGROUND_COLORS[color] || BACKGROUND_COLORS.white;
   const path = wavePatterns[style];
 
   return (
@@ -130,7 +122,7 @@ export function BrushDivider({
   height?: number;
   className?: string;
 }) {
-  const fillColor = colorMap[color] || 'var(--naranja-bg)';
+  const fillColor = BACKGROUND_COLORS[color] || 'var(--naranja-bg)';
 
   return (
     <div

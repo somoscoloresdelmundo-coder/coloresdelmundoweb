@@ -199,14 +199,24 @@ export function LenisProvider({ children, options }: LenisProviderProps) {
     }
   }, [pathname]);
 
-  // Refrescar ScrollTrigger cuando el contenido cambia
+  // Refrescar ScrollTrigger cuando el contenido cambia (con debounce)
   useEffect(() => {
     if (!isReady) return;
 
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+    // Debounce ScrollTrigger.refresh para evitar llamadas excesivas
+    const debouncedRefresh = () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+    };
+
     // Observar cambios en el DOM para refrescar ScrollTrigger
-    const observer = new MutationObserver(() => {
-      ScrollTrigger.refresh();
-    });
+    const observer = new MutationObserver(debouncedRefresh);
 
     observer.observe(document.body, {
       childList: true,
@@ -216,6 +226,9 @@ export function LenisProvider({ children, options }: LenisProviderProps) {
     });
 
     return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
       observer.disconnect();
     };
   }, [isReady]);

@@ -46,7 +46,7 @@ export default function FeatureCard({
       <h3 className={`text-lg font-semibold mb-2 ${colors.hoverText} transition-colors`}>
         {title}
       </h3>
-      <p className="text-gris-600 text-sm leading-relaxed mb-4">
+      <p className="text-gris-600 dark:text-gris-400 text-sm leading-relaxed mb-4">
         {description}
       </p>
       {linkText && (

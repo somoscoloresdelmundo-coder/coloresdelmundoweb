@@ -2,6 +2,7 @@
 
 import { ReactNode, Children, useRef } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
+import { STAGGER, DISTANCES, SCALES, SPRING_CONFIGS, THRESHOLDS } from '@/lib/animations';
 
 interface MotionStaggerProps {
   children: ReactNode;
@@ -15,57 +16,53 @@ const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: STAGGER.slow,
     },
   },
 };
 
 const itemAnimations: Record<string, Variants> = {
   fadeUp: {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: DISTANCES.normal },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         type: 'spring',
-        stiffness: 100,
-        damping: 15,
+        ...SPRING_CONFIGS.soft,
       },
     },
   },
   fadeLeft: {
-    hidden: { opacity: 0, x: -30 },
+    hidden: { opacity: 0, x: -DISTANCES.normal },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
         type: 'spring',
-        stiffness: 100,
-        damping: 15,
+        ...SPRING_CONFIGS.soft,
       },
     },
   },
   fadeRight: {
-    hidden: { opacity: 0, x: 30 },
+    hidden: { opacity: 0, x: DISTANCES.normal },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
         type: 'spring',
-        stiffness: 100,
-        damping: 15,
+        ...SPRING_CONFIGS.soft,
       },
     },
   },
   scale: {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: SCALES.small },
     visible: {
       opacity: 1,
-      scale: 1,
+      scale: SCALES.normal,
       transition: {
         type: 'spring',
-        stiffness: 100,
-        damping: 15,
+        ...SPRING_CONFIGS.soft,
       },
     },
   },
@@ -74,12 +71,12 @@ const itemAnimations: Record<string, Variants> = {
 export default function MotionStagger({
   children,
   className = '',
-  staggerDelay = 0.1,
+  staggerDelay = STAGGER.slow,
   once = true,
   animation = 'fadeUp',
 }: MotionStaggerProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once, amount: 0.2 });
+  const isInView = useInView(ref, { once, amount: THRESHOLDS.medium });
 
   const customContainerVariants: Variants = {
     ...containerVariants,

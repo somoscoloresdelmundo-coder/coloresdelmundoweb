@@ -11,16 +11,10 @@ import React, {
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { OVERLAY_COLORS, type OverlayColorKey } from '@/lib/design/colors';
 
-// Colores de la marca
-export const OVERLAY_COLORS = {
-  blue: '#3B82F6',
-  lime: '#84CC16',
-  orange: '#F97316',
-  terracotta: '#C2410C',
-} as const;
-
-export type OverlayColorKey = keyof typeof OVERLAY_COLORS;
+// Re-export for backward compatibility
+export { OVERLAY_COLORS, type OverlayColorKey };
 export type TransitionEffect = 'wipe' | 'circle' | 'blocks' | 'curtain';
 
 // Array de colores para efectos multicolor

@@ -22,11 +22,14 @@ export default function ValueCard({
 
   return (
     <div className={`card text-center ${spanClass} ${className}`}>
-      <span className={`text-4xl font-bold ${colors.text} opacity-20 mb-2 block`}>
+      <span
+        className={`text-4xl font-bold ${colors.text} opacity-20 mb-2 block`}
+        aria-hidden="true"
+      >
         {number}
       </span>
-      <h3 className="font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-gris-600">{description}</p>
+      <h3 className="font-semibold mb-2 dark:text-gris-100">{title}</h3>
+      <p className="text-sm text-gris-600 dark:text-gris-400">{description}</p>
     </div>
   );
 }

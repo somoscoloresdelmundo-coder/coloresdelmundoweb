@@ -44,13 +44,8 @@ export {
   type DividerColorKey as ParticlesDividerColorKey,
 } from './ParticlesDivider';
 
-// Re-exportar colores unificados para todos los divisores
-export const DIVIDER_COLORS = {
-  blue: '#3B82F6',
-  lime: '#84CC16',
-  orange: '#F97316',
-  terracotta: '#C2410C',
-} as const;
+// Re-exportar colores unificados desde el sistema centralizado
+export { DIVIDER_COLORS, OVERLAY_COLORS, type DividerColorKey, type OverlayColorKey } from '@/lib/design/colors';
 
 // Componentes de microinteracciones avanzadas
 export {
@@ -102,7 +97,5 @@ export {
   useNavigateWithTransition,
   TransitionLink,
   TransitionButton,
-  OVERLAY_COLORS,
-  type OverlayColorKey,
   type TransitionEffect,
 } from './TransitionOverlay';

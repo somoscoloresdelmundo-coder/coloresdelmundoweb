@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { COLOR_MAP } from '@/lib/design';
+import type { ColorVariant } from '@/types/ui';
 
 // ============================================================================
 // TYPES
@@ -11,7 +13,7 @@ export interface HorizontalScrollItem {
   title: string;
   description: string;
   icon: React.ReactNode;
-  color: 'azul' | 'lima' | 'naranja' | 'terracota';
+  color: ColorVariant;
   details?: string[];
 }
 
@@ -22,44 +24,6 @@ export interface HorizontalScrollSectionProps {
   linkText?: string;
   linkHref?: string;
 }
-
-// ============================================================================
-// COLOR MAPPING
-// ============================================================================
-const COLOR_MAP = {
-  azul: {
-    primary: '#3B82F6',
-    bg: 'rgba(59, 130, 246, 0.08)',
-    bgSolid: '#EFF6FF',
-    border: 'rgba(59, 130, 246, 0.2)',
-    text: '#1E40AF',
-    accent: '#3B82F6',
-  },
-  lima: {
-    primary: '#84CC16',
-    bg: 'rgba(132, 204, 22, 0.08)',
-    bgSolid: '#F7FEE7',
-    border: 'rgba(132, 204, 22, 0.2)',
-    text: '#3F6212',
-    accent: '#84CC16',
-  },
-  naranja: {
-    primary: '#F97316',
-    bg: 'rgba(249, 115, 22, 0.08)',
-    bgSolid: '#FFF7ED',
-    border: 'rgba(249, 115, 22, 0.2)',
-    text: '#9A3412',
-    accent: '#F97316',
-  },
-  terracota: {
-    primary: '#C2410C',
-    bg: 'rgba(194, 65, 12, 0.08)',
-    bgSolid: '#FEF2F2',
-    border: 'rgba(194, 65, 12, 0.2)',
-    text: '#7C2D12',
-    accent: '#C2410C',
-  },
-} as const;
 
 // ============================================================================
 // HORIZONTAL SCROLL SECTION COMPONENT

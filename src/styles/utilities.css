@@ -230,6 +230,12 @@
     0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
+[data-theme="dark"] .card-bento:hover {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 /* ============================================
    Display Typography
    For oversized hero text

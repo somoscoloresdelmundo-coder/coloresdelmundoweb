@@ -95,6 +95,7 @@ export default async function SobreNosotrosPage() {
                 alt="Sello Colores del Mundo"
                 width={300}
                 height={200}
+                sizes="(max-width: 768px) 250px, 300px"
                 className="opacity-80"
               />
             </div>

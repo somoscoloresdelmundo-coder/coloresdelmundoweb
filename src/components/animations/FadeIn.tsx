@@ -1,6 +1,8 @@
 'use client';
 
 import { ReactNode, useEffect, useRef, useState } from 'react';
+import { THRESHOLDS } from '@/lib/animations';
+import { useReducedMotion } from '@/hooks';
 
 interface FadeInProps {
   children: ReactNode;
@@ -25,8 +27,15 @@ export default function FadeIn({
 }: FadeInProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
+    // Si reduced motion está activo, mostrar inmediatamente
+    if (reducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -38,7 +47,7 @@ export default function FadeIn({
           setIsVisible(false);
         }
       },
-      { threshold: 0.1 }
+      { threshold: THRESHOLDS.minimal }
     );
 
     if (ref.current) {
@@ -46,7 +55,12 @@ export default function FadeIn({
     }
 
     return () => observer.disconnect();
-  }, [once]);
+  }, [once, reducedMotion]);
+
+  // Sin animación si reduced motion está activo
+  if (reducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <div

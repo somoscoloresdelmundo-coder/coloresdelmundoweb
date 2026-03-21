@@ -3,21 +3,15 @@
 import { useRef, useEffect, useMemo } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { DIVIDER_COLORS, type DividerColorKey } from '@/lib/design/colors';
 
 // Registrar plugin
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// Paleta de colores del proyecto
-export const DIVIDER_COLORS = {
-  blue: '#3B82F6',
-  lime: '#84CC16',
-  orange: '#F97316',
-  terracotta: '#C2410C',
-} as const;
-
-export type DividerColorKey = keyof typeof DIVIDER_COLORS;
+// Re-export for backward compatibility
+export { DIVIDER_COLORS, type DividerColorKey };
 
 export interface BlobDividerProps {
   fromColor?: string;

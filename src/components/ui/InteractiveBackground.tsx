@@ -1,13 +1,15 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { ALL_COLORS, SUBTLE_BACKGROUND_COLORS } from '@/lib/design';
+import type { ColorVariant } from '@/types/ui';
 
 interface FloatingShape {
   id: number;
   x: number;
   y: number;
   size: number;
-  color: 'azul' | 'lima' | 'naranja' | 'terracota';
+  color: ColorVariant;
   speedX: number;
   speedY: number;
   opacity: number;
@@ -35,7 +37,6 @@ export default function InteractiveBackground() {
 
   // Initialize floating shapes - usando los 4 colores institucionales
   useEffect(() => {
-    const colors: ('azul' | 'lima' | 'naranja' | 'terracota')[] = ['azul', 'lima', 'naranja', 'terracota'];
     const initialShapes: FloatingShape[] = [];
 
     for (let i = 0; i < 4; i++) {
@@ -44,7 +45,7 @@ export default function InteractiveBackground() {
         x: Math.random() * 100,
         y: Math.random() * 100,
         size: 200 + Math.random() * 150,
-        color: colors[i % 4],
+        color: ALL_COLORS[i % 4],
         speedX: (Math.random() - 0.5) * 0.01,
         speedY: (Math.random() - 0.5) * 0.01,
         opacity: 0.15 + Math.random() * 0.1,
@@ -161,13 +162,6 @@ export default function InteractiveBackground() {
     };
   }, [handleMouseMove]);
 
-  // Colores muy suaves, casi transparentes - los 4 colores institucionales
-  const colorMap = {
-    azul: 'rgba(212, 229, 247, 0.4)',
-    lima: 'rgba(232, 239, 197, 0.4)',
-    naranja: 'rgba(255, 228, 199, 0.4)',
-    terracota: 'rgba(248, 212, 204, 0.4)',
-  };
 
   return (
     <div
@@ -185,7 +179,7 @@ export default function InteractiveBackground() {
             top: `${shape.y}%`,
             width: shape.size,
             height: shape.size,
-            backgroundColor: colorMap[shape.color],
+            backgroundColor: SUBTLE_BACKGROUND_COLORS[shape.color],
             opacity: shape.opacity,
             transform: `translate(-50%, -50%)`,
           }}

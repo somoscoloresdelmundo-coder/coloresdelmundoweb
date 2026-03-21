@@ -2,6 +2,7 @@
 
 import { ReactNode, useRef } from 'react';
 import { motion, useInView, Variant } from 'framer-motion';
+import { DURATIONS, DISTANCES, SCALES, BLUR, THRESHOLDS } from '@/lib/animations';
 
 type RevealAnimation = 'fadeUp' | 'fadeDown' | 'fadeLeft' | 'fadeRight' | 'scale' | 'blur';
 
@@ -17,27 +18,27 @@ interface MotionRevealProps {
 
 const variants: Record<RevealAnimation, { hidden: Variant; visible: Variant }> = {
   fadeUp: {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: DISTANCES.lg },
     visible: { opacity: 1, y: 0 },
   },
   fadeDown: {
-    hidden: { opacity: 0, y: -40 },
+    hidden: { opacity: 0, y: -DISTANCES.lg },
     visible: { opacity: 1, y: 0 },
   },
   fadeLeft: {
-    hidden: { opacity: 0, x: -40 },
+    hidden: { opacity: 0, x: -DISTANCES.lg },
     visible: { opacity: 1, x: 0 },
   },
   fadeRight: {
-    hidden: { opacity: 0, x: 40 },
+    hidden: { opacity: 0, x: DISTANCES.lg },
     visible: { opacity: 1, x: 0 },
   },
   scale: {
-    hidden: { opacity: 0, scale: 0.85 },
-    visible: { opacity: 1, scale: 1 },
+    hidden: { opacity: 0, scale: SCALES.medium },
+    visible: { opacity: 1, scale: SCALES.normal },
   },
   blur: {
-    hidden: { opacity: 0, filter: 'blur(10px)' },
+    hidden: { opacity: 0, filter: `blur(${BLUR.medium}px)` },
     visible: { opacity: 1, filter: 'blur(0px)' },
   },
 };
@@ -46,10 +47,10 @@ export default function MotionReveal({
   children,
   animation = 'fadeUp',
   delay = 0,
-  duration = 0.6,
+  duration = DURATIONS.slower,
   className = '',
   once = true,
-  threshold = 0.2,
+  threshold = THRESHOLDS.medium,
 }: MotionRevealProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, amount: threshold });

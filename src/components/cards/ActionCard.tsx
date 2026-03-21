@@ -45,7 +45,7 @@ export default function ActionCard({
       </span>
 
       {/* Descripción */}
-      <p className="text-gris-600 mb-6 text-lg leading-relaxed">
+      <p className="text-gris-600 dark:text-gris-400 mb-6 text-lg leading-relaxed">
         {description}
       </p>
 
@@ -57,7 +57,7 @@ export default function ActionCard({
               <div className={`w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 ${colors.bgAlpha10} ${colors.text}`}>
                 <CheckIcon className="w-3 h-3" />
               </div>
-              <span className="text-gris-700 text-sm">{detail}</span>
+              <span className="text-gris-700 dark:text-gris-300 text-sm">{detail}</span>
             </li>
           ))}
         </ul>

@@ -9,6 +9,8 @@ import {
   ScrollTrigger,
   createGSAPContext,
   easings,
+  DURATIONS,
+  STAGGER,
 } from '@/lib/animations';
 import { useReducedMotion } from '@/hooks';
 
@@ -31,14 +33,11 @@ export interface HeroImmersiveProps {
 }
 
 // ============================================================================
-// COLORS
+// COLORS - Importados desde el sistema centralizado
 // ============================================================================
-const COLORS = {
-  azul: '#3B82F6',
-  lima: '#84CC16',
-  naranja: '#F97316',
-  terracota: '#C2410C',
-} as const;
+import { PRIMARY_HEX } from '@/lib/design/colors';
+
+const COLORS = PRIMARY_HEX;
 
 // ============================================================================
 // HELPER COMPONENTS
@@ -327,15 +326,15 @@ export default function HeroImmersive({
       // Main timeline
       const tl = gsap.timeline({
         defaults: { ease: easings.smooth },
-        delay: 0.3,
+        delay: DURATIONS.normal,
       });
 
       // Background shapes fade in
       tl.to(bgShapes, {
         scale: 1,
         opacity: 0.15,
-        duration: 1.5,
-        stagger: 0.1,
+        duration: DURATIONS.heroSlow,
+        stagger: STAGGER.slow,
         ease: easings.expo,
       }, 0);
 
@@ -344,46 +343,46 @@ export default function HeroImmersive({
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.8,
+        duration: DURATIONS.verySlow,
         ease: easings.back,
-      }, 0.2);
+      }, DURATIONS.fast);
 
       // Logo animation
       tl.to(logoContainerRef.current, {
         opacity: 1,
         scale: 1,
-        duration: 1,
+        duration: DURATIONS.extraSlow,
         ease: easings.back,
-      }, 0.4);
+      }, DURATIONS.medium);
 
       // Blob circles animation
       tl.fromTo(blobCircles,
         { scale: 0 },
         {
           scale: 1,
-          duration: 1.2,
-          stagger: 0.15,
+          duration: DURATIONS.heroReveal,
+          stagger: STAGGER.slower,
           ease: easings.elastic,
-        }, 0.6);
+        }, DURATIONS.slower);
 
       // Title letters animation - letter by letter reveal
       tl.to(letters, {
         opacity: 1,
         y: 0,
         rotateX: 0,
-        duration: 0.6,
+        duration: DURATIONS.slower,
         stagger: {
-          each: 0.03,
+          each: STAGGER.fast,
           from: 'start',
         },
         ease: easings.back,
-      }, 0.8);
+      }, DURATIONS.verySlow);
 
       // Underline animations for "art" and "education"
       tl.to(underlines, {
         scaleX: 1,
-        duration: 0.8,
-        stagger: 0.2,
+        duration: DURATIONS.verySlow,
+        stagger: STAGGER.extraSlow,
         ease: easings.expo,
       }, '-=0.3');
 
@@ -391,29 +390,29 @@ export default function HeroImmersive({
       tl.to(descriptionRef.current, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        duration: DURATIONS.verySlow,
       }, '-=0.4');
 
       // Buttons animation
       tl.to(buttonsRef.current, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        duration: DURATIONS.verySlow,
       }, '-=0.5');
 
       // Slogan animation
       tl.to(sloganRef.current, {
         opacity: 1,
         y: 0,
-        duration: 0.6,
+        duration: DURATIONS.slower,
       }, '-=0.4');
 
       // Slogan icons pop in
       tl.to(sloganIcons, {
         scale: 1,
         rotation: 0,
-        duration: 0.6,
-        stagger: 0.15,
+        duration: DURATIONS.slower,
+        stagger: STAGGER.slower,
         ease: easings.back,
       }, '-=0.3');
 
@@ -423,7 +422,7 @@ export default function HeroImmersive({
           gsap.to(circle, {
             x: `random(-20, 20)`,
             y: `random(-20, 20)`,
-            duration: 4 + i * 0.5,
+            duration: DURATIONS.continuous + i * DURATIONS.slow,
             repeat: -1,
             yoyo: true,
             ease: 'sine.inOut',
@@ -512,7 +511,7 @@ export default function HeroImmersive({
     gsap.to(button, {
       x: x * 0.2,
       y: y * 0.2,
-      duration: 0.3,
+      duration: DURATIONS.normal,
       ease: 'power2.out',
     });
   }, [reducedMotion, isMobile]);
@@ -523,7 +522,7 @@ export default function HeroImmersive({
     gsap.to(e.currentTarget, {
       x: 0,
       y: 0,
-      duration: 0.5,
+      duration: DURATIONS.slow,
       ease: 'elastic.out(1, 0.3)',
     });
   }, [reducedMotion, isMobile]);
@@ -591,6 +590,7 @@ export default function HeroImmersive({
               src={logoSrc}
               alt="Colores del Mundo"
               fill
+              sizes="(max-width: 768px) 128px, 160px"
               className="object-cover"
               priority
             />

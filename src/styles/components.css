@@ -82,6 +82,17 @@
   transform: translateY(-2px);
 }
 
+[data-theme="dark"] .btn-secondary {
+  color: var(--gris-200);
+  border-color: var(--gris-600);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  border-color: var(--naranja-light);
+  color: var(--naranja-light);
+  background-color: rgba(242, 154, 46, 0.1);
+}
+
 /* Botón Outline */
 .btn-outline {
   display: inline-flex;
@@ -137,6 +148,15 @@
     transform var(--duration-base) var(--ease-out-expo),
     box-shadow var(--duration-base) var(--ease-out-quart),
     border-color var(--duration-base) var(--ease-out-quart);
+}
+
+[data-theme="dark"] .card {
+  background: var(--gris-800);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .card::before {
@@ -215,6 +235,14 @@
   transition: color var(--duration-fast) var(--ease-out-quart);
 }
 
+[data-theme="dark"] .nav-link {
+  color: var(--gris-300);
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: var(--naranja-light);
+}
+
 .nav-link::after {
   content: '';
   position: absolute;
@@ -252,5 +280,124 @@
 .footer-link:hover {
   color: var(--naranja);
   transform: translateX(4px);
+}
+
+[data-theme="dark"] .footer-link {
+  color: var(--gris-400);
+}
+
+[data-theme="dark"] .footer-link:hover {
+  color: var(--naranja-light);
+}
+
+/* ============================================
+   FOCUS STATES - Accesibilidad WCAG 2.1 AA
+   :focus-visible para navegación por teclado
+   ============================================ */
+
+/* Focus Ring Base - Alta visibilidad */
+:root {
+  --focus-ring-color: var(--azul);
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+}
+
+/* Reset focus por defecto y aplicar solo en :focus-visible */
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-outline:focus,
+.nav-link:focus,
+.footer-link:focus,
+.card-interactive:focus {
+  outline: none;
+}
+
+/* Focus visible con ring prominente */
+.btn-primary:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  box-shadow:
+    var(--shadow-naranja),
+    0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-offset) + 2px) rgba(75, 137, 191, 0.2);
+}
+
+.btn-secondary:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-color: var(--azul);
+  box-shadow: 0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-offset) + 2px) rgba(75, 137, 191, 0.2);
+}
+
+.btn-outline:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  box-shadow: 0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-offset) + 2px) rgba(75, 137, 191, 0.2);
+}
+
+/* Nav link focus - Underline visible + ring sutil */
+.nav-link:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+  color: var(--azul);
+}
+
+.nav-link:focus-visible::after {
+  width: 100%;
+  left: 0;
+  background: var(--azul);
+}
+
+/* Footer link focus */
+.footer-link:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+  color: var(--azul);
+}
+
+/* Card focus - Border prominente */
+.card-interactive:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-color: var(--azul);
+  box-shadow:
+    var(--shadow-xl),
+    0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-offset) + 2px) rgba(75, 137, 191, 0.15);
+}
+
+/* Input focus - Para formularios */
+.input-focus:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: 0;
+  border-color: var(--azul);
+  box-shadow: 0 0 0 4px rgba(75, 137, 191, 0.15);
+}
+
+/* Skip link - Visible solo en focus */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 9999;
+  padding: var(--space-3) var(--space-6);
+  background: var(--azul);
+  color: var(--blanco);
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: top var(--duration-fast) var(--ease-out-quart);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* Mejorar contraste en estados de focus para dark backgrounds */
+[data-theme="dark"] {
+  --focus-ring-color: var(--azul-light);
 }
 

@@ -2,16 +2,18 @@
 
 import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { motion, useInView, Variants, Transition } from 'framer-motion';
+import { PRIMARY_HEX } from '@/lib/design/colors';
+import { DURATIONS, STAGGER, THRESHOLDS, DISTANCES } from '@/lib/animations';
 
-// Colores de la paleta
-const COLORS = {
-  blue: '#3B82F6',
-  lime: '#84CC16',
-  orange: '#F97316',
-  terracotta: '#C2410C',
+// Mapeo de nombres en inglés a ColorVariant
+const COLOR_NAME_MAP = {
+  blue: PRIMARY_HEX.azul,
+  lime: PRIMARY_HEX.lima,
+  orange: PRIMARY_HEX.naranja,
+  terracotta: PRIMARY_HEX.terracota,
 } as const;
 
-type ColorKey = keyof typeof COLORS;
+type ColorKey = keyof typeof COLOR_NAME_MAP;
 
 type RevealVariant = 'letter' | 'word' | 'line';
 type TriggerType = 'scroll' | 'mount';
@@ -24,11 +26,11 @@ export interface TextRevealProps {
   variant?: RevealVariant;
   /** Como se activa la animacion */
   trigger?: TriggerType;
-  /** Duracion de cada elemento en segundos. Default: 0.5 */
+  /** Duracion de cada elemento en segundos. Default: DURATIONS.slow */
   duration?: number;
   /** Delay inicial en segundos. Default: 0 */
   delay?: number;
-  /** Delay entre elementos en segundos. Default: 0.03 */
+  /** Delay entre elementos en segundos. Default: STAGGER.fast */
   stagger?: number;
   /** Direccion de la revelacion */
   direction?: 'up' | 'down' | 'left' | 'right';
@@ -38,7 +40,7 @@ export interface TextRevealProps {
   as?: SupportedTag;
   /** Clase CSS adicional */
   className?: string;
-  /** Umbral de viewport para activar. Default: 0.3 */
+  /** Umbral de viewport para activar. Default: THRESHOLDS.high */
   threshold?: number;
   /** Activar una sola vez. Default: true */
   once?: boolean;
@@ -52,15 +54,15 @@ export interface TextRevealProps {
 const getInitialPosition = (direction: string): { x?: number; y?: number } => {
   switch (direction) {
     case 'up':
-      return { y: 40 };
+      return { y: DISTANCES.lg };
     case 'down':
-      return { y: -40 };
+      return { y: -DISTANCES.lg };
     case 'left':
-      return { x: 40 };
+      return { x: DISTANCES.lg };
     case 'right':
-      return { x: -40 };
+      return { x: -DISTANCES.lg };
     default:
-      return { y: 40 };
+      return { y: DISTANCES.lg };
   }
 };
 
@@ -130,14 +132,14 @@ export const TextReveal: React.FC<TextRevealProps> = ({
   text,
   variant = 'word',
   trigger = 'scroll',
-  duration = 0.5,
+  duration = DURATIONS.slow,
   delay = 0,
-  stagger = 0.03,
+  stagger = STAGGER.fast,
   direction = 'up',
   color,
   as = 'p',
   className = '',
-  threshold = 0.3,
+  threshold = THRESHOLDS.high,
   once = true,
   onAnimationStart,
   onAnimationComplete,
@@ -157,7 +159,7 @@ export const TextReveal: React.FC<TextRevealProps> = ({
 
   // Resolver color
   const resolvedColor = color
-    ? (color in COLORS ? COLORS[color as ColorKey] : color)
+    ? (color in COLOR_NAME_MAP ? COLOR_NAME_MAP[color as ColorKey] : color)
     : undefined;
 
   // Determinar si animar
@@ -397,5 +399,5 @@ export const TextReveal: React.FC<TextRevealProps> = ({
   }
 };
 
-export { COLORS as TEXT_REVEAL_COLORS };
+export { COLOR_NAME_MAP as TEXT_REVEAL_COLORS };
 export default TextReveal;

@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { PARTICLE_COLORS } from '@/lib/design/colors';
+import { PARTICLES } from '@/lib/animations';
 
 interface Particle {
   x: number;
@@ -21,28 +23,15 @@ interface FloatingParticlesProps {
   className?: string;
 }
 
-const defaultColors = [
-  'rgba(75, 137, 191, 0.6)',   // azul
-  'rgba(154, 173, 46, 0.5)',   // lima
-  'rgba(242, 154, 46, 0.5)',   // naranja
-  'rgba(217, 68, 35, 0.4)',    // terracota
-];
-
-const speedMultipliers = {
-  slow: 0.3,
-  normal: 0.6,
-  fast: 1,
-};
-
 /**
  * Sistema de partículas flotantes con canvas
  * Efecto artístico de elementos que flotan en el fondo
  */
 export default function FloatingParticles({
-  count = 30,
-  colors = defaultColors,
+  count = PARTICLES.count,
+  colors = PARTICLE_COLORS as unknown as string[],
   speed = 'slow',
-  maxSize = 8,
+  maxSize = PARTICLES.maxSize,
   className = '',
 }: FloatingParticlesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -78,8 +67,8 @@ export default function FloatingParticles({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           size: 2 + Math.random() * maxSize,
-          speedX: (Math.random() - 0.5) * speedMultipliers[speed],
-          speedY: -0.2 - Math.random() * speedMultipliers[speed],
+          speedX: (Math.random() - 0.5) * PARTICLES.speed[speed],
+          speedY: -0.2 - Math.random() * PARTICLES.speed[speed],
           color: colors[Math.floor(Math.random() * colors.length)],
           opacity: 0.3 + Math.random() * 0.5,
           type: types[Math.floor(Math.random() * types.length)],
@@ -132,6 +121,9 @@ export default function FloatingParticles({
             break;
         }
       });
+
+      // Reset globalAlpha para evitar afectar otros renders
+      ctx.globalAlpha = 1;
 
       animationRef.current = requestAnimationFrame(animate);
     };

@@ -1,6 +1,41 @@
 'use client';
 
 // ============================================================================
+// ANIMATION CONSTANTS
+// ============================================================================
+export {
+  // Durations
+  DURATIONS,
+  DURATIONS_MS,
+  TAILWIND_DURATIONS,
+  // Thresholds
+  THRESHOLDS,
+  // Stagger
+  STAGGER,
+  // Distances
+  DISTANCES,
+  // Scales
+  SCALES,
+  // Spring configs
+  SPRING_CONFIGS,
+  // Blur
+  BLUR,
+  // Elevation
+  ELEVATION,
+  // Magnetic
+  MAGNETIC,
+  // Particles
+  PARTICLES,
+  // Types
+  type DurationKey,
+  type ThresholdKey,
+  type StaggerKey,
+  type DistanceKey,
+  type ScaleKey,
+  type SpringConfigKey,
+} from './constants';
+
+// ============================================================================
 // GSAP CORE EXPORTS
 // ============================================================================
 export {

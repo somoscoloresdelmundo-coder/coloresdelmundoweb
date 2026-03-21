@@ -1,6 +1,8 @@
 'use client';
 
 import { ReactNode, useEffect, useRef, useState } from 'react';
+import { DURATIONS_MS, DISTANCES, THRESHOLDS } from '@/lib/animations';
+import { useReducedMotion } from '@/hooks';
 
 type Direction = 'up' | 'down' | 'left' | 'right';
 
@@ -15,16 +17,16 @@ interface SlideInProps {
 }
 
 const durationValues = {
-  fast: 200,
-  normal: 400,
-  slow: 600,
+  fast: DURATIONS_MS.fast,
+  normal: DURATIONS_MS.medium,
+  slow: DURATIONS_MS.slower,
 };
 
 const distanceValues = {
-  sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 40,
+  sm: DISTANCES.xs,
+  md: DISTANCES.sm,
+  lg: DISTANCES.md,
+  xl: DISTANCES.lg,
 };
 
 const getTransform = (direction: Direction, distance: number, isVisible: boolean) => {
@@ -53,8 +55,15 @@ export default function SlideIn({
 }: SlideInProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
+    // Si reduced motion está activo, mostrar inmediatamente
+    if (reducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -66,7 +75,7 @@ export default function SlideIn({
           setIsVisible(false);
         }
       },
-      { threshold: 0.1 }
+      { threshold: THRESHOLDS.minimal }
     );
 
     if (ref.current) {
@@ -74,7 +83,12 @@ export default function SlideIn({
     }
 
     return () => observer.disconnect();
-  }, [once]);
+  }, [once, reducedMotion]);
+
+  // Sin animación si reduced motion está activo
+  if (reducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <div

@@ -1,16 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import { PRIMARY_HEX } from '@/lib/design/colors';
+import { ELEVATION, DURATIONS } from '@/lib/animations';
 
-// Colores de la paleta
-const COLORS = {
-  blue: '#3B82F6',
-  lime: '#84CC16',
-  orange: '#F97316',
-  terracotta: '#C2410C',
-} as const;
-
-type ColorKey = keyof typeof COLORS;
+type ColorKey = keyof typeof PRIMARY_HEX;
 
 export interface Card3DProps {
   children: React.ReactNode;
@@ -20,9 +14,9 @@ export interface Card3DProps {
   shineIntensity?: number;
   /** Color del brillo */
   shineColor?: ColorKey | string;
-  /** Elevacion base en pixels. Default: 4 */
+  /** Elevacion base en pixels. Default: ELEVATION.base */
   elevation?: number;
-  /** Elevacion maxima al hover. Default: 20 */
+  /** Elevacion maxima al hover. Default: ELEVATION.high */
   maxElevation?: number;
   /** Color de la sombra */
   shadowColor?: string;
@@ -41,8 +35,8 @@ export interface Card3DProps {
  */
 export const Card3D: React.FC<Card3DProps> = ({
   children,
-  elevation = 4,
-  maxElevation = 20,
+  elevation = ELEVATION.base,
+  maxElevation = ELEVATION.high,
   shadowColor = 'rgba(0, 0, 0, 0.15)',
   className = '',
   disabled = false,
@@ -72,7 +66,7 @@ export const Card3D: React.FC<Card3DProps> = ({
       onMouseLeave={handleMouseLeave}
       style={{
         boxShadow: `0 ${currentElevation}px ${currentElevation * 2}px ${shadowColor}`,
-        transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+        transition: `box-shadow ${DURATIONS.normal}s ease, transform ${DURATIONS.normal}s ease`,
         transform: isHovered && !disabled ? 'translateY(-4px)' : 'translateY(0)',
       }}
     >
@@ -81,5 +75,5 @@ export const Card3D: React.FC<Card3DProps> = ({
   );
 };
 
-export { COLORS as CARD3D_COLORS };
+export { PRIMARY_HEX as CARD3D_COLORS };
 export default Card3D;

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { PartnersIcon } from '@/components/ui/Icon';
 import { ROUTES } from '@/config/routes';
 
@@ -33,8 +34,8 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gris-100'
-          : 'bg-white/80 backdrop-blur-sm border-b border-transparent'
+          ? 'bg-white/95 dark:bg-gris-900/95 backdrop-blur-md shadow-sm border-b border-gris-100 dark:border-gris-800'
+          : 'bg-white/80 dark:bg-gris-900/80 backdrop-blur-sm border-b border-transparent'
       }`}
     >
       <nav className="container flex items-center justify-between py-4">
@@ -48,6 +49,7 @@ export default function Header() {
             alt="Colores del Mundo"
             width={140}
             height={56}
+            sizes="140px"
             className={`transition-all duration-300 ${scrolled ? 'h-12' : 'h-14'} w-auto`}
             priority
           />
@@ -67,28 +69,31 @@ export default function Header() {
           {/* PIF Button - Destacado para Partners */}
           <Link
             href={ROUTES.PIF}
-            className="ml-2 px-4 py-2 bg-lima-bg text-lima-dark font-semibold text-sm rounded-lg border border-lima/30 hover:bg-lima hover:text-white hover:border-lima transition-all duration-300 flex items-center gap-2"
+            className="ml-2 px-4 py-2 bg-lima-bg text-lima-dark dark:bg-lima/20 dark:text-lima font-semibold text-sm rounded-lg border border-lima/30 hover:bg-lima hover:text-white hover:border-lima focus:outline-none focus:ring-2 focus:ring-lima/50 focus:ring-offset-2 transition-all duration-300 flex items-center gap-2"
           >
-            <PartnersIcon className="w-4 h-4" />
+            <PartnersIcon className="w-4 h-4" aria-hidden="true" />
             {t('partners')}
           </Link>
           <Link href={ROUTES.CONTACT} className="btn-primary ml-2">
             {t('contact')}
           </Link>
-          <div className="ml-3">
+          <div className="ml-3 flex items-center gap-2">
+            <ThemeToggle />
             <LanguageSwitcher />
           </div>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
           <LanguageSwitcher />
           <button
             type="button"
-            className="p-2.5 text-negro hover:text-naranja hover:bg-gris-100 rounded-lg transition-all"
+            className="p-2.5 text-negro hover:text-naranja hover:bg-gris-100 dark:text-white dark:hover:bg-gris-800 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-naranja/50 focus:ring-offset-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? t('closeMenu') : t('openMenu')}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <div className="w-6 h-6 relative">
               <span
@@ -113,11 +118,14 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       <div
+        id="mobile-menu"
+        role="region"
+        aria-label={t('mobileNav')}
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileMenuOpen ? 'max-h-96 border-t border-gris-100' : 'max-h-0'
+          mobileMenuOpen ? 'max-h-96 border-t border-gris-100 dark:border-gris-800' : 'max-h-0'
         }`}
       >
-        <div className="container py-4 flex flex-col gap-2 bg-white">
+        <div className="container py-4 flex flex-col gap-2 bg-white dark:bg-gris-900">
           {navigation.map((item, index) => (
             <Link
               key={item.name}
@@ -132,10 +140,10 @@ export default function Header() {
           {/* PIF Link - Destacado */}
           <Link
             href={ROUTES.PIF}
-            className="py-3 px-4 rounded-lg bg-lima-bg text-lima-dark font-semibold flex items-center gap-2 hover:bg-lima hover:text-white transition-colors"
+            className="py-3 px-4 rounded-lg bg-lima-bg text-lima-dark dark:bg-lima/20 dark:text-lima font-semibold flex items-center gap-2 hover:bg-lima hover:text-white focus:outline-none focus:ring-2 focus:ring-lima/50 transition-colors"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <PartnersIcon />
+            <PartnersIcon aria-hidden="true" />
             {t('partners')} - {t('pif')}
           </Link>
           <Link

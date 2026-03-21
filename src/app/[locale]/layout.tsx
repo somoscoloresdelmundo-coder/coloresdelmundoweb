@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { Header, Footer } from '@/components/layout';
 import { ImmersiveProvider } from '@/components/providers/ImmersiveProvider';
+import { ToastProvider } from '@/components/ui';
 import { routing } from '@/i18n/routing';
 import { CONTACT, SOCIAL, SITE } from '@/config/constants';
 
@@ -169,20 +170,22 @@ export default async function LocaleLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <ImmersiveProvider>
-        {/* Skip Link para Accesibilidad */}
-        <a href="#main-content" className="skip-link">
-          {locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
-        </a>
+      <ToastProvider>
+        <ImmersiveProvider>
+          {/* Skip Link para Accesibilidad */}
+          <a href="#main-content" className="skip-link">
+            {locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
+          </a>
 
-        <Header />
+          <Header />
 
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
 
-        <Footer />
-      </ImmersiveProvider>
+          <Footer />
+        </ImmersiveProvider>
+      </ToastProvider>
     </NextIntlClientProvider>
   );
 }

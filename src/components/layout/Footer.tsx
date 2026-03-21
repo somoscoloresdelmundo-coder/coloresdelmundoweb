@@ -1,16 +1,14 @@
-'use client';
-
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { LocationIcon, EmailIcon, FacebookIcon, InstagramIcon } from '@/components/ui';
 import { ColorVariant, colorClasses } from '@/types/ui';
 import { CONTACT, SOCIAL, INSTITUTIONAL } from '@/config/constants';
 import { ROUTES } from '@/config/routes';
 
-export default function Footer() {
-  const t = useTranslations('footer');
-  const tNav = useTranslations('nav');
+export default async function Footer() {
+  const t = await getTranslations('footer');
+  const tNav = await getTranslations('nav');
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
@@ -30,7 +28,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gris-50 relative overflow-hidden">
+    <footer className="bg-gris-50 dark:bg-gris-900 relative overflow-hidden" role="contentinfo">
       {/* Decoración artística Mondrian en la parte superior */}
       <div className="h-2 flex">
         <div className="flex-1 bg-azul-pastel" />
@@ -58,6 +56,7 @@ export default function Footer() {
                 alt="Colores del Mundo - Inclusión, Diversidad, Creación"
                 width={160}
                 height={80}
+                sizes="160px"
                 className="h-20 w-auto mb-4"
               />
             </Link>
@@ -110,21 +109,22 @@ export default function Footer() {
             <h4 className="text-gris-800 font-semibold mb-5 text-lg">{t('contactTitle')}</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3 group">
-                <div className="w-10 h-10 rounded-xl bg-azul-pastel flex items-center justify-center flex-shrink-0 group-hover:bg-azul-soft transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-azul-pastel flex items-center justify-center flex-shrink-0 group-hover:bg-azul-soft transition-colors" aria-hidden="true">
                   <LocationIcon className="w-5 h-5 text-azul-dark" />
                 </div>
-                <span className="text-gris-600 leading-relaxed">
+                <address className="text-gris-600 leading-relaxed not-italic">
                   {t('address')}<br />
                   {t('city')}
-                </span>
+                </address>
               </li>
               <li className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-xl bg-naranja-pastel flex items-center justify-center flex-shrink-0 group-hover:bg-naranja-soft transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-naranja-pastel flex items-center justify-center flex-shrink-0 group-hover:bg-naranja-soft transition-colors" aria-hidden="true">
                   <EmailIcon className="w-5 h-5 text-naranja-dark" />
                 </div>
                 <a
                   href={CONTACT.EMAIL_HREF}
                   className="text-gris-600 hover:text-naranja-dark transition-colors break-all"
+                  aria-label={`${t('contactTitle')}: ${CONTACT.EMAIL}`}
                 >
                   {CONTACT.EMAIL}
                 </a>
