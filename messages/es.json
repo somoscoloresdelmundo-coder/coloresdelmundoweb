@@ -36,7 +36,8 @@
     "pif": "Partner Info",
     "pifDescription": "¿Quieres colaborar con nosotros?",
     "openMenu": "Abrir menú",
-    "closeMenu": "Cerrar menú"
+    "closeMenu": "Cerrar menú",
+    "mobileNav": "Menú de navegación"
   },
   "footer": {
     "description": "Asociación cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes, usando el arte y la educación no formal como motores de inclusión.",
