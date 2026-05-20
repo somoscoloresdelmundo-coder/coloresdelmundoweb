@@ -7,8 +7,8 @@ export const routing = defineRouting({
   // Locale por defecto
   defaultLocale: 'en',
 
-  // Siempre mostrar el prefijo de locale en la URL
-  localePrefix: 'always',
+  // Solo mostrar el prefijo de locale en la URL cuando sea necesario (no para el por defecto)
+  localePrefix: 'as-needed',
 
   // Nombres de rutas traducidos
   pathnames: {
