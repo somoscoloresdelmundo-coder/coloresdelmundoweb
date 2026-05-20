@@ -98,10 +98,10 @@ export async function generateMetadata({
     },
     manifest: '/manifest.json',
     alternates: {
-      canonical: `${SITE.URL}/${locale}`,
+      canonical: locale === 'en' ? SITE.URL : `${SITE.URL}/${locale}`,
       languages: {
         'es': `${SITE.URL}/es`,
-        'en': `${SITE.URL}/en`,
+        'en': SITE.URL,
       },
     },
   };

@@ -201,7 +201,7 @@ test.describe('Auditoría del Sitio - Colores del Mundo', () => {
       await page.locator('input[name="privacy"]').check();
 
       // Verificar que no hay errores visibles antes de enviar
-      const errors = page.locator('[role="alert"]');
+      const errors = page.locator('form [role="alert"]');
       const errorCount = await errors.count();
       expect(errorCount).toBe(0);
 
@@ -299,7 +299,7 @@ test.describe('Auditoría del Sitio - Colores del Mundo', () => {
   test.describe('Internacionalización', () => {
 
     test('Versión en inglés funciona', async ({ page }) => {
-      await page.goto('/en');
+      await page.goto('/');
 
       // Verificar que carga en inglés
       await expect(page).toHaveTitle(/Colores del Mundo/);

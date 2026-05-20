@@ -37,7 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const page of pages) {
     for (const locale of routing.locales) {
       const localePath = locale === 'en' ? enPaths[page.path] : page.path;
-      const url = `${baseUrl}/${locale}${localePath === '/' ? '' : localePath}`;
+      // Con localePrefix: 'as-needed', el locale por defecto ('en') no lleva prefijo en la URL
+      const url = locale === 'en'
+        ? `${baseUrl}${localePath}`
+        : `${baseUrl}/${locale}${localePath === '/' ? '' : localePath}`;
 
       sitemapEntries.push({
         url,
