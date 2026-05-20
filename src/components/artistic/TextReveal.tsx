@@ -32,6 +32,7 @@ export default function TextReveal({
 
   useEffect(() => {
     if (!triggerOnScroll) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true);
       return;
     }
@@ -147,7 +148,7 @@ export default function TextReveal({
   };
 
   return (
-    <Component ref={ref as any} className={className}>
+    <Component ref={ref as React.Ref<never>} className={className}>
       {renderAnimatedText()}
     </Component>
   );

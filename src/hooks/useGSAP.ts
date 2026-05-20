@@ -162,7 +162,7 @@ export function useGSAPAnimation<T extends HTMLElement = HTMLDivElement>(
         },
       });
     });
-  }, [fromVars, toVars, animConfig, autoPlay]);
+  }, [fromVars, toVars, animConfig, autoPlay, setIsActive, setProgress]);
 
   useEffect(() => {
     createAnimation();
@@ -194,7 +194,7 @@ export function useScrollTrigger<T extends HTMLElement = HTMLDivElement>(
   options: UseScrollTriggerOptions = {}
 ): [React.RefObject<T | null>, ScrollTrigger | null] {
   const ref = useRef<T>(null);
-  const triggerRef = useRef<ScrollTrigger | null>(null);
+  const [trigger, setTrigger] = useState<ScrollTrigger | null>(null);
   const contextRef = useRef<gsap.Context | null>(null);
 
   const {
@@ -243,8 +243,8 @@ export function useScrollTrigger<T extends HTMLElement = HTMLDivElement>(
         },
       });
 
-      // Get the ScrollTrigger instance
-      triggerRef.current = tween.scrollTrigger || null;
+      // Set the ScrollTrigger instance
+      setTrigger(tween.scrollTrigger || null);
     });
 
     return () => {
@@ -254,7 +254,7 @@ export function useScrollTrigger<T extends HTMLElement = HTMLDivElement>(
     };
   }, [fromVars, toVars, animConfig, scrollTrigger, once, start, end, scrub]);
 
-  return [ref, triggerRef.current];
+  return [ref, trigger];
 }
 
 // ============================================================================
@@ -264,7 +264,7 @@ export function useStagger<T extends HTMLElement = HTMLDivElement>(
   options: UseStaggerOptions = {}
 ): [React.RefObject<T | null>, ScrollTrigger | null] {
   const ref = useRef<T>(null);
-  const triggerRef = useRef<ScrollTrigger | null>(null);
+  const [trigger, setTrigger] = useState<ScrollTrigger | null>(null);
   const contextRef = useRef<gsap.Context | null>(null);
 
   const {
@@ -320,7 +320,7 @@ export function useStagger<T extends HTMLElement = HTMLDivElement>(
         },
       });
 
-      triggerRef.current = tween.scrollTrigger || null;
+      setTrigger(tween.scrollTrigger || null);
     });
 
     return () => {
@@ -330,7 +330,7 @@ export function useStagger<T extends HTMLElement = HTMLDivElement>(
     };
   }, [fromVars, toVars, animConfig, staggerValue, childSelector, scrollTrigger, once, start, scrub]);
 
-  return [ref, triggerRef.current];
+  return [ref, trigger];
 }
 
 // ============================================================================
@@ -396,7 +396,7 @@ export function usePinnedSection<T extends HTMLElement = HTMLDivElement>(
   options: UsePinnedSectionOptions = {}
 ): [React.RefObject<T | null>, ScrollTrigger | null] {
   const ref = useRef<T>(null);
-  const triggerRef = useRef<ScrollTrigger | null>(null);
+  const [trigger, setTrigger] = useState<ScrollTrigger | null>(null);
   const contextRef = useRef<gsap.Context | null>(null);
 
   const {
@@ -421,7 +421,7 @@ export function usePinnedSection<T extends HTMLElement = HTMLDivElement>(
     contextRef.current.add(() => {
       const endValue = end || `+=${(ref.current?.offsetHeight || 500) * durationMultiplier}`;
 
-      triggerRef.current = ScrollTrigger.create({
+      const st = ScrollTrigger.create({
         trigger: ref.current,
         start,
         end: endValue,
@@ -429,6 +429,8 @@ export function usePinnedSection<T extends HTMLElement = HTMLDivElement>(
         pinSpacing,
         anticipatePin,
       });
+
+      setTrigger(st);
     });
 
     return () => {
@@ -438,7 +440,7 @@ export function usePinnedSection<T extends HTMLElement = HTMLDivElement>(
     };
   }, [start, end, pinSpacing, anticipatePin, durationMultiplier, ...deps]);
 
-  return [ref, triggerRef.current];
+  return [ref, trigger];
 }
 
 // ============================================================================
@@ -449,7 +451,7 @@ export function useHorizontalScroll<T extends HTMLElement = HTMLDivElement>(
 ): [React.RefObject<T | null>, React.RefObject<HTMLDivElement | null>, ScrollTrigger | null] {
   const containerRef = useRef<T>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<ScrollTrigger | null>(null);
+  const [trigger, setTrigger] = useState<ScrollTrigger | null>(null);
   const contextRef = useRef<gsap.Context | null>(null);
 
   const {
@@ -498,7 +500,7 @@ export function useHorizontalScroll<T extends HTMLElement = HTMLDivElement>(
         },
       });
 
-      triggerRef.current = tween.scrollTrigger || null;
+      setTrigger(tween.scrollTrigger || null);
     });
 
     return () => {
@@ -508,7 +510,7 @@ export function useHorizontalScroll<T extends HTMLElement = HTMLDivElement>(
     };
   }, [scrub, snap, pinSpacing, ...deps]);
 
-  return [containerRef, panelRef, triggerRef.current];
+  return [containerRef, panelRef, trigger];
 }
 
 // ============================================================================
@@ -519,7 +521,7 @@ export function useTimeline<T extends HTMLElement = HTMLDivElement>(
   deps: React.DependencyList = []
 ): [React.RefObject<T | null>, gsap.core.Timeline | null, AnimationControls] {
   const ref = useRef<T>(null);
-  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const [timeline, setTimeline] = useState<gsap.core.Timeline | null>(null);
   const contextRef = useRef<gsap.Context | null>(null);
   const [isActive, setIsActive] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -535,18 +537,17 @@ export function useTimeline<T extends HTMLElement = HTMLDivElement>(
     contextRef.current = createGSAPContext(ref.current);
 
     contextRef.current.add(() => {
-      timelineRef.current = gsap.timeline({
+      const tl = gsap.timeline({
         paused: true,
         onStart: () => setIsActive(true),
         onComplete: () => setIsActive(false),
         onUpdate: () => {
-          if (timelineRef.current) {
-            setProgress(timelineRef.current.progress());
-          }
+          setProgress(tl.progress());
         },
       });
 
-      createTimeline(timelineRef.current, ref.current!);
+      createTimeline(tl, ref.current!);
+      setTimeline(tl);
     });
 
     return () => {
@@ -554,19 +555,20 @@ export function useTimeline<T extends HTMLElement = HTMLDivElement>(
         contextRef.current.revert();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...deps]);
 
   const controls: AnimationControls = {
-    play: () => timelineRef.current?.play(),
-    pause: () => timelineRef.current?.pause(),
-    reverse: () => timelineRef.current?.reverse(),
-    restart: () => timelineRef.current?.restart(),
-    kill: () => timelineRef.current?.kill(),
+    play: () => timeline?.play(),
+    pause: () => timeline?.pause(),
+    reverse: () => timeline?.reverse(),
+    restart: () => timeline?.restart(),
+    kill: () => timeline?.kill(),
     isActive,
     progress,
   };
 
-  return [ref, timelineRef.current, controls];
+  return [ref, timeline, controls];
 }
 
 // ============================================================================
@@ -576,6 +578,7 @@ export function useReducedMotion(): boolean {
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setReducedMotion(prefersReducedMotion());
 
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');

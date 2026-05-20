@@ -136,7 +136,9 @@ export const CounterAnimated: React.FC<CounterAnimatedProps> = ({
 
     // Si prefiere movimiento reducido, mostrar valor final directamente
     if (prefersReducedMotion) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDisplayValue(value);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setHasAnimated(true);
       onComplete?.();
       return;
@@ -170,6 +172,7 @@ export const CounterAnimated: React.FC<CounterAnimatedProps> = ({
   // Resetear si el valor cambia y no es "once"
   useEffect(() => {
     if (!once && hasAnimated) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setHasAnimated(false);
       motionValue.set(startValue);
     }

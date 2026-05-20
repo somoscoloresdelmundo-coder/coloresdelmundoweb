@@ -63,6 +63,11 @@ export const LinkUnderline: React.FC<LinkUnderlineProps> = ({
   // Motion values para variante "follow"
   const cursorX = useMotionValue(0);
   const springCursorX = useSpring(cursorX, { stiffness: 300, damping: 30 });
+  const underlineLeft = useTransform(
+    springCursorX,
+    [0, 1],
+    ['0%', '60%'] // 60% es 100% - 40% (underlineWidth)
+  );
 
   // Detectar dispositivo movil
   useEffect(() => {
@@ -172,11 +177,7 @@ export const LinkUnderline: React.FC<LinkUnderlineProps> = ({
             height: thickness,
             backgroundColor: resolvedColor,
             width: `${underlineWidth}%`,
-            left: useTransform(
-              springCursorX,
-              [0, 1],
-              ['0%', `${100 - underlineWidth}%`]
-            ),
+            left: underlineLeft,
             opacity: isHovered ? 1 : 0,
             transition: 'opacity 0.2s ease',
           }}

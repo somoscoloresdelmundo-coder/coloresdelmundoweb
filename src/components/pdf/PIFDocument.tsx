@@ -323,7 +323,7 @@ const PIFDocument = () => (
         </Text>
         <View style={styles.quote}>
           <Text style={styles.sectionContent}>
-            "Our projects aim to transform young people from passive spectators into agents of change in their communities, using art as a universal language that transcends the linguistic barriers of migration."
+            {"\"Our projects aim to transform young people from passive spectators into agents of change in their communities, using art as a universal language that transcends the linguistic barriers of migration.\""}
           </Text>
         </View>
       </View>

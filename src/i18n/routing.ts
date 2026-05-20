@@ -2,10 +2,10 @@ import { defineRouting } from 'next-intl/routing';
 
 export const routing = defineRouting({
   // Lista de locales soportados
-  locales: ['es', 'en'],
+  locales: ['en', 'es'],
 
   // Locale por defecto
-  defaultLocale: 'es',
+  defaultLocale: 'en',
 
   // Siempre mostrar el prefijo de locale en la URL
   localePrefix: 'always',

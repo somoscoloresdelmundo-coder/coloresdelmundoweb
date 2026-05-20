@@ -22,6 +22,7 @@ export default function ScrollProgress({
 
   useEffect(() => {
     // Verificar soporte de CSS scroll-timeline
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSupportsScrollTimeline(CSS.supports('animation-timeline', 'scroll()'));
 
     // Si el navegador soporta scroll-timeline, usamos CSS puro

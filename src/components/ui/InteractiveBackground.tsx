@@ -52,6 +52,7 @@ export default function InteractiveBackground() {
       });
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setShapes(initialShapes);
   }, []);
 

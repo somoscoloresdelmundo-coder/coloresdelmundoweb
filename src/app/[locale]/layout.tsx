@@ -58,7 +58,7 @@ export async function generateMetadata({
         : 'Cultural association founded by young people motivated to improve the quality of life of other young people through art and non-formal education.',
       images: [
         {
-          url: '/images/logo.png',
+          url: `${SITE.URL}/images/logo.png`,
           width: 1200,
           height: 630,
           alt: isSpanish
@@ -75,7 +75,7 @@ export async function generateMetadata({
       description: isSpanish
         ? 'Asociación Cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes.'
         : 'Cultural association founded by young people motivated to improve the quality of life of other young people.',
-      images: ['/images/logo.png'],
+      images: [`${SITE.URL}/images/logo.png`],
     },
     robots: {
       index: true,
@@ -89,8 +89,11 @@ export async function generateMetadata({
       },
     },
     icons: {
-      icon: '/images/logo.png',
-      shortcut: '/images/logo.png',
+      icon: [
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/images/logo.png', type: 'image/png', sizes: '32x32' },
+      ],
+      shortcut: '/favicon.ico',
       apple: '/images/logo.png',
     },
     manifest: '/manifest.json',

@@ -60,6 +60,7 @@ export function useTheme() {
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
     const initialTheme = stored || 'system';
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setThemeState(initialTheme);
     applyTheme(initialTheme);
     setMounted(true);

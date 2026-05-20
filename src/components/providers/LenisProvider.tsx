@@ -76,6 +76,7 @@ export function LenisProvider({ children, options }: LenisProviderProps) {
   const lenisRef = useRef<Lenis | null>(null);
   const rafIdRef = useRef<number | null>(null);
   const [isReady, setIsReady] = useState(false);
+  const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
   const pathname = usePathname();
 
   // Funcion para scroll programatico
@@ -109,6 +110,7 @@ export function LenisProvider({ children, options }: LenisProviderProps) {
   useEffect(() => {
     // No inicializar si no debe habilitarse
     if (!shouldEnableLenis()) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsReady(true);
       return;
     }
@@ -116,11 +118,13 @@ export function LenisProvider({ children, options }: LenisProviderProps) {
     // Crear instancia de Lenis
     const lenis = createLenis(options);
     if (!lenis) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsReady(true);
       return;
     }
 
     lenisRef.current = lenis;
+    setLenisInstance(lenis);
 
     // Configurar ScrollTrigger.scrollerProxy para integracion con GSAP
     ScrollTrigger.scrollerProxy(document.documentElement, {
@@ -161,6 +165,7 @@ export function LenisProvider({ children, options }: LenisProviderProps) {
       if (e.matches) {
         lenis.destroy();
         lenisRef.current = null;
+        setLenisInstance(null);
         if (rafIdRef.current) {
           cancelAnimationFrame(rafIdRef.current);
         }
@@ -182,6 +187,7 @@ export function LenisProvider({ children, options }: LenisProviderProps) {
         lenisRef.current.destroy();
         lenisRef.current = null;
       }
+      setLenisInstance(null);
 
       // Limpiar ScrollTrigger
       ScrollTrigger.clearScrollMemory();
@@ -234,7 +240,7 @@ export function LenisProvider({ children, options }: LenisProviderProps) {
   }, [isReady]);
 
   const contextValue: LenisContextValue = {
-    lenis: lenisRef.current,
+    lenis: lenisInstance,
     isReady,
     scrollTo,
   };

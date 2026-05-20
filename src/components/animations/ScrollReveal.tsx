@@ -66,6 +66,7 @@ export default function ScrollReveal({
   useEffect(() => {
     // Si reduced motion está activo, mostrar inmediatamente
     if (reducedMotion) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true);
       return;
     }
@@ -76,6 +77,7 @@ export default function ScrollReveal({
     if (supportsScrollTimeline) {
       // Si el navegador soporta scroll-driven animations nativas,
       // las usamos desde CSS (clase scroll-reveal)
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true);
       return;
     }

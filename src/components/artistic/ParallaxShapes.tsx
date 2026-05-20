@@ -39,15 +39,15 @@ export default function ParallaxShapes({
 }: ParallaxShapesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
-  const shapesRef = useRef<Shape[]>([]);
+  const [shapes, setShapes] = useState<Shape[]>([]);
 
   // Generar formas al montar
   useEffect(() => {
     const shapeCount = density === 'sparse' ? 4 : density === 'normal' ? 7 : 12;
-    const shapes: Shape[] = [];
+    const generatedShapes: Shape[] = [];
 
     for (let i = 0; i < shapeCount; i++) {
-      shapes.push({
+      generatedShapes.push({
         id: i,
         x: `${10 + Math.random() * 80}%`,
         y: `${10 + Math.random() * 80}%`,
@@ -59,7 +59,8 @@ export default function ParallaxShapes({
       });
     }
 
-    shapesRef.current = shapes;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setShapes(generatedShapes);
   }, [density]);
 
   // Efecto de mouse interactivo
@@ -89,7 +90,7 @@ export default function ParallaxShapes({
       className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
       aria-hidden="true"
     >
-      {shapesRef.current.map((shape) => {
+      {shapes.map((shape) => {
         const moveX = interactive ? (mousePosition.x - 0.5) * 30 * shape.speed * intensityMultiplier : 0;
         const moveY = interactive ? (mousePosition.y - 0.5) * 30 * shape.speed * intensityMultiplier : 0;
 

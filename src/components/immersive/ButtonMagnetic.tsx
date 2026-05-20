@@ -134,6 +134,12 @@ export const ButtonMagnetic: React.FC<ButtonMagneticProps> = ({
     }
   );
 
+  const hoverGradient = useTransform(
+    [springCursorX, springCursorY],
+    ([cx, cy]) =>
+      `radial-gradient(circle at ${(cx as number) * 100}% ${(cy as number) * 100}%, ${colorValue}30, transparent 50%)`
+  );
+
   // Detectar dispositivo movil
   useEffect(() => {
     const checkMobile = () => {
@@ -309,11 +315,7 @@ export const ButtonMagnetic: React.FC<ButtonMagneticProps> = ({
             left: 0,
             right: 0,
             bottom: 0,
-            background: useTransform(
-              [springCursorX, springCursorY],
-              ([cx, cy]) =>
-                `radial-gradient(circle at ${(cx as number) * 100}% ${(cy as number) * 100}%, ${colorValue}30, transparent 50%)`
-            ),
+            background: hoverGradient,
             opacity: isHovered ? 1 : 0,
             transition: 'opacity 0.3s ease',
             pointerEvents: 'none',

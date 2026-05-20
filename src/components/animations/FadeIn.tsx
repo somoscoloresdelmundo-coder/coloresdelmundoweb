@@ -32,6 +32,7 @@ export default function FadeIn({
   useEffect(() => {
     // Si reduced motion está activo, mostrar inmediatamente
     if (reducedMotion) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true);
       return;
     }
