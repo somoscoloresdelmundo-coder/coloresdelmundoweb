@@ -18,6 +18,7 @@ export const SOCIAL = {
 
 export const INSTITUTIONAL = {
   OID: 'E10413227',
+  CIF: 'G75377481',
   LEGAL_NAME: 'Colores del Mundo',
   GOOGLE_MAPS_URL: 'https://maps.google.com/?q=Paseo+Rosa+de+los+Vientos+39,+46730+Gandia',
   YEARS_EXPERIENCE: 5,

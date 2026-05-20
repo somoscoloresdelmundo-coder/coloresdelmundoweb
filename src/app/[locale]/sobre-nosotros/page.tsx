@@ -152,6 +152,12 @@ export default async function SobreNosotrosPage() {
                   <dt className="font-medium text-gris-600">{t('institutional.legalName')}</dt>
                   <dd className="text-negro">{t('institutional.legalNameValue')}</dd>
                 </div>
+                {INSTITUTIONAL.CIF && (
+                  <div className="flex justify-between py-2 border-b border-gris-100">
+                    <dt className="font-medium text-gris-600">{t('institutional.cif')}</dt>
+                    <dd className="text-negro">{INSTITUTIONAL.CIF}</dd>
+                  </div>
+                )}
                 <div className="flex justify-between py-2 border-b border-gris-100">
                   <dt className="font-medium text-gris-600">{t('institutional.oid')}</dt>
                   <dd className="text-negro">{INSTITUTIONAL.OID}</dd>

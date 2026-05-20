@@ -424,6 +424,19 @@ export default async function PIFPage() {
                       </div>
                     </div>
 
+                    {INSTITUTIONAL.CIF && (
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-xs text-gris-400 uppercase tracking-wider">CIF</p>
+                          <p className="font-medium text-sm">{INSTITUTIONAL.CIF}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gris-400 uppercase tracking-wider">OID</p>
+                          <p className="font-medium text-sm">{INSTITUTIONAL.OID}</p>
+                        </div>
+                      </div>
+                    )}
+
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <p className="text-xs text-gris-400 uppercase tracking-wider">{t('details.staff')}</p>

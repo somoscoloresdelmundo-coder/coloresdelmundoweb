@@ -238,6 +238,7 @@ const PIFDocument = () => (
         <TableRow label="OID" value={INSTITUTIONAL.OID} />
         <TableRow label="Type of organization" value="NGO" />
         <TableRow label="Legal name" value="Asociación Cultural Colores del Mundo" />
+        <TableRow label="CIF" value={INSTITUTIONAL.CIF} />
         <TableRow label="Short name" value="Colores del Mundo" />
         <TableRow label="Address" value="Paseo Rosa de los Vientos 39" />
         <TableRow label="Country" value="Spain" />

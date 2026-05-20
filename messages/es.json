@@ -52,7 +52,7 @@
     "contactTitle": "Contacto",
     "address": "Gandía",
     "city": "Valencia, España",
-    "copyright": "Asociación Cultural Colores del Mundo. Todos los derechos reservados.",
+    "copyright": "Asociación Cultural Colores del Mundo. Todos los derechos reservados. CIF: G75377481.",
     "partnerInfo": "Partner Info (PIF)"
   },
   "home": {
@@ -197,6 +197,7 @@
       "legalNameValue": "Asociación Cultural Colores del Mundo",
       "type": "Tipo",
       "typeValue": "ONG",
+      "cif": "CIF",
       "oid": "OID",
       "email": "Email",
       "location": "Ubicación",

@@ -162,11 +162,18 @@ export default async function Footer() {
             <div className="flex-1 bg-terracota-soft" />
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gris-500 text-sm">
+            <p className="text-gris-500 text-sm text-center md:text-left">
               &copy; {currentYear} {t('copyright')}
             </p>
-            <div className="flex items-center gap-4 text-gris-500 text-sm">
-              <span className="px-3 py-1 bg-azul-pastel/50 text-azul-dark rounded-full font-medium">OID: {INSTITUTIONAL.OID}</span>
+            <div className="flex flex-wrap justify-center items-center gap-3 text-gris-500 text-sm">
+              {INSTITUTIONAL.CIF && (
+                <span className="px-3 py-1 bg-terracota-pastel/50 text-terracota-dark rounded-full font-medium text-xs md:text-sm">
+                  CIF: {INSTITUTIONAL.CIF}
+                </span>
+              )}
+              <span className="px-3 py-1 bg-azul-pastel/50 text-azul-dark rounded-full font-medium text-xs md:text-sm">
+                OID: {INSTITUTIONAL.OID}
+              </span>
             </div>
           </div>
         </div>
