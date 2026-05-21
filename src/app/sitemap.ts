@@ -47,6 +47,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: page.changeFrequency,
         priority: page.priority,
+        alternates: {
+          languages: {
+            es: `${baseUrl}/es${page.path === '/' ? '' : page.path}`,
+            en: `${baseUrl}${enPaths[page.path]}`,
+          },
+        },
       });
     }
   }
