@@ -15,6 +15,7 @@ import { HomeClient } from './HomeClient';
 export default async function HomePage() {
   const t = await getTranslations('home');
   const tCommon = await getTranslations('common');
+  const tWhatWeDo = await getTranslations('whatWeDo');
 
   // Líneas de acción con traducciones
   const actionLines = [
@@ -25,9 +26,9 @@ export default async function HomePage() {
       icon: <MobilityIcon className="w-8 h-8" />,
       color: 'azul' as const,
       details: [
-        'Orientación en procesos de movilidad europea',
-        'Preparación para experiencias Erasmus+',
-        'Apoyo en integración cultural',
+        tWhatWeDo('lines.mobility.details.0'),
+        tWhatWeDo('lines.mobility.details.1'),
+        tWhatWeDo('lines.mobility.details.2'),
       ],
     },
     {
@@ -37,9 +38,9 @@ export default async function HomePage() {
       icon: <ArtIcon className="w-8 h-8" />,
       color: 'terracota' as const,
       details: [
-        'Talleres de artes visuales y plásticas',
-        'Teatro y expresión corporal',
-        'Escritura creativa y storytelling',
+        tWhatWeDo('lines.art.details.0'),
+        tWhatWeDo('lines.art.details.1'),
+        tWhatWeDo('lines.art.details.2'),
       ],
     },
     {
@@ -49,9 +50,9 @@ export default async function HomePage() {
       icon: <EducationIcon className="w-8 h-8" />,
       color: 'lima' as const,
       details: [
-        'Metodologías de educación no formal',
-        'Desarrollo de soft skills',
-        'Aprendizaje experiencial',
+        tWhatWeDo('lines.education.details.0'),
+        tWhatWeDo('lines.education.details.1'),
+        tWhatWeDo('lines.education.details.2'),
       ],
     },
     {
@@ -61,9 +62,9 @@ export default async function HomePage() {
       icon: <DigitalIcon className="w-8 h-8" />,
       color: 'naranja' as const,
       details: [
-        'Alfabetización digital crítica',
-        'Bienestar digital y uso consciente',
-        'Herramientas digitales para el activismo',
+        tWhatWeDo('lines.digital.details.0'),
+        tWhatWeDo('lines.digital.details.1'),
+        tWhatWeDo('lines.digital.details.2'),
       ],
     },
   ];

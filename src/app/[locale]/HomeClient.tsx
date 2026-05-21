@@ -303,7 +303,7 @@ export function HomeClient({
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {targetGroups.map((group, index) => (
+            {targetGroups.map((group) => (
               <Card3D
                 key={group.title}
                 className="p-6 bg-white rounded-2xl shadow-lg text-center"

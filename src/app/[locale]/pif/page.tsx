@@ -6,6 +6,8 @@ import { MobilityIcon, ArtIcon, EducationIcon, DigitalIcon, UsersIcon, YouthWork
 import { colorClasses } from '@/types/ui';
 import { CONTACT, SOCIAL, INSTITUTIONAL, COLOR_CYCLE, LINES_OF_ACTION } from '@/config/constants';
 import { ROUTES } from '@/config/routes';
+import { MotionReveal, MotionStagger } from '@/components/animations';
+import { MagneticElement } from '@/components/immersive';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata');
@@ -56,19 +58,23 @@ export default async function PIFPage() {
 
         <div className="container py-12 md:py-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div className="scroll-reveal">
+            <MotionReveal animation="fadeLeft">
               <span className="badge badge-azul mb-4">{t('hero.badge')}</span>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                 {t('hero.title')}
               </h1>
               <p className="text-lg text-gris-600 mb-6 max-w-lg">{t('hero.description')}</p>
               <div className="flex flex-wrap gap-3">
-                <DownloadPIFButton />
-                <Link href={ROUTES.CONTACT} className="btn-secondary">{tCommon('contact')}</Link>
+                <MagneticElement className="inline-block">
+                  <DownloadPIFButton />
+                </MagneticElement>
+                <MagneticElement className="inline-block">
+                  <Link href={ROUTES.CONTACT} className="btn-secondary">{tCommon('contact')}</Link>
+                </MagneticElement>
               </div>
-            </div>
+            </MotionReveal>
 
-            <div className="scroll-reveal" style={{ animationDelay: '0.1s' }}>
+            <MotionReveal animation="fadeRight" delay={0.15}>
               <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-xl border border-white/50 p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-naranja/20 to-transparent rounded-bl-full" />
                 <div className="text-center mb-6 pb-6 border-b border-gris-100">
@@ -96,7 +102,7 @@ export default async function PIFPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </MotionReveal>
           </div>
         </div>
       </section>
@@ -105,31 +111,31 @@ export default async function PIFPage() {
       <section className="section bg-white">
         <div className="container">
           <div className="max-w-6xl mx-auto">
-            <div className="mb-16 scroll-reveal">
+            <MotionReveal className="mb-16">
               <span className="badge badge-lima mb-4">{t('organization.badge')}</span>
               <h2 className="text-2xl md:text-3xl font-bold mb-4">{t('organization.title')}</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <p className="text-gris-600 leading-relaxed">{t('organization.description')}</p>
                 <p className="text-gris-600 leading-relaxed">{t('organization.fullDescription')}</p>
               </div>
-            </div>
+            </MotionReveal>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-16">
-              <div className="bg-azul-muted/30 rounded-2xl p-8 scroll-reveal">
+            <MotionStagger className="grid md:grid-cols-2 gap-6 mb-16" staggerDelay={0.15}>
+              <div className="bg-azul-muted/30 rounded-2xl p-8 h-full">
                 <div className="w-12 h-12 bg-azul/20 rounded-xl flex items-center justify-center mb-4">
                   <MobilityIcon className="w-6 h-6 text-azul" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{t('missionVision.mission.title')}</h3>
                 <p className="text-gris-600">{t('missionVision.mission.description')}</p>
               </div>
-              <div className="bg-lima-muted/30 rounded-2xl p-8 scroll-reveal" style={{ animationDelay: '0.1s' }}>
+              <div className="bg-lima-muted/30 rounded-2xl p-8 h-full">
                 <div className="w-12 h-12 bg-lima/20 rounded-xl flex items-center justify-center mb-4">
                   <EducationIcon className="w-6 h-6 text-lima-dark" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{t('missionVision.vision.title')}</h3>
                 <p className="text-gris-600">{t('missionVision.vision.description')}</p>
               </div>
-            </div>
+            </MotionStagger>
           </div>
         </div>
       </section>
@@ -138,20 +144,19 @@ export default async function PIFPage() {
       <section className="section bg-gris-50">
         <div className="container">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12 scroll-reveal">
+            <MotionReveal className="text-center mb-12">
               <span className="badge badge-naranja mb-4">{t('linesOfAction.badge')}</span>
               <h2 className="text-2xl md:text-3xl font-bold mb-4">{t('linesOfAction.title')}</h2>
               <p className="text-gris-600 max-w-2xl mx-auto">{t('linesOfAction.description')}</p>
-            </div>
+            </MotionReveal>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {LINES_OF_ACTION.map((line, index) => {
+            <MotionStagger className="grid md:grid-cols-2 gap-6" staggerDelay={0.1}>
+              {LINES_OF_ACTION.map((line) => {
                 const colors = colorClasses[line.color];
                 return (
                   <div
                     key={line.key}
-                    className={`bg-white rounded-2xl p-6 border-l-4 ${colors.border} shadow-sm hover:shadow-md transition-shadow scroll-reveal`}
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className={`bg-white rounded-2xl p-6 border-l-4 ${colors.border} shadow-sm hover:shadow-md transition-shadow h-full`}
                   >
                     <div className="flex items-start gap-4">
                       <div className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 ${colors.bgMuted40} ${colors.textDark}`}>
@@ -176,7 +181,7 @@ export default async function PIFPage() {
                   </div>
                 );
               })}
-            </div>
+            </MotionStagger>
           </div>
         </div>
       </section>

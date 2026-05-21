@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { HeroSection, GridSection, QuoteSection, CTASection, RelatedLinks, HistoryTimeline } from '@/components/sections';
 import { FeatureCard, TeamCard, ValueCard } from '@/components/cards';
