@@ -2,11 +2,28 @@ import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
+import { Inter, Poppins } from 'next/font/google';
 import { Header, Footer } from '@/components/layout';
 import { ImmersiveProvider } from '@/components/providers/ImmersiveProvider';
 import { ToastProvider } from '@/components/ui';
 import { routing } from '@/i18n/routing';
 import { CONTACT, SOCIAL, SITE } from '@/config/constants';
+
+// Fuentes optimizadas con subset reducido
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  preload: true,
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  display: 'swap',
+  variable: '--font-poppins',
+  preload: true,
+});
 
 // Generar rutas estáticas para cada locale
 export function generateStaticParams() {
@@ -166,29 +183,33 @@ export default async function LocaleLayout({
   };
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <html lang={locale} className={`${inter.variable} ${poppins.variable} scroll-smooth`}>
+      <body className="min-h-screen flex flex-col antialiased">
+        <NextIntlClientProvider messages={messages}>
+          {/* JSON-LD Schema */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
 
-      <ToastProvider>
-        <ImmersiveProvider>
-          {/* Skip Link para Accesibilidad */}
-          <a href="#main-content" className="skip-link">
-            {locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
-          </a>
+          <ToastProvider>
+            <ImmersiveProvider>
+              {/* Skip Link para Accesibilidad */}
+              <a href="#main-content" className="skip-link">
+                {locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
+              </a>
 
-          <Header />
+              <Header />
 
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
+              <main id="main-content" className="flex-1">
+                {children}
+              </main>
 
-          <Footer />
-        </ImmersiveProvider>
-      </ToastProvider>
-    </NextIntlClientProvider>
+              <Footer />
+            </ImmersiveProvider>
+          </ToastProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

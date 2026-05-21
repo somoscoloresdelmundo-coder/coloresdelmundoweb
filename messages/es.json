@@ -162,7 +162,21 @@
       "title": "De participantes a organizadores",
       "p1": "Como jóvenes que hemos vivido experiencias de cambio y adaptación, sabemos de primera mano lo importante que es encontrar espacios de pertenencia y crecimiento. Traemos empatía y experiencia directa a todo lo que hacemos, lo que nos permite conectar auténticamente con los jóvenes que acompañamos.",
       "p2": "Varios de nosotros hemos participado en proyectos de voluntariado Erasmus+, Youth Exchanges y Training Courses como participantes antes de convertirnos en organizadores, así que sabemos por experiencia lo que hace que estos programas sean impactantes en la vida de las personas.",
-      "p3": "Desde nuestra creación, hemos estado construyendo activamente nuestra capacidad y red, conectando con organizaciones asociadas en toda Europa, participando en actividades de búsqueda de socios a través de plataformas SALTO-Youth."
+      "p3": "Desde nuestra creación, hemos estado construyendo activamente nuestra capacidad y red, conectando con organizaciones asociadas en toda Europa, participando en actividades de búsqueda de socios a través de plataformas SALTO-Youth.",
+      "milestones": {
+        "2024": {
+          "title": "Fundación y Propósito",
+          "description": "Nace la asociación con el propósito de acompañar a jóvenes en su movilidad y crecimiento personal, inspirados en nuestras propias vivencias de migración y adaptación cultural."
+        },
+        "2025": {
+          "title": "Conexión Local e Inclusión",
+          "description": "Establecemos nuestra sede en Gandía y consolidamos alianzas en la Comunidad Valenciana para la integración social y cultural de jóvenes."
+        },
+        "2026": {
+          "title": "Educación y Activismo",
+          "description": "Expandimos nuestro alcance con talleres de educación alternativa, promoviendo el activismo, la ciudadanía activa y el uso consciente del arte."
+        }
+      }
     },
     "team": {
       "badge": "Equipo",
@@ -288,6 +302,11 @@
     }
   },
   "projects": {
+    "filters": {
+      "all": "Todos",
+      "erasmus": "Erasmus+",
+      "local": "Locales"
+    },
     "hero": {
       "badge": "Nuestro Trabajo",
       "title": "Proyectos",
@@ -561,7 +580,7 @@
       "staff": "Personal",
       "staffValue": "5-10 voluntarios activos",
       "email": "Email",
-      "emailValue": "somoscoloresdelmundo@gmail.com",
+      "emailValue": "info@coloresdelmundo.org",
       "website": "Web",
       "websiteValue": "coloresdelmundo.org"
     },

@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import Button, { ArrowIcon } from '@/components/ui/Button';
 import { MondrianGrid } from '@/components/decorations';
 import { CTAConfig, BackgroundVariant } from '@/types/ui';
+import { MagneticElement } from '@/components/immersive';
 
 interface CTASectionProps {
   title: string;
@@ -53,21 +54,25 @@ export default function CTASection({
 
           {/* Botones */}
           <div className="flex flex-wrap justify-center gap-4">
-            <Button
-              href={primaryButton.href}
-              variant="primary"
-              icon={primaryButton.icon !== false ? <ArrowIcon /> : undefined}
-            >
-              {primaryButton.text}
-            </Button>
-            {secondaryButton && (
+            <MagneticElement>
               <Button
-                href={secondaryButton.href}
-                variant="secondary"
-                icon={secondaryButton.icon ? <ArrowIcon /> : undefined}
+                href={primaryButton.href}
+                variant="primary"
+                icon={primaryButton.icon !== false ? <ArrowIcon /> : undefined}
               >
-                {secondaryButton.text}
+                {primaryButton.text}
               </Button>
+            </MagneticElement>
+            {secondaryButton && (
+              <MagneticElement>
+                <Button
+                  href={secondaryButton.href}
+                  variant="secondary"
+                  icon={secondaryButton.icon ? <ArrowIcon /> : undefined}
+                >
+                  {secondaryButton.text}
+                </Button>
+              </MagneticElement>
             )}
           </div>
         </div>

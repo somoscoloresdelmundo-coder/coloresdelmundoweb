@@ -162,7 +162,21 @@
       "title": "From participants to organizers",
       "p1": "As young people who have lived through experiences of change and adaptation, we know firsthand how important it is to find spaces of belonging and growth. We bring empathy and direct experience to everything we do, which allows us to authentically connect with the young people we accompany.",
       "p2": "Several of us have participated in Erasmus+ volunteering projects, Youth Exchanges and Training Courses as participants before becoming organizers, so we know from experience what makes these programs impactful in people's lives.",
-      "p3": "Since our creation, we have been actively building our capacity and network, connecting with partner organizations across Europe, participating in partner-finding activities through SALTO-Youth platforms."
+      "p3": "Since our creation, we have been actively building our capacity and network, connecting with partner organizations across Europe, participating in partner-finding activities through SALTO-Youth platforms.",
+      "milestones": {
+        "2024": {
+          "title": "Foundation & Purpose",
+          "description": "The association is born with the purpose of accompanying young people in their mobility and personal growth, inspired by our own experiences of migration and cultural adaptation."
+        },
+        "2025": {
+          "title": "Local Connection & Inclusion",
+          "description": "We establish our headquarters in Gandía and consolidate alliances in the Valencian Community for the social and cultural integration of young people."
+        },
+        "2026": {
+          "title": "Education & Activism",
+          "description": "We expand our scope with alternative education workshops, promoting activism, active citizenship, and the conscious use of art."
+        }
+      }
     },
     "team": {
       "badge": "Team",
@@ -288,6 +302,11 @@
     }
   },
   "projects": {
+    "filters": {
+      "all": "All",
+      "erasmus": "Erasmus+",
+      "local": "Local"
+    },
     "hero": {
       "badge": "Our Work",
       "title": "Projects",
@@ -561,7 +580,7 @@
       "staff": "Staff",
       "staffValue": "5-10 active volunteers",
       "email": "Email",
-      "emailValue": "somoscoloresdelmundo@gmail.com",
+      "emailValue": "info@coloresdelmundo.org",
       "website": "Website",
       "websiteValue": "coloresdelmundo.org"
     },

@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
-import { HeroSection } from '@/components/sections';
+import { HeroSection, ProjectsFilter } from '@/components/sections';
 import { UsersIcon, EducationIcon, HeartIcon, HomeIcon } from '@/components/ui';
 import { PageTransition } from '@/components/providers/PageTransition';
-import { WaveDivider, GradientTransition, DIVIDER_COLORS } from '@/components/immersive';
+import { WaveDivider, GradientTransition, DIVIDER_COLORS, MagneticElement } from '@/components/immersive';
 import { INSTITUTIONAL } from '@/config/constants';
 import { ROUTES } from '@/config/routes';
 
@@ -26,21 +26,30 @@ export default async function ProyectosPage() {
       titulo: t('upcoming.projects.youthExchange.title'),
       tipo: t('upcoming.projects.youthExchange.type'),
       descripcion: t('upcoming.projects.youthExchange.description'),
+      description: t('upcoming.projects.youthExchange.description'),
       estado: t('upcoming.projects.youthExchange.status'),
+      category: 'erasmus' as const,
+      color: 'naranja' as const,
     },
     {
       key: 'workshop',
       titulo: t('upcoming.projects.workshop.title'),
       tipo: t('upcoming.projects.workshop.type'),
       descripcion: t('upcoming.projects.workshop.description'),
+      description: t('upcoming.projects.workshop.description'),
       estado: t('upcoming.projects.workshop.status'),
+      category: 'local' as const,
+      color: 'lima' as const,
     },
     {
       key: 'digitalTraining',
       titulo: t('upcoming.projects.digitalTraining.title'),
       tipo: t('upcoming.projects.digitalTraining.type'),
       descripcion: t('upcoming.projects.digitalTraining.description'),
+      description: t('upcoming.projects.digitalTraining.description'),
       estado: t('upcoming.projects.digitalTraining.status'),
+      category: 'erasmus' as const,
+      color: 'azul' as const,
     },
   ];
 
@@ -108,20 +117,14 @@ export default async function ProyectosPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {proximosProyectos.map((proyecto) => (
-              <div key={proyecto.key} className="card">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="badge badge-naranja">{proyecto.tipo}</span>
-                  <span className="text-xs text-gris-500 bg-gris-100 px-2 py-1 rounded">
-                    {proyecto.estado}
-                  </span>
-                </div>
-                <h3 className="font-semibold text-lg mb-2">{proyecto.titulo}</h3>
-                <p className="text-sm text-gris-600">{proyecto.descripcion}</p>
-              </div>
-            ))}
-          </div>
+          <ProjectsFilter
+            projects={proximosProyectos}
+            filterLabels={{
+              all: t('filters.all'),
+              erasmus: t('filters.erasmus'),
+              local: t('filters.local'),
+            }}
+          />
         </div>
       </section>
 
@@ -185,9 +188,11 @@ export default async function ProyectosPage() {
             <p className="text-gris-600 mb-8 max-w-xl mx-auto">
               {t('partnerCta.description')}
             </p>
-            <Link href={ROUTES.CONTACT} className="btn-primary">
-              {tCommon('proposeCollaboration')}
-            </Link>
+            <MagneticElement className="inline-block">
+              <Link href={ROUTES.CONTACT} className="btn-primary">
+                {tCommon('proposeCollaboration')}
+              </Link>
+            </MagneticElement>
           </div>
         </div>
       </section>
@@ -206,9 +211,11 @@ export default async function ProyectosPage() {
           <p className="text-gris-600 mb-8 max-w-xl mx-auto">
             {t('cta.description')}
           </p>
-          <Link href={ROUTES.PARTICIPATE} className="btn-primary">
-            {tCommon('seeOpportunities')}
-          </Link>
+          <MagneticElement className="inline-block">
+            <Link href={ROUTES.PARTICIPATE} className="btn-primary">
+              {tCommon('seeOpportunities')}
+            </Link>
+          </MagneticElement>
         </div>
       </section>
     </PageTransition>

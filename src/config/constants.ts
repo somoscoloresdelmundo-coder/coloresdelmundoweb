@@ -6,8 +6,8 @@
 import type { ColorVariant } from '@/types/ui';
 
 export const CONTACT = {
-  EMAIL: 'somoscoloresdelmundo@gmail.com',
-  EMAIL_HREF: 'mailto:somoscoloresdelmundo@gmail.com',
+  EMAIL: 'info@coloresdelmundo.org',
+  EMAIL_HREF: 'mailto:info@coloresdelmundo.org',
 } as const;
 
 export const SOCIAL = {

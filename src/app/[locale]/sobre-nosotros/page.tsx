@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
-import { HeroSection, GridSection, QuoteSection, CTASection, RelatedLinks } from '@/components/sections';
+import { HeroSection, GridSection, QuoteSection, CTASection, RelatedLinks, HistoryTimeline } from '@/components/sections';
 import { FeatureCard, TeamCard, ValueCard } from '@/components/cards';
-import { MissionIcon, VisionIcon } from '@/components/ui';
+import { MissionIcon, VisionIcon, UsersIcon, ArtIcon, EducationIcon } from '@/components/ui';
 import { PageTransition } from '@/components/providers/PageTransition';
 import { WaveDivider, GradientTransition, DIVIDER_COLORS } from '@/components/immersive';
 import { ColorVariant } from '@/types/ui';
@@ -34,6 +34,30 @@ export default async function SobreNosotrosPage() {
     { key: 'facilitation', titulo: t('skills.facilitation.title'), descripcion: t('skills.facilitation.description') },
     { key: 'creative', titulo: t('skills.creative.title'), descripcion: t('skills.creative.description') },
     { key: 'digital', titulo: t('skills.digital.title'), descripcion: t('skills.digital.description') },
+  ];
+
+  const timelineItems = [
+    {
+      year: '2024',
+      title: t('history.milestones.2024.title'),
+      description: t('history.milestones.2024.description'),
+      color: 'azul' as const,
+      icon: <UsersIcon className="w-5 h-5" />,
+    },
+    {
+      year: '2025',
+      title: t('history.milestones.2025.title'),
+      description: t('history.milestones.2025.description'),
+      color: 'terracota' as const,
+      icon: <ArtIcon className="w-5 h-5" />,
+    },
+    {
+      year: '2026',
+      title: t('history.milestones.2026.title'),
+      description: t('history.milestones.2026.description'),
+      color: 'lima' as const,
+      icon: <EducationIcon className="w-5 h-5" />,
+    },
   ];
 
   return (
@@ -79,29 +103,11 @@ export default async function SobreNosotrosPage() {
         height={100}
       />
 
-      <section className="section bg-gris-50">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="badge badge-terracota mb-4">{t('history.badge')}</span>
-              <h2 className="mb-6">{t('history.title')}</h2>
-              <p className="text-gris-600 mb-4">{t('history.p1')}</p>
-              <p className="text-gris-600 mb-4">{t('history.p2')}</p>
-              <p className="text-gris-600">{t('history.p3')}</p>
-            </div>
-            <div className="flex justify-center">
-              <Image
-                src="/images/sellocoloredelmundo.png"
-                alt="Sello Colores del Mundo"
-                width={300}
-                height={200}
-                sizes="(max-width: 768px) 250px, 300px"
-                className="opacity-80"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <HistoryTimeline
+        badge={t('history.badge')}
+        title={t('history.title')}
+        items={timelineItems}
+      />
 
       <GridSection
         badge={{ text: t('team.badge'), color: 'lima' }}
