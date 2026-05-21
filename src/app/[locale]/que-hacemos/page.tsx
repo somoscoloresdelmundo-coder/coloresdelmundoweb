@@ -5,7 +5,8 @@ import { FeatureCard } from '@/components/cards';
 import { Button, ArrowIcon, MobilityIcon, ArtIcon, EducationIcon, DigitalIcon, UsersIcon, HeartIcon, CheckIcon } from '@/components/ui';
 import { MondrianGrid } from '@/components/decorations';
 import { PageTransition } from '@/components/providers/PageTransition';
-import { WaveDivider, GradientTransition, DIVIDER_COLORS } from '@/components/immersive';
+import { WaveDivider, GradientTransition, DIVIDER_COLORS, MagneticElement } from '@/components/immersive';
+import { MotionReveal, MotionStagger } from '@/components/animations';
 import { ColorVariant, colorClasses } from '@/types/ui';
 import { ROUTES } from '@/config/routes';
 
@@ -50,11 +51,14 @@ function ActionLineSection({
   return (
     <section
       id={id}
-      className={`section scroll-reveal ${background === 'gray' ? 'bg-gris-50' : 'bg-white'}`}
+      className={`section ${background === 'gray' ? 'bg-gris-50' : 'bg-white'}`}
     >
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className={reverse ? 'lg:order-2' : ''}>
+          <MotionReveal
+            animation={reverse ? 'fadeRight' : 'fadeLeft'}
+            className={reverse ? 'lg:order-2' : ''}
+          >
             <div
               className={`w-24 h-24 rounded-3xl flex items-center justify-center mb-8
                 ${colors.bgColor} ${colors.textDark}`}
@@ -66,13 +70,19 @@ function ActionLineSection({
             <h2 className="mb-5">{title}</h2>
             <p className="text-gris-600 mb-8 text-lg leading-relaxed">{description}</p>
 
-            <Button href={ROUTES.PARTICIPATE} variant="outline" icon={<ArrowIcon />}>
-              {ctaText}
-            </Button>
-          </div>
+            <MagneticElement className="inline-block">
+              <Button href={ROUTES.PARTICIPATE} variant="outline" icon={<ArrowIcon />}>
+                {ctaText}
+              </Button>
+            </MagneticElement>
+          </MotionReveal>
 
-          <div className={reverse ? 'lg:order-1' : ''}>
-            <div className="card card-interactive">
+          <MotionReveal
+            animation={reverse ? 'fadeLeft' : 'fadeRight'}
+            className={reverse ? 'lg:order-1' : ''}
+            delay={0.15}
+          >
+            <div className="card card-interactive hover:shadow-md transition-shadow duration-300">
               <h3 className="font-semibold mb-6 text-lg">{detailsTitle}</h3>
               <ul className="space-y-4">
                 {details.map((detalle, i) => (
@@ -88,7 +98,7 @@ function ActionLineSection({
                 ))}
               </ul>
             </div>
-          </div>
+          </MotionReveal>
         </div>
       </div>
     </section>
@@ -211,18 +221,18 @@ export default async function QueHacemosPage() {
         />
       ))}
 
-      <section className="section relative overflow-hidden scroll-reveal">
+      <section className="section relative overflow-hidden">
         <MondrianGrid variant="hero" opacity={40} />
         <div className="container relative z-10">
-          <div className="text-center mb-16">
+          <MotionReveal className="text-center mb-16">
             <span className="badge badge-azul mb-6">{t('erasmus.badge')}</span>
             <h2 className="mb-5">{t('erasmus.title')}</h2>
             <p className="text-gris-600 max-w-2xl mx-auto text-lg leading-relaxed">
               {t('erasmus.description')}
             </p>
-          </div>
+          </MotionReveal>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 stagger-container">
+          <MotionStagger className="grid md:grid-cols-3 gap-6 lg:gap-8" animation="fadeUp">
             {erasmusCards.map((card) => (
               <FeatureCard
                 key={card.title}
@@ -231,10 +241,10 @@ export default async function QueHacemosPage() {
                 description={card.description}
                 color={card.color}
                 variant="bordered"
-                className="bg-white/90 backdrop-blur-sm text-center"
+                className="bg-white/90 backdrop-blur-sm text-center h-full hover:shadow-md transition-shadow duration-300"
               />
             ))}
-          </div>
+          </MotionStagger>
         </div>
       </section>
 

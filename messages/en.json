@@ -728,6 +728,9 @@
       "title": "Download our PIF",
       "description": "You can also download the PDF version of our Partner Information Form for your applications.",
       "generating": "Generating PDF...",
+      "button": "Download PIF (PDF)",
+      "success": "PDF downloaded successfully",
+      "error": "Error generating PDF. Please try again.",
       "tip": "The PDF includes all this information in printable format"
     }
   },
