@@ -148,7 +148,7 @@ export default function TextReveal({
   };
 
   return (
-    <Component ref={ref as React.Ref<never>} className={className}>
+    <Component ref={ref as any} className={className}>
       {renderAnimatedText()}
     </Component>
   );
