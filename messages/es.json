@@ -183,7 +183,8 @@
       "badge": "Equipo",
       "title": "Quiénes somos",
       "description": "Nuestro equipo reúne diferentes habilidades y backgrounds que se complementan naturalmente.",
-      "president": "Presidente"
+      "president": "Presidente",
+      "legal_representative": "Co-fundador / Representante Legal"
     },
     "skills": {
       "badge": "Capacidades",

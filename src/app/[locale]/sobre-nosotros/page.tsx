@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const equipo: Array<{ nombre: string; rol: string | null; color: ColorVariant }> = [
   { nombre: 'Fernando Licona-Romano Rodriguez', rol: 'president', color: 'azul' },
   { nombre: 'Eliana Colzani', rol: null, color: 'terracota' },
-  { nombre: 'Omar Franco Trillo', rol: null, color: 'lima' },
+  { nombre: 'Omar Franco Trillo (Munay)', rol: 'legal_representative', color: 'lima' },
   { nombre: 'Lucia Ojeda Frissia', rol: null, color: 'naranja' },
 ];
 
@@ -120,7 +120,7 @@ export default async function SobreNosotrosPage() {
           <TeamCard
             key={miembro.nombre}
             name={miembro.nombre}
-            role={miembro.rol ? t('team.president') : undefined}
+            role={miembro.rol ? t(`team.${miembro.rol}`) : undefined}
             color={miembro.color}
           />
         ))}

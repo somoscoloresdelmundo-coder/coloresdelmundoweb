@@ -183,7 +183,8 @@
       "badge": "Team",
       "title": "Who we are",
       "description": "Our team brings together different skills and backgrounds that complement each other naturally.",
-      "president": "President"
+      "president": "President",
+      "legal_representative": "Co-founder / Legal Representative"
     },
     "skills": {
       "badge": "Capabilities",

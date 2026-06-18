@@ -84,9 +84,7 @@ export default async function ContactoPage() {
                     <div>
                       <h3 className="font-semibold mb-1">{t('info.location')}</h3>
                       <p className="text-gris-700">
-                        {t('info.address')}<br />
-                        {t('info.addressLine2')}<br />
-                        {t('info.addressLine3')}
+                        {INSTITUTIONAL.ADDRESS}
                       </p>
                     </div>
                   </div>
