@@ -31,6 +31,7 @@
     "whatWeDo": "What We Do",
     "projects": "Projects",
     "participate": "Participate",
+    "eurodesk": "Eurodesk",
     "contact": "Contact",
     "partners": "Partners",
     "pif": "Partner Info",
@@ -762,6 +763,73 @@
     "pif": {
       "title": "Partner Information Form (PIF)",
       "description": "Official Colores del Mundo information for European partners and Erasmus+ applications."
+    }
+  },
+  "eurodesk": {
+    "title": "Eurodesk Opportunity Finder",
+    "description": "Explore mobility, volunteering, employment, and training opportunities across Europe. Filter by your profile and find the best options for you or your organization.",
+    "profileLabel": "I want to apply as:",
+    "profileONG": "Organization / NGO",
+    "profileIndividual": "Individual / Youth",
+    "searchPlaceholder": "Search opportunities (e.g. ESC, volunteering, Germany)...",
+    "categoryAll": "All Categories",
+    "matchScoreONG": "NGO Match",
+    "matchScoreIndividual": "Youth Match",
+    "daysRemaining": "days remaining",
+    "deadline": "Deadline",
+    "offeredBy": "Offered by",
+    "fundingLevel": "Funding",
+    "fundingHigh": "High (100% or paid)",
+    "fundingMedium": "Medium (partial)",
+    "fundingLow": "Low or self-funded",
+    "findOutMore": "Official website / Apply",
+    "close": "Close",
+    "noResults": "No opportunities found matching your search.",
+    "resultsFound": "opportunities found",
+    "filterCategory": "Filter by category",
+    "filterFunding": "Filter by funding",
+    "sortLabel": "Sort by:",
+    "sortDeadline": "Closest deadline",
+    "sortMatch": "Highest match score",
+    "daysLeft": "{days} days left",
+    "today": "Expires today!",
+    "expired": "Expired",
+    "whyMatch": "Why this opportunity?",
+    "matchingReasonONG": "This opportunity is ideal for Colores del Mundo as an organization due to its funding pathways and alignment with local initiatives.",
+    "matchingReasonIndiv": "It is an excellent opportunity for young people or professionals seeking training or subsidized volunteering in Europe."
+  },
+  "metadata": {
+    "home": {
+      "title": "Colores del Mundo | Inclusion, Diversity, Creation",
+      "description": "Asociación Cultural Colores del Mundo - Young people motivated to improve the quality of life of other young people through art and non-formal education. Erasmus+ programs in Gandía, Valencia."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Meet Colores del Mundo, a cultural association founded by young people motivated to improve the quality of life of other young people in Gandía, Valencia."
+    },
+    "whatWeDo": {
+      "title": "What We Do",
+      "description": "Discover our 4 action lines: Mobility Support, Artistic Transformation, Alternative Education and Conscious Digital Citizenship."
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Discover Colores del Mundo projects: Erasmus+ initiatives, art workshops and social inclusion programs."
+    },
+    "participate": {
+      "title": "Participate",
+      "description": "Join Colores del Mundo as a volunteer, participant or collaborator. Discover how you can be part of the change."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact Colores del Mundo. We are in Gandía, Valencia. Write us to collaborate, participate or resolve any questions."
+    },
+    "pif": {
+      "title": "Partner Information Form (PIF)",
+      "description": "Official Colores del Mundo information for European partners and Erasmus+ applications."
+    },
+    "eurodesk": {
+      "title": "Eurodesk Finder",
+      "description": "Explore and filter the opportunities from Eurodesk Opportunity Finder for individuals and organizations."
     }
   }
 }

@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { LocationIcon, EmailIcon, FacebookIcon, InstagramIcon } from '@/components/ui';
-import { ColorVariant, colorClasses } from '@/types/ui';
 import { CONTACT, SOCIAL, INSTITUTIONAL } from '@/config/constants';
 import { ROUTES } from '@/config/routes';
 
@@ -20,62 +19,54 @@ export default async function Footer() {
       { name: t('partnerInfo'), href: ROUTES.PIF },
     ],
     lineasAccion: [
-      { name: t('actionLine.mobility'), href: ROUTES.WHAT_WE_DO, color: 'azul' as ColorVariant },
-      { name: t('actionLine.art'), href: ROUTES.WHAT_WE_DO, color: 'terracota' as ColorVariant },
-      { name: t('actionLine.education'), href: ROUTES.WHAT_WE_DO, color: 'lima' as ColorVariant },
-      { name: t('actionLine.digital'), href: ROUTES.WHAT_WE_DO, color: 'naranja' as ColorVariant },
+      { name: t('actionLine.mobility'), href: ROUTES.WHAT_WE_DO },
+      { name: t('actionLine.art'), href: ROUTES.WHAT_WE_DO },
+      { name: t('actionLine.education'), href: ROUTES.WHAT_WE_DO },
+      { name: t('actionLine.digital'), href: ROUTES.WHAT_WE_DO },
     ],
   };
 
   return (
-    <footer className="bg-gris-50 dark:bg-gris-900 relative overflow-hidden" role="contentinfo">
-      {/* Decoración artística Mondrian en la parte superior */}
-      <div className="h-2 flex">
-        <div className="flex-1 bg-azul-pastel" />
-        <div className="flex-1 bg-lima-pastel" />
-        <div className="flex-1 bg-naranja-pastel" />
-        <div className="flex-1 bg-terracota-pastel" />
-      </div>
-
-      {/* Decoración de fondo estilo Mondrian */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-64 h-64 bg-azul-muted rounded-full opacity-30" />
-        <div className="absolute -bottom-32 -left-20 w-80 h-80 bg-lima-muted rounded-full opacity-30" />
-        <div className="absolute top-1/2 right-10 w-32 h-32 bg-naranja-muted rounded-2xl opacity-20" />
-        <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-terracota-muted rounded-xl opacity-20" />
-      </div>
+    <footer className="bg-gris-900 text-gris-300 relative overflow-hidden" role="contentinfo">
+      {/* Top Border */}
+      <div className="h-1 bg-azul w-full" />
 
       <div className="container py-16 md:py-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
 
-          {/* Columna 1: Logo y descripción */}
+          {/* Columna 1: Logo y descripción (Transparencia) */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block transition-transform hover:scale-105">
+            <Link href="/" className="inline-block transition-transform hover:opacity-80 mb-6">
               <Image
                 src="/images/sellocoloredelmundo.png"
-                alt="Colores del Mundo - Inclusión, Diversidad, Creación"
+                alt="Colores del Mundo"
                 width={160}
                 height={80}
                 sizes="160px"
-                className="h-20 w-auto mb-4"
+                className="h-16 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="text-gris-600 text-sm mt-4 leading-relaxed">
+            <p className="text-gris-400 text-sm leading-relaxed mb-6">
               {t('description')}
             </p>
+            <div className="space-y-2 text-sm text-gris-400">
+              <p className="font-semibold text-white">Transparencia Institucional</p>
+              <p>Entidad Registrada: <strong className="text-white">{INSTITUTIONAL.LEGAL_NAME}</strong></p>
+              <p>CIF: <strong className="text-white">{INSTITUTIONAL.CIF}</strong></p>
+              <p>OID: <strong className="text-white">{INSTITUTIONAL.OID}</strong></p>
+            </div>
           </div>
 
           {/* Columna 2: Enlaces rápidos */}
           <div>
-            <h4 className="text-gris-800 font-semibold mb-5 text-lg">{t('explore')}</h4>
+            <h4 className="text-white font-semibold mb-6 text-lg">{t('explore')}</h4>
             <ul className="space-y-3">
               {footerLinks.explora.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gris-600 hover:text-azul-dark transition-colors inline-flex items-center group"
+                    className="text-gris-400 hover:text-white transition-colors inline-flex items-center"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-azul mr-0 group-hover:mr-2 transition-all duration-300" />
                     {link.name}
                   </Link>
                 </li>
@@ -83,97 +74,75 @@ export default async function Footer() {
             </ul>
           </div>
 
-          {/* Columna 3: Líneas de Acción con colores */}
+          {/* Columna 3: Líneas de Acción */}
           <div>
-            <h4 className="text-gris-800 font-semibold mb-5 text-lg">{t('actionLines')}</h4>
+            <h4 className="text-white font-semibold mb-6 text-lg">{t('actionLines')}</h4>
             <ul className="space-y-3">
-              {footerLinks.lineasAccion.map((link) => {
-                const colors = colorClasses[link.color];
-                return (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className={`text-gris-600 transition-colors inline-flex items-center group ${colors.hoverText}`}
-                    >
-                      <span className={`w-2 h-2 rounded-full mr-2 transition-all duration-300 group-hover:scale-125 ${colors.bgColor} ${colors.groupHoverBg}`} />
-                      {link.name}
-                    </Link>
-                  </li>
-                );
-              })}
+              {footerLinks.lineasAccion.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gris-400 hover:text-white transition-colors inline-flex items-center"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Columna 4: Contacto */}
           <div>
-            <h4 className="text-gris-800 font-semibold mb-5 text-lg">{t('contactTitle')}</h4>
+            <h4 className="text-white font-semibold mb-6 text-lg">{t('contactTitle')}</h4>
             <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3 group">
-                <div className="w-10 h-10 rounded-xl bg-azul-pastel flex items-center justify-center flex-shrink-0 group-hover:bg-azul-soft transition-colors" aria-hidden="true">
-                  <LocationIcon className="w-5 h-5 text-azul-dark" />
-                </div>
-                <address className="text-gris-600 leading-relaxed not-italic">
-                  {t('address')}<br />
-                  {t('city')}
+              <li className="flex items-start gap-3">
+                <LocationIcon className="w-5 h-5 text-azul flex-shrink-0 mt-0.5" />
+                <address className="text-gris-400 leading-relaxed not-italic">
+                  {INSTITUTIONAL.ADDRESS}
                 </address>
               </li>
-              <li className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-xl bg-naranja-pastel flex items-center justify-center flex-shrink-0 group-hover:bg-naranja-soft transition-colors" aria-hidden="true">
-                  <EmailIcon className="w-5 h-5 text-naranja-dark" />
-                </div>
+              <li className="flex items-center gap-3">
+                <EmailIcon className="w-5 h-5 text-azul flex-shrink-0" />
                 <a
                   href={CONTACT.EMAIL_HREF}
-                  className="text-gris-600 hover:text-naranja-dark transition-colors break-all"
-                  aria-label={`${t('contactTitle')}: ${CONTACT.EMAIL}`}
+                  className="text-gris-400 hover:text-white transition-colors break-all"
                 >
                   {CONTACT.EMAIL}
                 </a>
               </li>
-              <li className="flex items-center gap-3 pt-2">
+              <li className="flex items-center gap-4 pt-4 border-t border-gris-800">
                 <a
                   href={SOCIAL.FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-lima-pastel flex items-center justify-center text-lima-dark hover:bg-lima-soft hover:scale-110 transition-all duration-300"
+                  className="text-gris-400 hover:text-azul transition-colors"
                   aria-label="Facebook"
                 >
-                  <FacebookIcon />
+                  <FacebookIcon className="w-6 h-6" />
                 </a>
                 <a
                   href={SOCIAL.INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-terracota-pastel flex items-center justify-center text-terracota-dark hover:bg-terracota-soft hover:scale-110 transition-all duration-300"
+                  className="text-gris-400 hover:text-terracota transition-colors"
                   aria-label="Instagram"
                 >
-                  <InstagramIcon />
+                  <InstagramIcon className="w-6 h-6" />
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Copyright con barra de colores */}
-        <div className="mt-12 pt-8">
-          <div className="h-1 flex rounded-full overflow-hidden mb-8">
-            <div className="flex-1 bg-azul-soft" />
-            <div className="flex-1 bg-lima-soft" />
-            <div className="flex-1 bg-naranja-soft" />
-            <div className="flex-1 bg-terracota-soft" />
-          </div>
+        {/* Copyright */}
+        <div className="mt-16 pt-8 border-t border-gris-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gris-500 text-sm text-center md:text-left">
-              &copy; {currentYear} {t('copyright')}
+              &copy; {currentYear} {INSTITUTIONAL.LEGAL_NAME}. Todos los derechos reservados.
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-3 text-gris-500 text-sm">
-              {INSTITUTIONAL.CIF && (
-                <span className="px-3 py-1 bg-terracota-pastel/50 text-terracota-dark rounded-full font-medium text-xs md:text-sm">
-                  CIF: {INSTITUTIONAL.CIF}
-                </span>
-              )}
-              <span className="px-3 py-1 bg-azul-pastel/50 text-azul-dark rounded-full font-medium text-xs md:text-sm">
-                OID: {INSTITUTIONAL.OID}
-              </span>
+            <div className="flex gap-4 text-sm text-gris-500">
+              <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
+              <a href="#" className="hover:text-white transition-colors">Aviso Legal</a>
             </div>
           </div>
         </div>

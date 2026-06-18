@@ -20,6 +20,7 @@ export const INSTITUTIONAL = {
   OID: 'E10413227',
   CIF: 'G75377481',
   LEGAL_NAME: 'Colores del Mundo',
+  ADDRESS: 'Pº Rosa de los Vientos, nº 39 - Esc. 2, 3º, Pta. 5 de Gandia, Gandia, V',
   GOOGLE_MAPS_URL: 'https://maps.google.com/?q=Paseo+Rosa+de+los+Vientos+39,+46730+Gandia',
   YEARS_EXPERIENCE: 5,
 } as const;

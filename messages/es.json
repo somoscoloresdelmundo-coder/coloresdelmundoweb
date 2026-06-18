@@ -31,6 +31,7 @@
     "whatWeDo": "Qué Hacemos",
     "projects": "Proyectos",
     "participate": "Participa",
+    "eurodesk": "Eurodesk",
     "contact": "Contacto",
     "partners": "Partners",
     "pif": "Partner Info",
@@ -762,6 +763,73 @@
     "pif": {
       "title": "Partner Information Form (PIF)",
       "description": "Información oficial de Colores del Mundo para partners europeos y aplicaciones Erasmus+."
+    }
+  },
+  "eurodesk": {
+    "title": "Buscador de Oportunidades Eurodesk",
+    "description": "Explora oportunidades de movilidad, voluntariado, empleo y formación en toda Europa. Filtra por tu perfil y encuentra las mejores opciones para ti o tu organización.",
+    "profileLabel": "Quiero postular como:",
+    "profileONG": "Organización / ONG",
+    "profileIndividual": "Individuo / Joven",
+    "searchPlaceholder": "Buscar oportunidades (ej. ESC, voluntariado, Alemania)...",
+    "categoryAll": "Todas las Categorías",
+    "matchScoreONG": "Match ONG",
+    "matchScoreIndividual": "Match Joven",
+    "daysRemaining": "días restantes",
+    "deadline": "Plazo",
+    "offeredBy": "Ofrecido por",
+    "fundingLevel": "Financiación",
+    "fundingHigh": "Alta (100% o remunerado)",
+    "fundingMedium": "Media (parcial)",
+    "fundingLow": "Baja o autofinanciado",
+    "findOutMore": "Más información oficial",
+    "close": "Cerrar",
+    "noResults": "No se encontraron oportunidades que coincidan con tu búsqueda.",
+    "resultsFound": "oportunidades encontradas",
+    "filterCategory": "Filtrar por categoría",
+    "filterFunding": "Filtrar por financiación",
+    "sortLabel": "Ordenar por:",
+    "sortDeadline": "Fecha límite más cercana",
+    "sortMatch": "Mayor afinidad / Match Score",
+    "daysLeft": "Quedan {days} días",
+    "today": "¡Expira hoy!",
+    "expired": "Expirado",
+    "whyMatch": "¿Por qué esta oportunidad?",
+    "matchingReasonONG": "Esta oportunidad es idónea para Colores del Mundo como organización por sus vías de financiación y alineación con proyectos locales.",
+    "matchingReasonIndiv": "Es una excelente oportunidad para jóvenes o profesionales que busquen formarse o realizar voluntariados subvencionados en Europa."
+  },
+  "metadata": {
+    "home": {
+      "title": "Colores del Mundo | Inclusión, Diversidad, Creación",
+      "description": "Asociación Cultural Colores del Mundo - Jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal. Programas Erasmus+ en Gandía, Valencia."
+    },
+    "about": {
+      "title": "Sobre Nosotros",
+      "description": "Conoce a Colores del Mundo, una asociación cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes en Gandía, Valencia."
+    },
+    "whatWeDo": {
+      "title": "Qué Hacemos",
+      "description": "Descubre nuestras 4 líneas de acción: Acompañamiento de Movilidad, Transformación Artística, Educación Alternativa y Ciudadanía Digital Consciente."
+    },
+    "projects": {
+      "title": "Proyectos",
+      "description": "Descubre los proyectos de Colores del Mundo: iniciativas Erasmus+, talleres artísticos y programas de inclusión social."
+    },
+    "participate": {
+      "title": "Participa",
+      "description": "Únete a Colores del Mundo como voluntario, participante o colaborador. Descubre cómo puedes ser parte del cambio."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Contacta con Colores del Mundo. Estamos en Gandía, Valencia. Escríbenos para colaborar, participar o resolver cualquier duda."
+    },
+    "pif": {
+      "title": "Partner Information Form (PIF)",
+      "description": "Información oficial de Colores del Mundo para partners europeos y aplicaciones Erasmus+."
+    },
+    "eurodesk": {
+      "title": "Buscador Eurodesk",
+      "description": "Explora y filtra las oportunidades del Opportunity Finder de Eurodesk para individuos y organizaciones."
     }
   }
 }
