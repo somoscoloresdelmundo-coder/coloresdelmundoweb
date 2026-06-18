@@ -53,7 +53,7 @@
     "contactTitle": "Contact",
     "address": "Gandía",
     "city": "Valencia, Spain",
-    "copyright": "Asociación Cultural Colores del Mundo. All rights reserved. CIF: G75377481.",
+    "copyright": "Colores del Mundo. All rights reserved. CIF: G75377481.",
     "partnerInfo": "Partner Info (PIF)"
   },
   "home": {
@@ -147,7 +147,7 @@
     "hero": {
       "badge": "About Us",
       "title": "Young people building cultural bridges",
-      "description": "Asociación Cultural Colores del Mundo is a youth association founded by young people motivated to improve the quality of life of other young people. Based in Gandía, Valencia, we believe in the power of art and non-formal education as engines of inclusion, well-being and transformation."
+      "description": "Colores del Mundo is a youth association founded by young people motivated to improve the quality of life of other young people. Based in Gandía, Valencia, we believe in the power of art and non-formal education as engines of inclusion, well-being and transformation."
     },
     "mission": {
       "title": "Our Mission",
@@ -209,7 +209,7 @@
       "badge": "Legal Information",
       "title": "Institutional Data",
       "legalName": "Legal name",
-      "legalNameValue": "Asociación Cultural Colores del Mundo",
+      "legalNameValue": "Colores del Mundo",
       "type": "Type",
       "typeValue": "NGO",
       "cif": "CIF",
@@ -567,7 +567,7 @@
     "details": {
       "institutionalTitle": "Institutional Data",
       "legalName": "Legal Name",
-      "legalNameValue": "Asociación Cultural Colores del Mundo",
+      "legalNameValue": "Colores del Mundo",
       "type": "Organization Type",
       "typeValue": "NGO / Cultural Youth Association",
       "address": "Address",
@@ -738,7 +738,7 @@
   "metadata": {
     "home": {
       "title": "Colores del Mundo | Inclusion, Diversity, Creation",
-      "description": "Asociación Cultural Colores del Mundo - Young people motivated to improve the quality of life of other young people through art and non-formal education. Erasmus+ programs in Gandía, Valencia."
+      "description": "Colores del Mundo - Young people motivated to improve the quality of life of other young people through art and non-formal education. Erasmus+ programs in Gandía, Valencia."
     },
     "about": {
       "title": "About Us",
@@ -801,7 +801,7 @@
   "metadata": {
     "home": {
       "title": "Colores del Mundo | Inclusion, Diversity, Creation",
-      "description": "Asociación Cultural Colores del Mundo - Young people motivated to improve the quality of life of other young people through art and non-formal education. Erasmus+ programs in Gandía, Valencia."
+      "description": "Colores del Mundo - Young people motivated to improve the quality of life of other young people through art and non-formal education. Erasmus+ programs in Gandía, Valencia."
     },
     "about": {
       "title": "About Us",

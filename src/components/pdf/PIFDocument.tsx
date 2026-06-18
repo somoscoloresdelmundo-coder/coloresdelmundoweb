@@ -213,7 +213,7 @@ const ColorBar = () => (
 const PIFDocument = () => (
   <Document
     title="Partner Information Form - Colores del Mundo"
-    author="Asociación Cultural Colores del Mundo"
+    author="Colores del Mundo"
     subject="Erasmus+ Partner Information Form"
     keywords="Erasmus+, PIF, NGO, Youth, Spain"
   >
@@ -225,7 +225,7 @@ const PIFDocument = () => (
       <View style={styles.header}>
         <View>
           <Text style={styles.headerTitle}>PARTNER INFORMATION FORM</Text>
-          <Text style={styles.headerSubtitle}>ASOCIACIÓN CULTURAL COLORES DEL MUNDO</Text>
+          <Text style={styles.headerSubtitle}>COLORES DEL MUNDO</Text>
         </View>
         <View style={styles.headerOID}>
           <Text style={styles.headerOIDLabel}>OID</Text>
@@ -237,7 +237,7 @@ const PIFDocument = () => (
       <View style={styles.table}>
         <TableRow label="OID" value={INSTITUTIONAL.OID} />
         <TableRow label="Type of organization" value="NGO" />
-        <TableRow label="Legal name" value="Asociación Cultural Colores del Mundo" />
+        <TableRow label="Legal name" value="Colores del Mundo" />
         <TableRow label="CIF" value={INSTITUTIONAL.CIF} />
         <TableRow label="Short name" value="Colores del Mundo" />
         <TableRow label="Address" value="Paseo Rosa de los Vientos 39" />
@@ -277,7 +277,7 @@ const PIFDocument = () => (
       <View style={[styles.section, { marginTop: 6 }]}>
         <Text style={styles.sectionTitle}>Organisation Profile</Text>
         <Text style={[styles.sectionContent, styles.paragraph]}>
-          Asociación Cultural Colores del Mundo is a youth association founded by young people motivated to improve the quality of life of other young people. Based in Gandía, Valencia, we believe in the power of art and non-formal education as engines of inclusion, wellbeing and transformation. Our mission is to accompany young people through their process of personal growth, ensuring a safe environment and opening new opportunities for leadership, expression and cultural connection. We focus on participation in European Erasmus+ programs, designing and implementing projects that contribute to European Union priorities in education, training, youth, and community development.
+          Colores del Mundo is a youth association founded by young people motivated to improve the quality of life of other young people. Based in Gandía, Valencia, we believe in the power of art and non-formal education as engines of inclusion, wellbeing and transformation. Our mission is to accompany young people through their process of personal growth, ensuring a safe environment and opening new opportunities for leadership, expression and cultural connection. We focus on participation in European Erasmus+ programs, designing and implementing projects that contribute to European Union priorities in education, training, youth, and community development.
         </Text>
       </View>
 
@@ -369,7 +369,7 @@ const PIFDocument = () => (
       <View style={[styles.section, { marginTop: 8 }]}>
         <Text style={styles.sectionTitle}>EU Grants</Text>
         <Text style={styles.sectionContent}>
-          As a newly established organization, Asociación Cultural Colores del Mundo has not yet participated as a beneficiary in EU-funded projects. However, our team members have individual experience participating in Erasmus+ Youth Exchanges, Training Courses, and other European mobility programs.
+          As a newly established organization, Colores del Mundo has not yet participated as a beneficiary in EU-funded projects. However, our team members have individual experience participating in Erasmus+ Youth Exchanges, Training Courses, and other European mobility programs.
         </Text>
       </View>
 

@@ -49,14 +49,14 @@ export async function generateMetadata({
       template: '%s | Colores del Mundo',
     },
     description: isSpanish
-      ? 'Asociación Cultural Colores del Mundo - Jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal. Programas Erasmus+ en Gandía, Valencia.'
-      : 'Asociación Cultural Colores del Mundo - Young people motivated to improve the quality of life of other young people through art and non-formal education. Erasmus+ programs in Gandía, Valencia.',
+      ? 'Colores del Mundo - Jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal. Programas Erasmus+ en Gandía, Valencia.'
+      : 'Colores del Mundo - Young people motivated to improve the quality of life of other young people through art and non-formal education. Erasmus+ programs in Gandía, Valencia.',
     keywords: isSpanish
       ? ['ONG', 'asociación cultural', 'jóvenes', 'inclusión social', 'arte', 'educación no formal', 'Erasmus+', 'Gandía', 'Valencia', 'España', 'voluntariado', 'interculturalidad']
       : ['NGO', 'cultural association', 'youth', 'social inclusion', 'art', 'non-formal education', 'Erasmus+', 'Gandía', 'Valencia', 'Spain', 'volunteering', 'interculturality'],
     authors: [{ name: 'Colores del Mundo' }],
-    creator: 'Asociación Cultural Colores del Mundo',
-    publisher: 'Asociación Cultural Colores del Mundo',
+    creator: 'Colores del Mundo',
+    publisher: 'Colores del Mundo',
     formatDetection: {
       email: false,
       address: false,
@@ -156,7 +156,7 @@ export default async function LocaleLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NGO',
-    name: 'Asociación Cultural Colores del Mundo',
+    name: 'Colores del Mundo',
     alternateName: 'Colores del Mundo',
     url: SITE.URL,
     logo: `${SITE.URL}/images/logo.png`,

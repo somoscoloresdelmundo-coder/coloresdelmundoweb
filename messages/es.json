@@ -53,7 +53,7 @@
     "contactTitle": "Contacto",
     "address": "Gandía",
     "city": "Valencia, España",
-    "copyright": "Asociación Cultural Colores del Mundo. Todos los derechos reservados. CIF: G75377481.",
+    "copyright": "Colores del Mundo. Todos los derechos reservados. CIF: G75377481.",
     "partnerInfo": "Partner Info (PIF)"
   },
   "home": {
@@ -147,7 +147,7 @@
     "hero": {
       "badge": "Sobre Nosotros",
       "title": "Jóvenes construyendo puentes culturales",
-      "description": "Asociación Cultural Colores del Mundo es una asociación juvenil fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes. Basados en Gandía, Valencia, creemos en el poder del arte y la educación no formal como motores de inclusión, bienestar y transformación."
+      "description": "Colores del Mundo es una asociación juvenil fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes. Basados en Gandía, Valencia, creemos en el poder del arte y la educación no formal como motores de inclusión, bienestar y transformación."
     },
     "mission": {
       "title": "Nuestra Misión",
@@ -209,7 +209,7 @@
       "badge": "Información Legal",
       "title": "Datos Institucionales",
       "legalName": "Nombre legal",
-      "legalNameValue": "Asociación Cultural Colores del Mundo",
+      "legalNameValue": "Colores del Mundo",
       "type": "Tipo",
       "typeValue": "ONG",
       "cif": "CIF",
@@ -567,7 +567,7 @@
     "details": {
       "institutionalTitle": "Datos Institucionales",
       "legalName": "Nombre Legal",
-      "legalNameValue": "Asociación Cultural Colores del Mundo",
+      "legalNameValue": "Colores del Mundo",
       "type": "Tipo de Organización",
       "typeValue": "ONG / Asociación Juvenil Cultural",
       "address": "Dirección",
@@ -738,7 +738,7 @@
   "metadata": {
     "home": {
       "title": "Colores del Mundo | Inclusión, Diversidad, Creación",
-      "description": "Asociación Cultural Colores del Mundo - Jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal. Programas Erasmus+ en Gandía, Valencia."
+      "description": "Colores del Mundo - Jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal. Programas Erasmus+ en Gandía, Valencia."
     },
     "about": {
       "title": "Sobre Nosotros",
@@ -801,7 +801,7 @@
   "metadata": {
     "home": {
       "title": "Colores del Mundo | Inclusión, Diversidad, Creación",
-      "description": "Asociación Cultural Colores del Mundo - Jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal. Programas Erasmus+ en Gandía, Valencia."
+      "description": "Colores del Mundo - Jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal. Programas Erasmus+ en Gandía, Valencia."
     },
     "about": {
       "title": "Sobre Nosotros",
