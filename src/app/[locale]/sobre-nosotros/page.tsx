@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { HeroSection, GridSection, QuoteSection, CTASection, RelatedLinks, HistoryTimeline } from '@/components/sections';
-import { FeatureCard, TeamCard, ValueCard } from '@/components/cards';
+import { FeatureCard, ValueCard } from '@/components/cards';
 import { MissionIcon, VisionIcon, UsersIcon, ArtIcon, EducationIcon } from '@/components/ui';
 import { PageTransition } from '@/components/providers/PageTransition';
 import { WaveDivider, GradientTransition, DIVIDER_COLORS } from '@/components/immersive';
-import { ColorVariant } from '@/types/ui';
 import { CONTACT, INSTITUTIONAL } from '@/config/constants';
 import { ROUTES } from '@/config/routes';
 
@@ -16,13 +16,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description: t('about.description'),
   };
 }
-
-const equipo: Array<{ nombre: string; rol: string | null; color: ColorVariant }> = [
-  { nombre: 'Fernando Licona-Romano Rodriguez', rol: 'president', color: 'azul' },
-  { nombre: 'Eliana Colzani', rol: null, color: 'terracota' },
-  { nombre: 'Omar Franco Trillo (Munay)', rol: 'legal_representative', color: 'lima' },
-  { nombre: 'Lucia Ojeda Frissia', rol: null, color: 'naranja' },
-];
 
 export default async function SobreNosotrosPage() {
   const t = await getTranslations('about');
@@ -109,24 +102,6 @@ export default async function SobreNosotrosPage() {
       />
 
       <GridSection
-        badge={{ text: t('team.badge'), color: 'lima' }}
-        title={t('team.title')}
-        description={t('team.description')}
-        columns={4}
-        background="white"
-        className="max-w-4xl mx-auto"
-      >
-        {equipo.map((miembro) => (
-          <TeamCard
-            key={miembro.nombre}
-            name={miembro.nombre}
-            role={miembro.rol ? t(`team.${miembro.rol}`) : undefined}
-            color={miembro.color}
-          />
-        ))}
-      </GridSection>
-
-      <GridSection
         badge={{ text: t('skills.badge'), color: 'naranja' }}
         title={t('skills.title')}
         columns={4}
@@ -149,41 +124,60 @@ export default async function SobreNosotrosPage() {
             <div className="text-center mb-8">
               <span className="badge badge-lima mb-4">{t('institutional.badge')}</span>
               <h2>{t('institutional.title')}</h2>
+              <p className="text-gris-600 mt-3 max-w-xl mx-auto">{t('institutional.subtitle')}</p>
             </div>
 
             <div className="card">
               <dl className="space-y-4">
-                <div className="flex justify-between py-2 border-b border-gris-100">
+                <div className="flex justify-between gap-4 py-2 border-b border-gris-100">
                   <dt className="font-medium text-gris-600">{t('institutional.legalName')}</dt>
-                  <dd className="text-negro">{t('institutional.legalNameValue')}</dd>
+                  <dd className="text-negro text-right">{INSTITUTIONAL.LEGAL_NAME_FULL}</dd>
                 </div>
-                {INSTITUTIONAL.CIF && (
-                  <div className="flex justify-between py-2 border-b border-gris-100">
-                    <dt className="font-medium text-gris-600">{t('institutional.cif')}</dt>
-                    <dd className="text-negro">{INSTITUTIONAL.CIF}</dd>
-                  </div>
-                )}
-                <div className="flex justify-between py-2 border-b border-gris-100">
+                <div className="flex justify-between gap-4 py-2 border-b border-gris-100">
+                  <dt className="font-medium text-gris-600">{t('institutional.cif')}</dt>
+                  <dd className="text-negro">{INSTITUTIONAL.CIF}</dd>
+                </div>
+                <div className="flex justify-between gap-4 py-2 border-b border-gris-100">
+                  <dt className="font-medium text-gris-600">{t('institutional.registryNumber')}</dt>
+                  <dd className="text-negro">{INSTITUTIONAL.REGISTRY_NUMBER}</dd>
+                </div>
+                <div className="flex justify-between gap-4 py-2 border-b border-gris-100">
                   <dt className="font-medium text-gris-600">{t('institutional.oid')}</dt>
                   <dd className="text-negro">{INSTITUTIONAL.OID}</dd>
                 </div>
-                <div className="flex justify-between py-2 border-b border-gris-100">
+                <div className="flex justify-between gap-4 py-2 border-b border-gris-100">
                   <dt className="font-medium text-gris-600">{t('institutional.type')}</dt>
-                  <dd className="text-negro">{t('institutional.typeValue')}</dd>
+                  <dd className="text-negro text-right">{t('institutional.typeValue')}</dd>
                 </div>
-                <div className="flex justify-between py-2 border-b border-gris-100">
+                <div className="flex justify-between gap-4 py-2 border-b border-gris-100">
+                  <dt className="font-medium text-gris-600">{t('institutional.foundingYear')}</dt>
+                  <dd className="text-negro">{INSTITUTIONAL.FOUNDING_YEAR}</dd>
+                </div>
+                <div className="flex justify-between gap-4 py-2 border-b border-gris-100">
                   <dt className="font-medium text-gris-600">{t('institutional.location')}</dt>
-                  <dd className="text-negro">{t('institutional.locationValue')}</dd>
+                  <dd className="text-negro text-right">{INSTITUTIONAL.ADDRESS}</dd>
                 </div>
-                <div className="flex justify-between py-2">
+                <div className="flex justify-between gap-4 py-2">
                   <dt className="font-medium text-gris-600">{t('institutional.email')}</dt>
                   <dd>
-                    <a href={CONTACT.EMAIL_HREF} className="text-naranja">
+                    <a href={CONTACT.EMAIL_HREF} className="text-naranja break-all">
                       {CONTACT.EMAIL}
                     </a>
                   </dd>
                 </div>
               </dl>
+            </div>
+
+            {/* Enlace a página de verificación de dominio */}
+            <div className="mt-6 text-center">
+              <Link
+                href={ROUTES.VERIFY_DOMAIN}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-lima-dark hover:text-lima transition-colors"
+              >
+                {t('institutional.verifyLink')}
+                <span aria-hidden="true">→</span>
+              </Link>
+              <p className="text-xs text-gris-500 mt-1">{t('institutional.verifyDescription')}</p>
             </div>
           </div>
         </div>

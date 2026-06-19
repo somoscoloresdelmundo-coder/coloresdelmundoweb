@@ -9,7 +9,6 @@ export interface ProjectItem {
   key: string;
   titulo: string;
   tipo: string;
-  description: string; // Keep internal or match prop
   descripcion: string;
   estado: string;
   category: 'erasmus' | 'local';

@@ -13,4 +13,8 @@ export const ROUTES = {
   PARTICIPATE: '/participa' as Pathnames,
   CONTACT: '/contacto' as Pathnames,
   PIF: '/pif' as Pathnames,
+  LEGAL_NOTICE: '/aviso-legal' as Pathnames,
+  PRIVACY: '/privacidad' as Pathnames,
+  COOKIES: '/cookies' as Pathnames,
+  VERIFY_DOMAIN: '/verificar-dominio' as Pathnames,
 } as const;

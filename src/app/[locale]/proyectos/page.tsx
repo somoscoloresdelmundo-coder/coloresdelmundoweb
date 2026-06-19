@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { HeroSection, ProjectsFilter } from '@/components/sections';
 import { UsersIcon, EducationIcon, HeartIcon, HomeIcon } from '@/components/ui';
 import { PageTransition } from '@/components/providers/PageTransition';
-import { WaveDivider, GradientTransition, DIVIDER_COLORS, MagneticElement } from '@/components/immersive';
+import { WaveDivider, DIVIDER_COLORS, MagneticElement } from '@/components/immersive';
 import { INSTITUTIONAL } from '@/config/constants';
 import { ROUTES } from '@/config/routes';
 
@@ -26,7 +26,6 @@ export default async function ProyectosPage() {
       titulo: t('upcoming.projects.youthExchange.title'),
       tipo: t('upcoming.projects.youthExchange.type'),
       descripcion: t('upcoming.projects.youthExchange.description'),
-      description: t('upcoming.projects.youthExchange.description'),
       estado: t('upcoming.projects.youthExchange.status'),
       category: 'erasmus' as const,
       color: 'naranja' as const,
@@ -36,7 +35,6 @@ export default async function ProyectosPage() {
       titulo: t('upcoming.projects.workshop.title'),
       tipo: t('upcoming.projects.workshop.type'),
       descripcion: t('upcoming.projects.workshop.description'),
-      description: t('upcoming.projects.workshop.description'),
       estado: t('upcoming.projects.workshop.status'),
       category: 'local' as const,
       color: 'lima' as const,
@@ -46,7 +44,6 @@ export default async function ProyectosPage() {
       titulo: t('upcoming.projects.digitalTraining.title'),
       tipo: t('upcoming.projects.digitalTraining.type'),
       descripcion: t('upcoming.projects.digitalTraining.description'),
-      description: t('upcoming.projects.digitalTraining.description'),
       estado: t('upcoming.projects.digitalTraining.status'),
       category: 'erasmus' as const,
       color: 'azul' as const,
@@ -95,7 +92,7 @@ export default async function ProyectosPage() {
                 </div>
               </div>
               <div className="text-center">
-                <p className="text-6xl md:text-7xl font-bold text-naranja mb-2">{INSTITUTIONAL.YEARS_EXPERIENCE}+</p>
+                <p className="text-6xl md:text-7xl font-bold text-naranja mb-2">{INSTITUTIONAL.FOUNDING_YEAR}</p>
                 <p className="text-gris-600">
                   {t('current.yearsExperience')}<br />
                   {t('current.inEuropeanProjects')}
@@ -172,50 +169,26 @@ export default async function ProyectosPage() {
         </div>
       </section>
 
-      {/* CTA para partners - Estilo artístico */}
-      <section className="section relative overflow-hidden">
-        {/* Fondo Mondrian */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-1/3 h-full bg-azul-muted opacity-40" />
-          <div className="absolute top-0 right-0 w-1/4 h-2/3 bg-lima-muted opacity-50" />
-          <div className="absolute bottom-0 right-1/4 w-1/3 h-1/2 bg-naranja-muted opacity-40" />
-          <div className="absolute bottom-0 left-1/3 w-1/4 h-1/3 bg-terracota-muted opacity-30" />
-        </div>
-        <div className="container text-center relative z-10">
-          <div className="bg-white/85 backdrop-blur-sm rounded-3xl p-8 md:p-12 max-w-2xl mx-auto">
+      {/* CTA unificado */}
+      <section className="section bg-gris-50">
+        <div className="container">
+          <div className="bg-white rounded-3xl shadow-sm border border-gris-100 p-8 md:p-12 max-w-3xl mx-auto text-center">
             <div className="divider-4colors w-20 mx-auto mb-6" />
-            <h2 className="mb-6">{t('partnerCta.title')}</h2>
-            <p className="text-gris-600 mb-8 max-w-xl mx-auto">
-              {t('partnerCta.description')}
-            </p>
-            <MagneticElement className="inline-block">
-              <Link href={ROUTES.CONTACT} className="btn-primary">
-                {tCommon('proposeCollaboration')}
-              </Link>
-            </MagneticElement>
+            <h2 className="mb-4">{t('cta.title')}</h2>
+            <p className="text-gris-600 mb-8 max-w-xl mx-auto">{t('cta.description')}</p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <MagneticElement className="inline-block">
+                <Link href={ROUTES.PARTICIPATE} className="btn-primary">
+                  {tCommon('seeOpportunities')}
+                </Link>
+              </MagneticElement>
+              <MagneticElement className="inline-block">
+                <Link href={ROUTES.PIF} className="btn-secondary">
+                  {tCommon('partners')}
+                </Link>
+              </MagneticElement>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <GradientTransition
-        fromColor="#f9fafb"
-        toColor="#ffffff"
-        variant="smooth"
-        height={60}
-      />
-
-      {/* CTA */}
-      <section className="section bg-white">
-        <div className="container text-center">
-          <h2 className="mb-6">{t('cta.title')}</h2>
-          <p className="text-gris-600 mb-8 max-w-xl mx-auto">
-            {t('cta.description')}
-          </p>
-          <MagneticElement className="inline-block">
-            <Link href={ROUTES.PARTICIPATE} className="btn-primary">
-              {tCommon('seeOpportunities')}
-            </Link>
-          </MagneticElement>
         </div>
       </section>
     </PageTransition>

@@ -50,10 +50,10 @@ export default async function Footer() {
               {t('description')}
             </p>
             <div className="space-y-2 text-sm text-gris-400">
-              <p className="font-semibold text-white">Transparencia Institucional</p>
-              <p>Entidad Registrada: <strong className="text-white">{INSTITUTIONAL.LEGAL_NAME}</strong></p>
-              <p>CIF: <strong className="text-white">{INSTITUTIONAL.CIF}</strong></p>
-              <p>OID: <strong className="text-white">{INSTITUTIONAL.OID}</strong></p>
+              <p className="font-semibold text-white">{t('transparencyTitle')}</p>
+              <p>{t('registeredEntity')} <strong className="text-white">{INSTITUTIONAL.LEGAL_NAME}</strong></p>
+              <p>{t('cifLabel')} <strong className="text-white">{INSTITUTIONAL.CIF}</strong></p>
+              <p>{t('oidLabel')} <strong className="text-white">{INSTITUTIONAL.OID}</strong></p>
             </div>
           </div>
 
@@ -138,11 +138,18 @@ export default async function Footer() {
         <div className="mt-16 pt-8 border-t border-gris-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gris-500 text-sm text-center md:text-left">
-              &copy; {currentYear} {INSTITUTIONAL.LEGAL_NAME}. Todos los derechos reservados.
+              &copy; {currentYear} {t('copyright', { name: INSTITUTIONAL.LEGAL_NAME })}
             </p>
             <div className="flex gap-4 text-sm text-gris-500">
-              <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
-              <a href="#" className="hover:text-white transition-colors">Aviso Legal</a>
+              <Link href={ROUTES.LEGAL_NOTICE} className="hover:text-white transition-colors">
+                {t('legalLinks.legalNotice')}
+              </Link>
+              <Link href={ROUTES.PRIVACY} className="hover:text-white transition-colors">
+                {t('legalLinks.privacy')}
+              </Link>
+              <Link href={ROUTES.COOKIES} className="hover:text-white transition-colors">
+                {t('legalLinks.cookies')}
+              </Link>
             </div>
           </div>
         </div>

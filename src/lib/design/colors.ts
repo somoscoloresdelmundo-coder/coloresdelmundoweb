@@ -163,7 +163,6 @@ export const ALL_COLORS: ColorVariant[] = ['azul', 'lima', 'naranja', 'terracota
 
 /**
  * Colores muy sutiles para fondos animados/blur
- * Usados en InteractiveBackground y efectos similares
  */
 export const SUBTLE_BACKGROUND_COLORS: Record<ColorVariant, string> = {
   azul: 'rgba(212, 229, 247, 0.4)',

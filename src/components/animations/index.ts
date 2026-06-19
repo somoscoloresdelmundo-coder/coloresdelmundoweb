@@ -1,44 +1,13 @@
 /**
- * Sistema de Animaciones Modular - Colores del Mundo
+ * Sistema de Animaciones - Colores del Mundo
  *
- * Componentes disponibles:
+ * Componentes disponibles (basados en Framer Motion):
+ * - MotionReveal: Revela elementos al entrar en viewport
+ * - MotionStagger: Anima grupos de elementos en secuencia
  *
- * - FadeIn: Animación de aparición con fade
- * - SlideIn: Animación de entrada con slide (up, down, left, right)
- * - ScrollReveal: Revela elementos al hacer scroll
- * - Stagger: Anima grupos de elementos en secuencia
- * - Hover: Micro-interacciones de hover
- *
- * Uso:
- * ```tsx
- * import { SlideIn, Stagger, ScrollReveal } from '@/components/animations';
- *
- * <SlideIn direction="up" delay={100}>
- *   <Card />
- * </SlideIn>
- *
- * <Stagger delay={80} animation="slideUp">
- *   <Card />
- *   <Card />
- *   <Card />
- * </Stagger>
- * ```
- *
- * También puedes usar las clases CSS directamente:
- * - .anim-slide-up, .anim-fade-in, .anim-scale-up
- * - .scroll-reveal, .scroll-reveal-left
- * - .hover-lift, .hover-scale, .hover-glow
- * - .stagger-1, .stagger-2, etc.
+ * Se han eliminado FadeIn, SlideIn, ScrollReveal, Stagger, Hover,
+ * MagneticButton y AnimatedCounter por no usarse en ninguna página.
  */
 
-export { default as FadeIn } from './FadeIn';
-export { default as SlideIn } from './SlideIn';
-export { default as ScrollReveal } from './ScrollReveal';
-export { default as Stagger } from './Stagger';
-export { default as Hover, hoverClasses } from './Hover';
-
-// Framer Motion powered components
 export { default as MotionReveal } from './MotionReveal';
 export { default as MotionStagger } from './MotionStagger';
-export { default as MagneticButton } from './MagneticButton';
-export { default as AnimatedCounter } from './AnimatedCounter';

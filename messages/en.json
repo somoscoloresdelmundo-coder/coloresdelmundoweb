@@ -31,11 +31,9 @@
     "whatWeDo": "What We Do",
     "projects": "Projects",
     "participate": "Participate",
-    "eurodesk": "Eurodesk",
     "contact": "Contact",
     "partners": "Partners",
     "pif": "Partner Info",
-    "pifDescription": "Want to collaborate with us?",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "mobileNav": "Navigation menu"
@@ -51,9 +49,16 @@
       "digital": "Digital Citizenship"
     },
     "contactTitle": "Contact",
-    "address": "Gandía",
-    "city": "Valencia, Spain",
-    "copyright": "Colores del Mundo. All rights reserved. CIF: G75377481.",
+    "transparencyTitle": "Institutional Transparency",
+    "registeredEntity": "Registered entity:",
+    "cifLabel": "CIF (Tax ID):",
+    "oidLabel": "OID:",
+    "copyright": "{name}. All rights reserved.",
+    "legalLinks": {
+      "privacy": "Privacy Policy",
+      "legalNotice": "Legal Notice",
+      "cookies": "Cookies"
+    },
     "partnerInfo": "Partner Info (PIF)"
   },
   "home": {
@@ -64,11 +69,6 @@
       "and": "and",
       "education": "education",
       "description": "We are a cultural association founded by young people motivated to improve the quality of life of other young people, using art and non-formal education as engines of inclusion, well-being and social transformation."
-    },
-    "slogan": {
-      "inclusion": "Inclusion",
-      "diversity": "Diversity",
-      "creation": "Creation"
     },
     "actionLines": {
       "badge": "Our Work",
@@ -118,8 +118,8 @@
       "youthExchanges": "Youth Exchanges",
       "trainingCourses": "Training Courses",
       "volunteering": "Volunteering",
-      "yearsExperience": "Years of experience",
-      "yearsDescription": "of our members in European projects"
+      "yearsExperience": "Established in",
+      "yearsDescription": "non-profit cultural association registered in the Register of Associations of the Valencian Community (CV-01-066362-V)"
     },
     "targetGroups": {
       "badge": "Our Focus",
@@ -161,9 +161,6 @@
     "history": {
       "badge": "Our History",
       "title": "From participants to organizers",
-      "p1": "As young people who have lived through experiences of change and adaptation, we know firsthand how important it is to find spaces of belonging and growth. We bring empathy and direct experience to everything we do, which allows us to authentically connect with the young people we accompany.",
-      "p2": "Several of us have participated in Erasmus+ volunteering projects, Youth Exchanges and Training Courses as participants before becoming organizers, so we know from experience what makes these programs impactful in people's lives.",
-      "p3": "Since our creation, we have been actively building our capacity and network, connecting with partner organizations across Europe, participating in partner-finding activities through SALTO-Youth platforms.",
       "milestones": {
         "2024": {
           "title": "Foundation & Purpose",
@@ -209,15 +206,18 @@
     "institutional": {
       "badge": "Legal Information",
       "title": "Institutional Data",
+      "subtitle": "Verifiable information against public registries. The legal affiliation of this domain with the organization can be confirmed on the verification page.",
       "legalName": "Legal name",
-      "legalNameValue": "Colores del Mundo",
       "type": "Type",
-      "typeValue": "NGO",
-      "cif": "CIF",
-      "oid": "OID",
+      "typeValue": "NGO / Cultural Association",
+      "foundingYear": "Year of incorporation",
+      "registryNumber": "Registration no.",
+      "cif": "CIF (Tax ID)",
+      "oid": "OID (Erasmus+)",
       "email": "Email",
-      "location": "Location",
-      "locationValue": "Gandía, Valencia, Spain"
+      "location": "Registered office",
+      "verifyLink": "Domain verification",
+      "verifyDescription": "Institutional page attesting the ownership of coloresdelmundo.org."
     },
     "cta": {
       "title": "Want to know us better?",
@@ -312,17 +312,17 @@
     "hero": {
       "badge": "Our Work",
       "title": "Projects",
-      "description": "As a newly established organization, we are starting to develop and create our first projects. Despite this, all members have been involved as participants, facilitators and coordinators in various projects in Europe and Latin America for more than 5 years."
+      "description": "As an association established in 2024, during 2025 and 2026 we have participated in more than 12 Erasmus+ projects as participants, facilitators and coordinators, in collaboration with organizations from Spain, Italy, Poland, Romania and other European countries."
     },
     "current": {
-      "badge": "2025",
+      "badge": "2026",
       "title": "Building from experience",
-      "description": "We are actively building our capacity and network, connecting with partner organizations across Europe, participating in partner-finding activities through SALTO-Youth platforms, and developing our first Erasmus+ applications.",
+      "description": "We continue to expand our network of partner organizations in Europe, participating in partner-finding activities through SALTO-Youth platforms, and developing new Erasmus+ applications based on our 2025-2026 experience.",
       "lookingForPartners": "Looking for partners",
       "developingProposals": "Developing proposals",
       "buildingNetwork": "Building network",
-      "yearsExperience": "Years of collective experience",
-      "inEuropeanProjects": "in European projects"
+      "yearsExperience": "Established association",
+      "inEuropeanProjects": "Registered under no. CV-01-066362-V"
     },
     "upcoming": {
       "badge": "In development",
@@ -330,7 +330,7 @@
       "description": "These are some of the initiatives we are preparing for the coming months.",
       "projects": {
         "youthExchange": {
-          "title": "Youth Exchange 2025",
+          "title": "Youth Exchange 2026",
           "type": "Youth Exchange",
           "description": "Exchange with European organizations about art and inclusion.",
           "status": "In development"
@@ -368,10 +368,6 @@
         "title": "Local Activities",
         "description": "Workshops and activities in our local community"
       }
-    },
-    "partnerCta": {
-      "title": "Are you an organization interested in collaborating?",
-      "description": "We are actively looking for European partners to develop joint projects. If you share our vision, we would love to meet you."
     },
     "cta": {
       "title": "Do you want to participate in our projects?",
@@ -468,59 +464,12 @@
       "title": "Let's Talk",
       "description": "Do you have questions, collaboration proposals or simply want to meet us? We are here to listen to you."
     },
-    "form": {
-      "title": "Send us a message",
-      "name": "Name",
-      "namePlaceholder": "Your name",
-      "email": "Email",
-      "emailPlaceholder": "your@email.com",
-      "subject": "Subject",
-      "subjectPlaceholder": "Select a topic",
-      "subjectOptions": {
-        "volunteer": "I want to volunteer",
-        "participate": "I want to participate in projects",
-        "collaboration": "Collaboration proposal",
-        "partner": "Erasmus+ partner search",
-        "info": "Request information",
-        "other": "Other"
-      },
-      "message": "Message",
-      "messagePlaceholder": "Tell us how we can help you...",
-      "privacy": "I accept the privacy policy and the processing of my data to receive a response to my inquiry.",
-      "required": "*",
-      "submitting": "Sending...",
-      "errors": {
-        "nameRequired": "Name is required",
-        "emailRequired": "Email is required",
-        "emailInvalid": "Please enter a valid email",
-        "subjectRequired": "Please select a subject",
-        "messageRequired": "Message is required",
-        "messageTooShort": "Message must be at least 10 characters",
-        "privacyRequired": "You must accept the privacy policy"
-      },
-      "success": {
-        "title": "Message sent!",
-        "message": "Thank you for contacting us. We will respond as soon as possible.",
-        "sendAnother": "Send another message"
-      },
-      "error": {
-        "title": "Error sending",
-        "message": "An error occurred. Please try again or write to us directly at our email."
-      }
-    },
     "info": {
       "title": "Contact information",
       "email": "Email",
       "emailResponse": "We respond within 24-48 hours",
       "location": "Location",
-      "address": "Gandía",
-      "addressLine2": "Valencia, Spain",
-      "addressLine3": "",
-      "followUs": "Follow us",
-      "institutionalData": "Institutional Data",
-      "type": "Type",
-      "region": "Region",
-      "regionValue": "Valencian Community"
+      "followUs": "Follow us"
     },
     "map": {
       "title": "We are in Gandía, Valencia",
@@ -593,22 +542,42 @@
       "mobility": {
         "title": "Mobility Support",
         "description": "We accompany young people in processes of change and adaptation, transforming challenges into opportunities for leadership and cultural connection.",
-        "activities": ["Guidance in European mobility processes", "Preparation for Erasmus+ experiences", "Support in cultural integration", "Development of intercultural competences"]
+        "activities": [
+          "Guidance in European mobility processes",
+          "Preparation for Erasmus+ experiences",
+          "Support in cultural integration",
+          "Development of intercultural competences"
+        ]
       },
       "art": {
         "title": "Artistic Transformation",
         "description": "We improve self-perception, self-expression, activism and social awareness through various forms of art.",
-        "activities": ["Visual and plastic arts workshops", "Theater and body expression", "Creative writing and storytelling", "Community artistic projects"]
+        "activities": [
+          "Visual and plastic arts workshops",
+          "Theater and body expression",
+          "Creative writing and storytelling",
+          "Community artistic projects"
+        ]
       },
       "education": {
         "title": "Alternative Education",
         "description": "We promote lifelong learning with methodologies that complement conventional education, focused on soft skills.",
-        "activities": ["Experience-based learning", "Soft skills development", "Participatory methodologies", "Peer education"]
+        "activities": [
+          "Experience-based learning",
+          "Soft skills development",
+          "Participatory methodologies",
+          "Peer education"
+        ]
       },
       "digital": {
         "title": "Conscious Digital Citizenship",
         "description": "We promote critical and human use of technologies, reducing the digital divide and fostering digital well-being.",
-        "activities": ["Critical digital literacy", "Digital well-being", "Collaborative tools", "Responsible digital identity"]
+        "activities": [
+          "Critical digital literacy",
+          "Digital well-being",
+          "Collaborative tools",
+          "Responsible digital identity"
+        ]
       }
     },
     "experience": {
@@ -626,10 +595,16 @@
       },
       "roles": {
         "title": "Roles performed",
-        "items": ["Participants", "Facilitators", "Group Leaders", "Project Coordinators", "Mentors"]
+        "items": [
+          "Participants",
+          "Facilitators",
+          "Group Leaders",
+          "Project Coordinators",
+          "Mentors"
+        ]
       },
-      "yearsExperience": "years of collective experience",
-      "inErasmus": "in Erasmus+ projects"
+      "yearsExperience": "established association",
+      "inErasmus": "Registered under no. CV-01-066362-V"
     },
     "targetGroups": {
       "badge": "Target Groups",
@@ -651,12 +626,30 @@
       "title": "Thematic Areas",
       "description": "Our projects focus on these priority topics:",
       "items": [
-        {"name": "Inclusion & Diversity", "desc": "Social integration, interculturality, equity"},
-        {"name": "Art & Culture", "desc": "Artistic expression, cultural heritage, creativity"},
-        {"name": "Youth Participation", "desc": "Active citizenship, leadership, civic engagement"},
-        {"name": "Well-being & Mental Health", "desc": "Resilience, self-knowledge, emotional management"},
-        {"name": "Education & Training", "desc": "Key competences, lifelong learning"},
-        {"name": "Digital Transformation", "desc": "Digital citizenship, technological tools"}
+        {
+          "name": "Inclusion & Diversity",
+          "desc": "Social integration, interculturality, equity"
+        },
+        {
+          "name": "Art & Culture",
+          "desc": "Artistic expression, cultural heritage, creativity"
+        },
+        {
+          "name": "Youth Participation",
+          "desc": "Active citizenship, leadership, civic engagement"
+        },
+        {
+          "name": "Well-being & Mental Health",
+          "desc": "Resilience, self-knowledge, emotional management"
+        },
+        {
+          "name": "Education & Training",
+          "desc": "Key competences, lifelong learning"
+        },
+        {
+          "name": "Digital Transformation",
+          "desc": "Digital citizenship, technological tools"
+        }
       ]
     },
     "methodology": {
@@ -664,10 +657,22 @@
       "title": "How We Work",
       "description": "We use non-formal education methodologies centered on active participation and experiential learning.",
       "methods": [
-        {"name": "Experiential Learning", "desc": "Learning by doing, reflection on practice"},
-        {"name": "Peer Education", "desc": "Peer-to-peer learning, horizontal mentoring"},
-        {"name": "Participatory Facilitation", "desc": "Group processes, collaborative dynamics"},
-        {"name": "Art as a Tool", "desc": "Artistic expression for personal development"}
+        {
+          "name": "Experiential Learning",
+          "desc": "Learning by doing, reflection on practice"
+        },
+        {
+          "name": "Peer Education",
+          "desc": "Peer-to-peer learning, horizontal mentoring"
+        },
+        {
+          "name": "Participatory Facilitation",
+          "desc": "Group processes, collaborative dynamics"
+        },
+        {
+          "name": "Art as a Tool",
+          "desc": "Artistic expression for personal development"
+        }
       ]
     },
     "euPriorities": {
@@ -694,7 +699,11 @@
       ],
       "formats": {
         "title": "Formats",
-        "items": ["In-person", "Online", "Hybrid"]
+        "items": [
+          "In-person",
+          "Online",
+          "Hybrid"
+        ]
       }
     },
     "contact": {
@@ -718,10 +727,22 @@
       "title": "How to Collaborate?",
       "description": "We are actively seeking partners for:",
       "items": [
-        {"name": "Youth Exchanges", "desc": "As sending or hosting organization"},
-        {"name": "Training Courses", "desc": "Participation or co-organization"},
-        {"name": "ESC Volunteering", "desc": "Hosting or sending volunteers"},
-        {"name": "Strategic Partnerships", "desc": "Long-term projects with sustainable impact"}
+        {
+          "name": "Youth Exchanges",
+          "desc": "As sending or hosting organization"
+        },
+        {
+          "name": "Training Courses",
+          "desc": "Participation or co-organization"
+        },
+        {
+          "name": "ESC Volunteering",
+          "desc": "Hosting or sending volunteers"
+        },
+        {
+          "name": "Strategic Partnerships",
+          "desc": "Long-term projects with sustainable impact"
+        }
       ],
       "cta": "Write to us to explore collaboration opportunities"
     },
@@ -736,77 +757,168 @@
       "tip": "The PDF includes all this information in printable format"
     }
   },
-  "metadata": {
-    "home": {
-      "title": "Colores del Mundo | Inclusion, Diversity, Creation",
-      "description": "Colores del Mundo - Young people motivated to improve the quality of life of other young people through art and non-formal education. Erasmus+ programs in Gandía, Valencia."
+  "verifyDomain": {
+    "hero": {
+      "badge": "Official verification",
+      "title": "Domain ownership verification",
+      "description": "Institutional page attesting the link between the domain coloresdelmundo.org and the non-profit organization Colores del Mundo."
     },
-    "about": {
-      "title": "About Us",
-      "description": "Meet Colores del Mundo, a cultural association founded by young people motivated to improve the quality of life of other young people in Gandía, Valencia."
+    "ownership": {
+      "title": "Ownership statement",
+      "p1": "The domain {domain} is owned and administered by the non-profit association {org}, as the official domain of its digital presence.",
+      "p2": "This domain is used exclusively for the organization's institutional operations and programs, including the European Erasmus+ programs and coordination with international partners. CIF {cif} — Register of Associations of the Valencian Community, no. {registry}."
     },
-    "whatWeDo": {
-      "title": "What We Do",
-      "description": "Discover our 4 action lines: Mobility Support, Artistic Transformation, Alternative Education and Conscious Digital Citizenship."
+    "fields": {
+      "legalName": "Legal name",
+      "commercialName": "Trade name",
+      "cif": "CIF (Tax ID)",
+      "registryNumber": "Registration no.",
+      "oid": "OID (Erasmus+)",
+      "foundingYear": "Year of incorporation",
+      "address": "Registered office",
+      "email": "Institutional email",
+      "domain": "Domain"
     },
-    "projects": {
-      "title": "Projects",
-      "description": "Discover Colores del Mundo projects: Erasmus+ initiatives, art workshops and social inclusion programs."
+    "data": {
+      "title": "Identifying data",
+      "subtitle": "Verifiable information against public registries."
     },
-    "participate": {
-      "title": "Participate",
-      "description": "Join Colores del Mundo as a volunteer, participant or collaborator. Discover how you can be part of the change."
+    "crossCheck": {
+      "title": "Cross-check",
+      "subtitle": "This data can be verified in the corresponding official registries.",
+      "registry": {
+        "title": "Register of Associations",
+        "description": "Registered under no. {registry} in the Register of Associations of the Valencian Community (Generalitat Valenciana)."
+      },
+      "tax": {
+        "title": "Tax Agency (AEAT)",
+        "description": "CIF {cif}, valid in the Spanish Tax Agency's census of business owners and professionals."
+      },
+      "salto": {
+        "title": "SALTO-Youth / European Commission",
+        "description": "OID {oid} in the organizations registry of the European Commission's Erasmus+ Youth programme."
+      }
     },
     "contact": {
-      "title": "Contact",
-      "description": "Contact Colores del Mundo. We are in Gandía, Valencia. Write us to collaborate, participate or resolve any questions."
-    },
-    "pif": {
-      "title": "Partner Information Form (PIF)",
-      "description": "Official Colores del Mundo information for European partners and Erasmus+ applications."
+      "title": "Need more information?",
+      "description": "If you are a reviewer, partner or institution and need to further verify the ownership of this domain, write to us.",
+      "emailSubject": "Domain verification — coloresdelmundo.org",
+      "note": "This page is for institutional identity verification purposes and is not indexed by search engines."
     }
   },
-  "eurodesk": {
-    "title": "Eurodesk Opportunity Finder",
-    "description": "Explore mobility, volunteering, employment, and training opportunities across Europe. Filter by your profile and find the best options for you or your organization.",
-    "profileLabel": "I want to apply as:",
-    "profileONG": "Organization / NGO",
-    "profileIndividual": "Individual / Youth",
-    "searchPlaceholder": "Search opportunities (e.g. ESC, volunteering, Germany)...",
-    "categoryAll": "All Categories",
-    "matchScoreONG": "NGO Match",
-    "matchScoreIndividual": "Youth Match",
-    "daysRemaining": "days remaining",
-    "deadline": "Deadline",
-    "offeredBy": "Offered by",
-    "fundingLevel": "Funding",
-    "fundingHigh": "High (100% or paid)",
-    "fundingMedium": "Medium (partial)",
-    "fundingLow": "Low or self-funded",
-    "findOutMore": "Official website / Apply",
-    "close": "Close",
-    "noResults": "No opportunities found matching your search.",
-    "resultsFound": "opportunities found",
-    "filterCategory": "Filter by category",
-    "filterFunding": "Filter by funding",
-    "sortLabel": "Sort by:",
-    "sortDeadline": "Closest deadline",
-    "sortMatch": "Highest match score",
-    "daysLeft": "{days} days left",
-    "today": "Expires today!",
-    "expired": "Expired",
-    "whyMatch": "Why this opportunity?",
-    "matchingReasonONG": "This opportunity is ideal for Colores del Mundo as an organization due to its funding pathways and alignment with local initiatives.",
-    "matchingReasonIndiv": "It is an excellent opportunity for young people or professionals seeking training or subsidized volunteering in Europe."
+  "legalNotice": {
+    "hero": {
+      "badge": "Legal information",
+      "title": "Legal Notice",
+      "description": "General terms of use of the coloresdelmundo.org website."
+    },
+    "lastUpdated": "Last updated: June 2026",
+    "provider": {
+      "title": "1. Identifying details of the provider",
+      "p1": "In compliance with article 10 of Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), users are informed of the details of the service provider:",
+      "company": "Entity: Asociación Cultural Colores del Mundo",
+      "cif": "CIF (Tax ID): G75377481",
+      "registry": "Register of Associations (Valencian Community): CV-01-066362-V",
+      "address": "Address: Pº Rosa de los Vientos, nº 39 - Esc. 2, 3º, Pta. 5, 46730 Gandía, Valencia (Spain)",
+      "email": "Email: info@coloresdelmundo.org"
+    },
+    "object": {
+      "title": "2. Purpose of the website",
+      "p1": "The website coloresdelmundo.org aims to disseminate the activities, programs and values of Colores del Mundo, a non-profit cultural association dedicated to the social inclusion of young people through art, non-formal education and the European Erasmus+ programmes."
+    },
+    "ip": {
+      "title": "3. Intellectual property",
+      "p1": "All contents of this website (texts, images, logos, code) are owned by Asociación Cultural Colores del Mundo or by third parties who have authorized their use, and are protected by current intellectual property legislation. Total or partial reproduction without express written authorization is prohibited."
+    },
+    "use": {
+      "title": "4. Terms of use",
+      "p1": "The user undertakes to use the website in accordance with the law, morality and public order. Any use that may damage, overload, deteriorate or prevent the normal use of the website is prohibited.",
+      "p2": "Colores del Mundo is not responsible for the content of links to external sites that may appear on this portal, nor for any damages arising from accessing them."
+    },
+    "law": {
+      "title": "5. Applicable law and jurisdiction",
+      "p1": "This legal notice is governed by Spanish law. For the resolution of any dispute arising from the use of the website, the parties submit to the courts of Gandía (Valencia), expressly waiving any other jurisdiction that may correspond to them."
+    }
+  },
+  "privacy": {
+    "hero": {
+      "badge": "Data protection",
+      "title": "Privacy Policy",
+      "description": "Information on the processing of personal data in accordance with the GDPR (EU) 2016/679 and Spanish LOPDGDD 3/2018."
+    },
+    "lastUpdated": "Last updated: June 2026",
+    "controller": {
+      "title": "1. Data controller",
+      "company": "Asociación Cultural Colores del Mundo",
+      "cif": "CIF (Tax ID): G75377481",
+      "address": "Address: Pº Rosa de los Vientos, nº 39 - Esc. 2, 3º, Pta. 5, 46730 Gandía, Valencia (Spain)",
+      "email": "Contact email: somoscoloresdelmundo@gmail.com"
+    },
+    "data": {
+      "title": "2. Data processed",
+      "p1": "The personal data we process is that voluntarily provided by the user through the contact forms on this website or via email: name, email address and the content of the message.",
+      "p2": "We do not process specially protected data, nor do we carry out automated evaluations or profiling."
+    },
+    "purpose": {
+      "title": "3. Purpose of processing",
+      "p1": "The data provided through the contact forms is used exclusively to manage and respond to enquiries, information requests, collaboration proposals and participation in the association's projects or programmes."
+    },
+    "lawfulness": {
+      "title": "4. Lawful basis",
+      "p1": "The lawful basis for processing is the data subject's express consent, given by checking the box accepting this privacy policy when submitting the form (Art. 6.1.a GDPR)."
+    },
+    "recipients": {
+      "title": "5. Recipients",
+      "p1": "No data is transferred or communicated to third parties, except where required by law. No international data transfers are made."
+    },
+    "retention": {
+      "title": "6. Retention periods",
+      "p1": "Data will be retained for the time strictly necessary to fulfil the purpose for which it was collected and, in any case, for the legally applicable period. It will then be deleted."
+    },
+    "rights": {
+      "title": "7. Rights of data subjects",
+      "p1": "Any person has the right to obtain confirmation as to whether Colores del Mundo is processing personal data concerning them or not.",
+      "p2": "Likewise, they have the right to access their data, rectify it, delete it, object to its processing, request its limitation or, where appropriate, request the portability of their data. To exercise these rights, they must send an email to somoscoloresdelmundo@gmail.com, enclosing a copy of an identification document.",
+      "p3": "Likewise, and especially if you consider that you have not obtained full satisfaction in the exercise of your rights, you may file a claim with the Spanish Data Protection Agency (AEPD), through its electronic headquarters (www.aepd.es) or at its offices (C/ Jorge Juan, 6, 28001 Madrid)."
+    }
+  },
+  "cookies": {
+    "hero": {
+      "badge": "Legal information",
+      "title": "Cookies Policy",
+      "description": "Information on the use of cookies on coloresdelmundo.org."
+    },
+    "lastUpdated": "Last updated: June 2026",
+    "what": {
+      "title": "1. What are cookies?",
+      "p1": "Cookies are small text files that a website sends to the user's browser and are stored on their device. They allow the website to remember information about the visit, facilitating navigation and enabling usage analysis."
+    },
+    "types": {
+      "title": "2. Types of cookies we use",
+      "p1": "This website, given its informative and institutional nature, only uses technical cookies strictly necessary for the correct functioning of the site (for example, to remember the selected language or the light/dark mode preference).",
+      "p2": "These cookies do not require consent, in accordance with the exception of art. 22.2 of the LSSI, and are not used to collect information about users or for advertising."
+    },
+    "thirdParty": {
+      "title": "3. Third-party cookies",
+      "p1": "This website may contain links to external sites (social networks, Google Maps). The use of cookies on such external sites is governed by the privacy policies of each platform, and Colores del Mundo is not responsible for them."
+    },
+    "management": {
+      "title": "4. Cookie management",
+      "p1": "The user can manage and, where appropriate, block or delete cookies through their browser configuration options. If technical cookies are blocked, some functionalities of the site may be affected."
+    },
+    "more": {
+      "title": "5. More information",
+      "p1": "For any questions about the use of cookies, you can contact us at somoscoloresdelmundo@gmail.com."
+    }
   },
   "metadata": {
     "home": {
       "title": "Colores del Mundo | Inclusion, Diversity, Creation",
-      "description": "Colores del Mundo - Young people motivated to improve the quality of life of other young people through art and non-formal education. Erasmus+ programs in Gandía, Valencia."
+      "description": "Colores del Mundo - A cultural association of young people motivated to improve the quality of life of other young people through art and non-formal education. Erasmus+ programs in Gandía, Valencia."
     },
     "about": {
       "title": "About Us",
-      "description": "Meet Colores del Mundo, a cultural association founded by young people motivated to improve the quality of life of other young people in Gandía, Valencia."
+      "description": "Meet Colores del Mundo, a cultural association founded in Gandía (Valencia) in 2024 dedicated to youth inclusion through art and non-formal education."
     },
     "whatWeDo": {
       "title": "What We Do",
@@ -814,23 +926,35 @@
     },
     "projects": {
       "title": "Projects",
-      "description": "Discover Colores del Mundo projects: Erasmus+ initiatives, art workshops and social inclusion programs."
+      "description": "Colores del Mundo projects: participation in Erasmus+ programmes in 2025-2026, art workshops and social inclusion initiatives in Gandía."
     },
     "participate": {
       "title": "Participate",
-      "description": "Join Colores del Mundo as a volunteer, participant or collaborator. Discover how you can be part of the change."
+      "description": "Join Colores del Mundo as a volunteer, participant or collaborator. Erasmus+ programmes and youth inclusion initiatives in Gandía, Valencia."
     },
     "contact": {
       "title": "Contact",
-      "description": "Contact Colores del Mundo. We are in Gandía, Valencia. Write us to collaborate, participate or resolve any questions."
+      "description": "Contact Colores del Mundo. Registered office in Gandía (Valencia). Write to us to collaborate, participate or resolve any questions."
     },
     "pif": {
       "title": "Partner Information Form (PIF)",
       "description": "Official Colores del Mundo information for European partners and Erasmus+ applications."
     },
-    "eurodesk": {
-      "title": "Eurodesk Finder",
-      "description": "Explore and filter the opportunities from Eurodesk Opportunity Finder for individuals and organizations."
+    "verifyDomain": {
+      "title": "Domain verification",
+      "description": "Institutional page verifying the ownership of the coloresdelmundo.org domain on behalf of Colores del Mundo."
+    },
+    "legalNotice": {
+      "title": "Legal Notice",
+      "description": "Legal notice and terms of use of coloresdelmundo.org."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Personal data protection policy of Colores del Mundo (GDPR/LOPDGDD)."
+    },
+    "cookies": {
+      "title": "Cookies Policy",
+      "description": "Information on the use of cookies on coloresdelmundo.org."
     }
   }
 }

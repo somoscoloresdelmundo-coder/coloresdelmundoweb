@@ -7,7 +7,7 @@ import { Header, Footer } from '@/components/layout';
 import { ImmersiveProvider } from '@/components/providers/ImmersiveProvider';
 import { ToastProvider } from '@/components/ui';
 import { routing } from '@/i18n/routing';
-import { CONTACT, SOCIAL, SITE } from '@/config/constants';
+import { CONTACT, SOCIAL, SITE, INSTITUTIONAL } from '@/config/constants';
 
 // Fuentes optimizadas con subset reducido
 const inter = Inter({
@@ -152,26 +152,27 @@ export default async function LocaleLayout({
   // Obtener mensajes de traducción
   const messages = await getMessages();
 
-  // Schema.org JSON-LD
+  // Schema.org JSON-LD — datos canónicos desde constants.ts
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NGO',
-    name: 'Colores del Mundo',
-    alternateName: 'Colores del Mundo',
+    name: INSTITUTIONAL.LEGAL_NAME,
+    alternateName: INSTITUTIONAL.LEGAL_NAME_FULL,
     url: SITE.URL,
     logo: `${SITE.URL}/images/logo.png`,
     description: locale === 'es'
-      ? 'Asociación cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal.'
-      : 'Cultural association founded by young people motivated to improve the quality of life of other young people through art and non-formal education.',
+      ? 'Asociación juvenil fundada en Gandía (Valencia) en 2024, dedicada a la inclusión social de jóvenes a través del arte, la educación no formal y los programas europeos Erasmus+. Inscrita en el Registro de Asociaciones de la Comunitat Valenciana (CV-01-066362-V).'
+      : 'Youth association founded in Gandía (Valencia) in 2024, dedicated to the social inclusion of young people through art, non-formal education and the European Erasmus+ programmes. Registered in the Register of Associations of the Valencian Community (CV-01-066362-V).',
     slogan: locale === 'es' ? 'Inclusión, Diversidad, Creación' : 'Inclusion, Diversity, Creation',
-    foundingDate: '2024',
+    foundingDate: String(INSTITUTIONAL.FOUNDING_YEAR),
+    taxID: INSTITUTIONAL.CIF,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Paseo Rosa de los Vientos 39',
-      addressLocality: 'Gandía',
-      addressRegion: 'Valencia',
-      postalCode: '46730',
-      addressCountry: 'ES',
+      streetAddress: INSTITUTIONAL.ADDRESS_STREET,
+      addressLocality: INSTITUTIONAL.ADDRESS_CITY,
+      addressRegion: INSTITUTIONAL.ADDRESS_PROVINCE,
+      postalCode: INSTITUTIONAL.ADDRESS_POSTAL_CODE,
+      addressCountry: INSTITUTIONAL.ADDRESS_COUNTRY_CODE,
     },
     email: CONTACT.EMAIL,
     sameAs: [

@@ -241,7 +241,7 @@ export default async function PIFPage() {
                 </div>
 
                 <div className="text-center p-8 bg-gris-50 rounded-2xl">
-                  <p className="text-6xl font-black text-naranja mb-2">{INSTITUTIONAL.YEARS_EXPERIENCE}+</p>
+                  <p className="text-6xl font-black text-naranja mb-2">{INSTITUTIONAL.FOUNDING_YEAR}</p>
                   <p className="text-gris-600 font-medium">{t('experience.yearsExperience')}</p>
                   <p className="text-sm text-gris-500">{t('experience.inErasmus')}</p>
                 </div>

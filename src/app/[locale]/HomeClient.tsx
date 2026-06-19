@@ -236,7 +236,7 @@ export function HomeClient({
             <div className="flex justify-center md:justify-end">
               <div className="bg-white text-center p-12 rounded-3xl shadow-2xl max-w-sm w-full">
                 <div className="text-7xl font-bold text-azul mb-2">
-                  {erasmusYearsValue}+
+                  {erasmusYearsValue}
                 </div>
                 <p className="text-gris-900 text-xl font-bold mb-2">{erasmusYearsLabel}</p>
                 <p className="text-gris-500">{erasmusYearsDescription}</p>

@@ -137,7 +137,7 @@ export default async function HomePage() {
         t('erasmus.trainingCourses'),
         t('erasmus.volunteering'),
       ]}
-      erasmusYearsValue={INSTITUTIONAL.YEARS_EXPERIENCE}
+      erasmusYearsValue={INSTITUTIONAL.FOUNDING_YEAR}
       erasmusYearsLabel={t('erasmus.yearsExperience')}
       erasmusYearsDescription={t('erasmus.yearsDescription')}
       // Target Groups

@@ -9,8 +9,7 @@
    2. components.css → Botones, cards, badges, navegación
    3. utilities.css  → Clases utilitarias (gradientes, glass, glow)
    4. animations.css → Sistema de animaciones y scroll
-   5. artistic.css   → Cursor, parallax, tipografía artística
-   6. print.css      → Estilos de impresión
+   5. print.css      → Estilos de impresión
    ============================================ */
 
 /* Dark mode usando data-theme attribute */
@@ -20,7 +19,6 @@
 @import "../styles/components.css";
 @import "../styles/utilities.css";
 @import "../styles/animations.css";
-@import "../styles/artistic.css";
 @import "../styles/print.css";
 
 /* =============================================
