@@ -3,13 +3,16 @@ import { routing } from '@/i18n/routing';
 import { SITE } from '@/config/constants';
 
 /**
- * Generates sitemap.xml for all pages in all locales
+ * Generates sitemap.xml for all pages in all locales.
  * Next.js automatically serves this at /sitemap.xml
+ *
+ * Nota: /verificar-dominio es intencionalmente noindex y no se incluye
+ * aquí (es de uso institucional para verificación, no indexable).
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE.URL;
 
-  // Define pages with their Spanish paths (canonical)
+  // Páginas indexables (canonical Spanish paths)
   const pages = [
     { path: '/', priority: 1.0, changeFrequency: 'weekly' as const },
     { path: '/sobre-nosotros', priority: 0.8, changeFrequency: 'monthly' as const },
@@ -18,6 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/participa', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/contacto', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/pif', priority: 0.6, changeFrequency: 'yearly' as const },
+    // Páginas legales (baja prioridad pero indexables para credibilidad SEO)
+    { path: '/aviso-legal', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/privacidad', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/cookies', priority: 0.3, changeFrequency: 'yearly' as const },
   ];
 
   // English path mappings
@@ -29,6 +36,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/participa': '/participate',
     '/contacto': '/contact',
     '/pif': '/pif',
+    '/aviso-legal': '/legal-notice',
+    '/privacidad': '/privacy-policy',
+    '/cookies': '/cookies-policy',
   };
 
   const sitemapEntries: MetadataRoute.Sitemap = [];

@@ -71,27 +71,29 @@ export async function generateMetadata({
         ? 'Colores del Mundo | Inclusión, Diversidad, Creación'
         : 'Colores del Mundo | Inclusion, Diversity, Creation',
       description: isSpanish
-        ? 'Asociación Cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes a través del arte y la educación no formal.'
-        : 'Cultural association founded by young people motivated to improve the quality of life of other young people through art and non-formal education.',
+        ? 'Asociación juvenil fundada en Gandía (Valencia) en 2024, dedicada a la inclusión social de jóvenes a través del arte, la educación no formal y los programas Erasmus+. Inscrita en el Registro CV-01-066362-V.'
+        : 'Youth association founded in Gandía (Valencia) in 2024, dedicated to the social inclusion of young people through art, non-formal education and the Erasmus+ programmes. Registered under CV-01-066362-V.',
       images: [
         {
           url: `${SITE.URL}/images/opengraph-image.png`,
           width: 1200,
           height: 630,
           alt: isSpanish
-            ? 'Colores del Mundo - Inclusión, Diversidad, Creación'
-            : 'Colores del Mundo - Inclusion, Diversity, Creation',
+            ? 'Colores del Mundo - Asociación juvenil para la inclusión'
+            : 'Colores del Mundo - Youth association for inclusion',
+          type: 'image/png',
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
+      site: '@coloresdelmundo_eu',
       title: isSpanish
         ? 'Colores del Mundo | Inclusión, Diversidad, Creación'
         : 'Colores del Mundo | Inclusion, Diversity, Creation',
       description: isSpanish
-        ? 'Asociación Cultural fundada por jóvenes motivados por mejorar la calidad de vida de otros jóvenes.'
-        : 'Cultural association founded by young people motivated to improve the quality of life of other young people.',
+        ? 'Asociación juvenil fundada en Gandía (Valencia) en 2024. Programas Erasmus+, arte y educación no formal.'
+        : 'Youth association founded in Gandía (Valencia) in 2024. Erasmus+ programmes, art and non-formal education.',
       images: [`${SITE.URL}/images/opengraph-image.png`],
     },
     robots: {
@@ -106,12 +108,11 @@ export async function generateMetadata({
       },
     },
     icons: {
-      icon: [
-        { url: '/favicon.ico', sizes: 'any' },
-        { url: '/images/logo.png', type: 'image/png', sizes: '32x32' },
-      ],
+      // Next.js sirve automáticamente src/app/favicon.ico, src/app/icon.png
+      // y src/app/apple-icon.png por convención. No hace falta redeclararlos.
+      icon: [{ url: '/favicon.ico', sizes: 'any' }],
       shortcut: '/favicon.ico',
-      apple: '/images/logo.png',
+      apple: '/apple-icon.png',
     },
     manifest: '/manifest.json',
     alternates: {
@@ -156,10 +157,15 @@ export default async function LocaleLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NGO',
+    '@id': `${SITE.URL}/#organization`,
     name: INSTITUTIONAL.LEGAL_NAME,
     alternateName: INSTITUTIONAL.LEGAL_NAME_FULL,
     url: SITE.URL,
-    logo: `${SITE.URL}/images/logo.png`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE.URL}/images/logo.png`,
+    },
+    image: `${SITE.URL}/images/opengraph-image.png`,
     description: locale === 'es'
       ? 'Asociación juvenil fundada en Gandía (Valencia) en 2024, dedicada a la inclusión social de jóvenes a través del arte, la educación no formal y los programas europeos Erasmus+. Inscrita en el Registro de Asociaciones de la Comunitat Valenciana (CV-01-066362-V).'
       : 'Youth association founded in Gandía (Valencia) in 2024, dedicated to the social inclusion of young people through art, non-formal education and the European Erasmus+ programmes. Registered in the Register of Associations of the Valencian Community (CV-01-066362-V).',
