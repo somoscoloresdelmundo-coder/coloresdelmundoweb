@@ -24,8 +24,3 @@ export {
   type UseHorizontalScrollOptions,
   type AnimationControls,
 } from './useGSAP';
-
-// ============================================================================
-// THEME HOOK
-// ============================================================================
-export { useTheme } from './useTheme';

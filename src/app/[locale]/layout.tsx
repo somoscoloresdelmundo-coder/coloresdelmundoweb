@@ -127,7 +127,7 @@ export async function generateMetadata({
 
 // Viewport para PWA
 export const viewport: Viewport = {
-  themeColor: '#F29A2E',
+  themeColor: '#1A1A1B',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -190,7 +190,12 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} className={`${inter.variable} ${poppins.variable} scroll-smooth`}>
+    <html
+      lang={locale}
+      data-theme="dark"
+      suppressHydrationWarning
+      className={`${inter.variable} ${poppins.variable} scroll-smooth`}
+    >
       <body className="min-h-screen flex flex-col antialiased">
         <NextIntlClientProvider messages={messages}>
           {/* JSON-LD Schema */}

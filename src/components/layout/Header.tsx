@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
-import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { PartnersIcon } from '@/components/ui/Icon';
 import { ROUTES } from '@/config/routes';
 
@@ -78,14 +77,12 @@ export default function Header() {
             {t('contact')}
           </Link>
           <div className="ml-3 flex items-center gap-2">
-            <ThemeToggle />
             <LanguageSwitcher />
           </div>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <LanguageSwitcher />
           <button
             type="button"

@@ -45,3 +45,24 @@ test-results/
 .claude/
 .gemini/
 skills-lock.json
+
+# Otros agentes AI / dev tools (configs locales, no deben ir al repo)
+AGENTS.md
+QWEN.md
+.mcp.json
+.aider.conf.yml
+.vscode/
+.idea/
+
+# Logs genéricos
+*.log
+
+# Reportes de tests e2e
+playwright-report/
+
+# Carpeta duplicada del proyecto (stale, 535MB) — NO commitear
+/web/
+
+# Tooling Azure (infra separada de la web + contiene secrets en .env)
+/azure/
+

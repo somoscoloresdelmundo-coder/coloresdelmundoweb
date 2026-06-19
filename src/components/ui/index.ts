@@ -3,7 +3,6 @@ export { ToastProvider, useToast } from './Toast';
 export { default as LanguageSwitcher } from './LanguageSwitcher';
 export { default as Badge } from './Badge';
 export { default as Button, ArrowIcon } from './Button';
-export { ThemeToggle } from './ThemeToggle';
 export {
   ArrowRightIcon,
   ChevronRightIcon,
