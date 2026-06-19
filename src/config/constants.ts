@@ -12,8 +12,8 @@ export const CONTACT = {
 
 export const SOCIAL = {
   FACEBOOK_URL: 'https://www.facebook.com/profile.php?id=61584137712755',
-  INSTAGRAM_URL: 'https://www.instagram.com/coloresdelmundo__',
-  INSTAGRAM_HANDLE: '@coloresdelmundo__',
+  INSTAGRAM_URL: 'https://www.instagram.com/coloresdelmundo_eu',
+  INSTAGRAM_HANDLE: '@coloresdelmundo_eu',
 } as const;
 
 /**
